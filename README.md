@@ -41,6 +41,7 @@ Gulp'i poolt genereeritud failid (need, mis reaalselt veebilehele lähevad) kaus
 - _utilities.scss_ – üldkasutatavad klassid/reeglid, mis tegelevad ainult väga konkreetsete stiiliküsimustega (nt _grid_ ja igasugused "align-middle"-laadsed asjad);
 - _animations.scss_ – animatsioonid;
 - _mixins.scss_ – imporditavad jupid.
+- _main.scss_ – koondab/impordib kõik teised SASSi failid kokku. Gulp genereerib selle põhjal _dist_ kausta main.css ja main.min.css failid.
 
 **Javascript'i failid** asuvad seal: _assets/src/js_. Alamkaustad:
 

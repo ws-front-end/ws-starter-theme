@@ -42,8 +42,6 @@ Gulp'i poolt genereeritud failid (need, mis reaalselt veebilehele lähevad) kaus
 - _animations.scss_ – animatsioonid;
 - _mixins.scss_ – imporditavad jupid.
 
-- _main.scss_ – koondab/impordib kõik teised SASSi failid kokku. Gulp genereerib selle põhjal _dist_ kausta main.css ja main.min.css failid.
-
 **Javascript'i failid** asuvad seal: _assets/src/js_. Alamkaustad:
 
 - _custom_ (me endi kirjutatud skriptid)

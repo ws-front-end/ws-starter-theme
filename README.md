@@ -31,7 +31,7 @@ Gulp'i poolt genereeritud failid (need, mis reaalselt veebilehele lähevad) kaus
 - _components_ – konkreetsed, eraldiseisvad, taaskasutatavad tükid (või moodulid või komponendid). Nii klasside kui ka failide nimetamisel on soovitatav järgida **BEM-metoodikat** ([rohkem infot](https://en.bem.info/methodology/)), aga sundida ei saa;
 - _layout_ – raamistik, milles eelmises punktis mainitud komponendid istuvad. Näiteks: kontaktlehe üldine paigutus on _layout_, aga kontaktivorm on juba komponent;
 
-Kõige lihtsamas variandis võib eelmised kaks kausta asendada nt ühe _custom_ kaustaga ja seal toimetada nii, nagu tarvis.
+(Kõige lihtsamas variandis võib eelmised kaks kausta asendada nt ühe _custom_ kaustaga ja seal toimetada nii, nagu tarvis.)
 - _variables_ – projektis läbivalt kasutatud muutujad (näiteks _breakpoint_'id, värvid, fondid);
 - _vendor_ – _third party_ (nt mingi _plugin_'iga kaasa tulnud) stiililehed.
 

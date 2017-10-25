@@ -18,7 +18,7 @@ Gulp kompileerib SASSi üheks CSS-failiks, pakib (_minify_'b) CSSi ja JSi kokku,
 
 Gulp'i seaded asuvad failis _gulpfile.js_ – hetkel põhineb see WP Gulp'il ([link](https://github.com/ahmadawais/WPGulp/), kust leiab ka juhised, kuidas Gulp enda arvutisse installida).
 
-**SASS** – sisuliselt CSS (ka täiesti tavaliselt kirjutatud CSS toimib SASS'i failis), aga rohkemate võimalustega (näiteks lubab muutujaid kasutada). ([Lisainfot](http://sass-lang.com/guide/))
+**SASS** – sisuliselt CSS (ka täiesti tavaliselt kirjutatud CSS toimib SASS'i failis), aga rohkemate võimalustega (näiteks lubab muutujaid kasutada – [lisainfot](http://sass-lang.com/guide/)).
 
 **Faili-/kaustamajandusest:**
 
@@ -28,7 +28,7 @@ Gulp'i poolt genereeritud failid (need, mis reaalselt veebilehele lähevad) kaus
 **SASSi failid** asuvad seal: _assets/src/sass_. Allolev struktuur on üpris subjektiivne – ilmselt on mõistlik jätta vabadus vabalt muuta/tõlgendada. Peaasi, et oleks mingigi loogika, millest teistel (ja ka endal) oleks võimalik aru saada.
 
 - _base_ – üldised CSS-reeglid, mis peaksid laienema kõigile vastavatele elementidele (näiteks _ul_, _table_, _h2_ jms);
-- _components_ – konkreetsed, eraldiseisvad, taaskasutatavad tükid (või moodulid või komponendid). Nii klasside kui ka failide nimetamisel on soovitav järgida **BEM-metoodikat** ([rohkem infot](https://en.bem.info/methodology/)), aga sundida ei saa;
+- _components_ – konkreetsed, eraldiseisvad, taaskasutatavad tükid (või moodulid või komponendid). Nii klasside kui ka failide nimetamisel on soovitatav järgida **BEM-metoodikat** ([rohkem infot](https://en.bem.info/methodology/)), aga sundida ei saa;
 - _layout_ – raamistik, milles eelmises punktis mainitud komponendid istuvad. Näiteks: kontaktlehe üldine paigutus on _layout_, aga kontaktivorm on juba komponent;
 Kõige lihtsamas variandis võib eelmised kaks kausta asendada nt ühe _custom_ kaustaga ja seal toimetada nii, nagu tarvis.
 - _variables_ – projektis läbivalt kasutatud muutujad (näiteks _breakpoint_'id, värvid, fondid);

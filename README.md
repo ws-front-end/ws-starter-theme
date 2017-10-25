@@ -1,7 +1,7 @@
 **Lokaalse arenduskeskkona seadistamine**. Detailidesse laskumata:
 
-1. lokaalne server – kõige lihtsam variant on nt XAMPP, aga ka Vagrant vms;
-2. Wordpress'i installatsioon ([download](https://wordpress.org/download));
+1. lokaalne server – kõige lihtsam variant on nt XAMPP ([link](https://www.apachefriends.org/index.html)), aga ka Vagrant vms;
+2. Wordpress'i installatsioon ([link](https://wordpress.org/download));
 3. soovitatavalt ka Git, et faile lokaalse- ja dev-serveri vahel sünkroniseerida.
 Meie dev-serveris _repository_'de (salvede) loomiseks: [Gitman](http://git.websystems.ee/gitman) ([juhis](http://git.websystems.ee/gitman/gitman.pdf)).
 
@@ -30,13 +30,14 @@ Gulp'i poolt genereeritud failid (need, mis reaalselt veebilehele lähevad) kaus
 - _base_ – üldised CSS-reeglid, mis peaksid kehtima kõigi elementide (näiteks ul, table, h2 vms) puhul;
 - _components_ – konkreetsed, eraldiseisvad, taaskasutatavad tükid (või moodulid või komponendid). Nii klasside kui ka failide nimetamisel on soovitav järgida **BEM-metoodikat** ([rohkem infot](https://en.bem.info/methodology/)), aga sundida ei saa;
 - _layout_ – raamistik, milles eelmises punktis mainitud komponendid istuvad. Näiteks: kontaktlehe üldine paigutus on _layout_, aga kontaktivorm on juba komponent;
+Kõige lihtsamas variandis võib eelmised kaks kausta asendada nt ühe _custom_ kaustaga ja seal toimetada nii, nagu tarvis.
 - _variables_ – projektis läbivalt kasutatud muutujad (näiteks _breakpoint_'id, värvid, fondid), mida oleks lihtne ühest kohast muuta;
 - _vendor_ – _third party_ (nt mingi _plugin_'iga kaasa tulnud) stiililehed.
 
 Üksikud failid:
 
 - _normalize.scss_ – CSSi _reset_, põhineb sellel: [link](https://necolas.github.io/normalize.css/);
-- _utilities.scss_ – üldkasutatavad klassid/reeglid, mis tegelevad ainult konkreetsete stiiliküsimustega (nt _grid_ ja igasugused "align-middle"-laadsed asjad);
+- _utilities.scss_ – üldkasutatavad klassid/reeglid, mis tegelevad ainult väga konkreetsete stiiliküsimustega (nt _grid_ ja igasugused "align-middle"-laadsed asjad);
 - _animations.scss_ – animatsioonid;
 - _mixins.scss_ – imporditavad jupid.
 

@@ -1,0 +1,42 @@
+html {
+	box-sizing: border-box;
+}
+
+*,
+*:before,
+*:after { /* Inherit box-sizing to make it easier to change the property for components that leverage other behavior; see http://css-tricks.com/inheriting-box-sizing-probably-slightly-better-best-practice/ */
+	box-sizing: inherit;
+}
+
+body {
+	background: $color_bg-body; /* Fallback for when there is no custom background color defined. */
+}
+
+hr {
+	background-color: $color_text-main;
+	border: 0;
+	height: 3px;
+	margin: 1rem 0;
+	max-width: 60px;
+	text-align: left;
+
+	@media screen and (min-width: $breakpoint_content) {
+		margin: 1.5rem 0 2rem 0;
+	}
+}
+
+img {
+	height: auto; /* Make sure images are scaled correctly. */
+	max-width: 100%; /* Adhere to container width. */
+	flex-shrink: 0;
+}
+
+figure {
+	margin: 1em 0; /* Extra wide images within figure tags don't overflow the content area. */
+}
+
+embed,
+iframe,
+object {
+	max-width: 100%;
+}

@@ -27,7 +27,7 @@ Gulp'i poolt genereeritud failid (need, mis reaalselt veebilehele lähevad) kaus
 
 **SASSi failid** asuvad seal: _assets/src/sass_. Järgnev struktuur on üpris subjektiivne – ilmselt on mõistlik jätta vabadus vabalt muuta/tõlgendada. Peaasi, et oleks mingigi loogika, millest teistel (ja ka endal) oleks võimalik aru saada.
 
-- _base_ – üldised CSS-reeglid, mis peaksid kehtima kõigi elementide (näiteks ul, table, h2 vms) puhul;
+- _base_ – üldised CSS-reeglid, mis peaksid kehtima kõigi vastavate elementide (näiteks _ul_, _table_, _h2_ jms) puhul;
 - _components_ – konkreetsed, eraldiseisvad, taaskasutatavad tükid (või moodulid või komponendid). Nii klasside kui ka failide nimetamisel on soovitav järgida **BEM-metoodikat** ([rohkem infot](https://en.bem.info/methodology/)), aga sundida ei saa;
 - _layout_ – raamistik, milles eelmises punktis mainitud komponendid istuvad. Näiteks: kontaktlehe üldine paigutus on _layout_, aga kontaktivorm on juba komponent;
 Kõige lihtsamas variandis võib eelmised kaks kausta asendada nt ühe _custom_ kaustaga ja seal toimetada nii, nagu tarvis.

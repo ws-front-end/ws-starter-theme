@@ -54,6 +54,6 @@ Kõige lihtsamas variandis võib eelmised kaks kausta asendada nt ühe _custom_ 
 
 **Template'id (ehk PHP-/HTML-failid)**
 
-Tasub üht-teist teada selle kohta, kuidas Wordpress'is _template_'ite loomine käib: [link](https://developer.wordpress.org/themes/basics/template-hierarchy/),
+Tasub üht-teist teada selle kohta, kuidas Wordpress'is _template_'ite loomine käib ([link](https://developer.wordpress.org/themes/basics/template-hierarchy/)),
 
 aga on võimalik toimetada ka nii, et kirjutad _template_'itesse/PHP failidesse ainult tavalist HTMLi ja back-end arendaja paneb selle Wordpress'ile külge.

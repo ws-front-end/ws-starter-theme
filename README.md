@@ -56,4 +56,4 @@ Gulp'i poolt genereeritud failid (need, mis reaalselt veebilehele lähevad) kaus
 
 Tasub üht-teist teada selle kohta, kuidas Wordpress'is _template_'ite loomine käib ([link](https://developer.wordpress.org/themes/basics/template-hierarchy/)),
 
-aga on võimalik toimetada ka nii, et kirjutad _template_'itesse/PHP failidesse ainult tavalist HTMLi ja back-end arendaja paneb selle Wordpress'ile külge.
+aga on võimalik toimetada ka nii, et kirjutad _template_'itesse/PHP failidesse ainult tavalist (staatilist) HTMLi ja back-end arendaja paneb selle Wordpress'ile külge.

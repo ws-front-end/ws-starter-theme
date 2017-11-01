@@ -32,16 +32,16 @@ Gulp'i poolt genereeritud failid (need, mis reaalselt veebilehele lähevad) kaus
 - _layout_ – raamistik, milles eelmises punktis mainitud komponendid istuvad. Näiteks: kontaktlehe üldine paigutus on _layout_, aga kontaktivorm on juba komponent;
 
 (Kõige lihtsamas variandis võib eelmised kaks kausta asendada nt ühe _custom_ kaustaga ja seal toimetada nii, nagu tarvis.)
-- _variables_ – projektis läbivalt kasutatud muutujad (näiteks _breakpoint_'id, värvid, fondid);
 - _vendor_ – _third party_ (nt mingi _plugin_'iga kaasa tulnud) stiililehed.
 
 Üksikud failid:
 
+- _animations.scss_ – animatsioonid;
+- _main.scss_ – koondab/impordib kõik teised SASSi failid kokku. Gulp genereerib selle põhjal _dist_ kausta main.css ja main.min.css failid.
+- _mixins.scss_ – imporditavad jupid.
 - _normalize.scss_ – CSSi _reset_, põhineb sellel: [link](https://necolas.github.io/normalize.css/);
 - _utilities.scss_ – üldkasutatavad klassid/reeglid, mis tegelevad ainult väga konkreetsete stiiliküsimustega (nt _grid_ ja igasugused "align-middle"-laadsed asjad);
-- _animations.scss_ – animatsioonid;
-- _mixins.scss_ – imporditavad jupid.
-- _main.scss_ – koondab/impordib kõik teised SASSi failid kokku. Gulp genereerib selle põhjal _dist_ kausta main.css ja main.min.css failid.
+- _variables.scss_ – projektis läbivalt kasutatud muutujad (näiteks _breakpoint_'id, värvid, fondid);
 
 **Javascript'i failid** asuvad seal: _assets/src/js_. Alamkaustad:
 

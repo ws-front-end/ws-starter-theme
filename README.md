@@ -18,7 +18,7 @@ Gulp kompileerib SASSi üheks CSS-failiks, pakib (_minify_'b) CSSi ja JSi kokku,
 
 Gulp'i seaded asuvad failis _gulpfile.js_ – hetkel põhineb see WP Gulp'il ([link](https://github.com/ahmadawais/WPGulp/), kust leiab ka juhised, kuidas Gulp enda arvutisse installida).
 
-**SASS** – sisuliselt CSS (ka täiesti tavaliselt kirjutatud CSS toimib SASS'i failis), aga rohkemate võimalustega (näiteks lubab muutujaid kasutada – [lisainfot](http://sass-lang.com/guide/)).
+**SASS** – sisuliselt CSS (ka täiesti tavaliselt kirjutatud CSS toimib SASS'i failis), aga rohkemate võimalustega – näiteks lubab muutujaid kasutada ([lisainfot](http://sass-lang.com/guide/)).
 
 **Faili-/kaustamajandusest:**
 

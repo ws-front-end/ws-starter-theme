@@ -37,7 +37,7 @@ Gulp'i poolt genereeritud failid (need, mis reaalselt veebilehele lähevad) kaus
 Üksikud failid:
 
 - _animations.scss_ – animatsioonid;
-- _mixins.scss_ – imporditavad CSSi blokid (kasutamiseks: @include mixin-name);
+- _mixins.scss_ – imporditavad CSSi blokid (kasutamiseks: _@include mixin-name_);
 - _normalize.scss_ – CSSi _reset_, põhineb sellel: [link](https://necolas.github.io/normalize.css/);
 - _utilities.scss_ – üldkasutatavad klassid/reeglid, mis tegelevad ainult väga konkreetsete stiiliküsimustega (nt _grid_ ja igasugused "align-middle"-laadsed asjad);
 - _variables.scss_ – projektis läbivalt kasutatud muutujad (näiteks _breakpoint_'id, värvid, fondid);

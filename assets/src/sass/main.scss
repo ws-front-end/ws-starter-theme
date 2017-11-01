@@ -1,20 +1,11 @@
-// Normalize 
-@import "normalize";
-
 // Variables
-@import "variables/colors";
-@import "variables/columns";
-@import "variables/structure";
-@import "variables/typography";
+@import "variables";
 
 // Mixins
-@import "mixins/mixins";
+@import "mixins";
 
-// Animations
-@import "animations";
-
-// Utilities
-@import "utilities";
+// Normalize 
+@import "normalize";
 
 // Base
 @import "base/buttons";
@@ -25,6 +16,12 @@
 @import "base/lists";
 @import "base/tables";
 @import "base/typography";
+
+// Animations
+@import "animations";
+
+// Utilities
+@import "utilities";
 
 // Layout
 @import "layout/general";

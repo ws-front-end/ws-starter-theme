@@ -48,7 +48,7 @@ Gulp'i poolt genereeritud failid (need, mis reaalselt veebilehele lähevad) kaus
 - _custom_ (me endi kirjutatud skriptid)
 - _vendor_ (_third party_ skriptid).
 
-**Pildifailid:** _assets/src/img_. Gulp pakib väiksemaks ja salvestab _dist_ kausta. Hetkel on see mõnevõrra tüütu – uute piltide salvstamisel _src_ kausta tuleb Gulp peatada ja uuesti käivitada.
+**Pildifailid:** _assets/src/img_. Gulp pakib väiksemaks ja salvestab _dist_ kausta. Hetkel on see protsess mõnevõrra tüütu – uute piltide salvstamisel _src_ kausta tuleb Gulp peatada ja uuesti käivitada.
 
 **Fontidega** Gulp hetkel midagi ei tee, nii et need võib panna otse _dist_ kausta (_assets/dist/fonts_).
 

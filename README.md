@@ -18,7 +18,7 @@ Gulp kompileerib SASSi üheks CSS-failiks, pakib (_minify_'b) CSSi ja JSi kokku,
 
 Gulp'i seaded asuvad failis _gulpfile.js_ – hetkel põhineb see WP Gulp'il ([link](https://github.com/ahmadawais/WPGulp/), kust leiab ka juhised, kuidas Gulp enda arvutisse installida).
 
-**SASS** – sisuliselt CSS (ka täiesti tavaliselt kirjutatud CSS toimib SASS'i failis), aga rohkemate võimalustega (näiteks lubab muutujaid kasutada – [lisainfot](http://sass-lang.com/guide/)).
+**SASS** – sisuliselt CSS (ka täiesti tavaliselt kirjutatud CSS toimib SASS'i failis), aga rohkemate võimalustega – näiteks lubab muutujaid kasutada ([lisainfot](http://sass-lang.com/guide/)).
 
 **Faili-/kaustamajandusest:**
 
@@ -32,23 +32,23 @@ Gulp'i poolt genereeritud failid (need, mis reaalselt veebilehele lähevad) kaus
 - _layout_ – raamistik, milles eelmises punktis mainitud komponendid istuvad. Näiteks: kontaktlehe üldine paigutus on _layout_, aga kontaktivorm on juba komponent;
 
 (Kõige lihtsamas variandis võib eelmised kaks kausta asendada nt ühe _custom_ kaustaga ja seal toimetada nii, nagu tarvis.)
-- _variables_ – projektis läbivalt kasutatud muutujad (näiteks _breakpoint_'id, värvid, fondid);
 - _vendor_ – _third party_ (nt mingi _plugin_'iga kaasa tulnud) stiililehed.
 
 Üksikud failid:
 
-- _normalize.scss_ – CSSi _reset_, põhineb sellel: [link](https://necolas.github.io/normalize.css/);
-- _utilities.scss_ – üldkasutatavad klassid/reeglid, mis tegelevad ainult väga konkreetsete stiiliküsimustega (nt _grid_ ja igasugused "align-middle"-laadsed asjad);
 - _animations.scss_ – animatsioonid;
-- _mixins.scss_ – imporditavad jupid.
-- _main.scss_ – koondab/impordib kõik teised SASSi failid kokku. Gulp genereerib selle põhjal _dist_ kausta main.css ja main.min.css failid.
+- _mixins.scss_ – imporditavad CSSi blokid (kasutamiseks: _@include mixin-name_);
+- _normalize.scss_ – CSSi _reset_, põhineb sellel: [link](https://necolas.github.io/normalize.css/);
+- _utilities.scss_ – üldkasutatavad klassid/reeglid, mis tegelevad ainult väga konkreetsete stiiliküsimustega (nt _grid_ ja igasugused _"align-middle"_-laadsed asjad);
+- _variables.scss_ – projektis läbivalt kasutatud muutujad (näiteks _breakpoint_'id, värvid, fondid);
+- _main.scss_ – koondab/impordib kõik teised SASSi failid kokku. Töö käigus (failide lisandudes) tuleb seda jooksvalt täiendada. Gulp genereerib selle põhjal _dist_ kausta main.css ja main.min.css failid.
 
 **Javascript'i failid** asuvad seal: _assets/src/js_. Alamkaustad:
 
 - _custom_ (me endi kirjutatud skriptid)
 - _vendor_ (_third party_ skriptid).
 
-**Pildifailid:** _assets/src/img_. Gulp pakib väiksemaks ja salvestab _dist_ kausta.
+**Pildifailid:** _assets/src/img_. Gulp pakib väiksemaks ja salvestab _dist_ kausta. Hetkel on see protsess mõnevõrra tüütu – uute piltide salvestamisel _src_ kausta tuleb Gulp peatada ja uuesti käivitada.
 
 **Fontidega** Gulp hetkel midagi ei tee, nii et need võib panna otse _dist_ kausta (_assets/dist/fonts_).
 

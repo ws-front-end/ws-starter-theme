@@ -6,13 +6,22 @@
 
     &__menu-toggle {
 
+        @media screen and (min-width: $breakpoint_menu) {
+            display: none !important;
+        }
     }
 
     &__nav {
+        display: none;
 
+        @media screen and (min-width: $breakpoint_menu) {
+            display: block !important;
+        }
     }
 
     &__main-menu {
-        
+        list-type: none;
+        padding: 0;
+        margin: 0;
     }
 }

@@ -1,8 +1,5 @@
 (function($) {
 
-})( jQuery );
-(function($) {
-
         var mainMenu = function() {
 
             var $mainMenuContainer = $('#js-main-menu-container');

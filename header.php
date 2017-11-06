@@ -27,8 +27,12 @@
 				<?php get_template_part( 'template-parts/site-logo' ); ?>
 			</a>
 		</div>
-		
-		<button class="menu-toggle site-header__menu-toggle" id="js-main-menu-toggle" aria-controls="primary-menu" aria-expanded="false"></button>
+
+        <button class="menu-toggle site-header__menu-toggle hamburger hamburger--squeeze" id="js-main-menu-toggle" aria-controls="primary-menu" aria-expanded="false" type="button">
+            <span class="hamburger-box">
+                <span class="hamburger-inner"></span>
+            </span>
+        </button>
 
 		<nav class="site-header__nav" id="js-main-menu-container">
 

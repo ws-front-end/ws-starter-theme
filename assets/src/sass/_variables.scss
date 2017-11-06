@@ -6,7 +6,7 @@ $breakpoint_desktop-small: 960px;
 $breakpoint_desktop-medium: 1260px;
 $breakpoint_desktop-large: 1540px;
 
-$breakpoint_menu: 1024px;
+$breakpoint_menu: $breakpoint_desktop-small;
 $breakpoint_content: $breakpoint_desktop-medium;
 
 // Colors

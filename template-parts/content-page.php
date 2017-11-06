@@ -10,7 +10,6 @@
 	
 	<div class="page-heading">
 		<h2><?php the_title(); ?></h2>
-		<hr>
 	</div>
 
 	<div class="entry-content">

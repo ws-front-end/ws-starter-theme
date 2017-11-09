@@ -26,7 +26,7 @@
 
 // START Editing Project Variables.
 // Project related.
-var projectURL              = 'localhost/roosta.ee'; // Local project URL of your already running WordPress site. Could be something like local.dev or localhost:8888.
+var projectURL              = 'localhost/starter-theme-test'; // Local project URL of your already running WordPress site. Could be something like local.dev or localhost:8888.
 
 // Translation related.
 var text_domain             = 'ws-starter-theme'; // Your textdomain here.

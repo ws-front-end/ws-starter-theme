@@ -96,6 +96,9 @@ h3,h4{font-size:1.5rem}
 .site-header__logo svg,.site-header__logo img{vertical-align:top}
 .site-header__nav{display:none}
 .site-header__main-menu{list-type:none;padding:0;margin:0}
+.site-footer__ws-logo{display:inline-block}
+.site-footer__ws-logo img,.site-footer__ws-logo svg{opacity:.5;-webkit-transform:rotate(0);-ms-transform:rotate(0);transform:rotate(0);-webkit-transition:opacity .5s,-webkit-transform .5s;transition:opacity .5s,-webkit-transform .5s;transition:opacity .5s,transform .5s;transition:opacity .5s,transform .5s,-webkit-transform .5s}
+.site-footer__ws-logo:hover img,.site-footer__ws-logo:hover svg,.site-footer__ws-logo:focus img,.site-footer__ws-logo:focus svg,.site-footer__ws-logo:active img,.site-footer__ws-logo:active svg{opacity:1;-webkit-transform:rotate(-360deg);-ms-transform:rotate(-360deg);transform:rotate(-360deg)}
 /*! Hamburgers @description Tasty CSS-animated hamburgers @author Jonathan Suh @jonsuh @site https://jonsuh.com/hamburgers @link https://github.com/jonsuh/hamburgers */.hamburger{padding:10px 10px;display:inline-block;cursor:pointer;-webkit-transition-property:opacity,-webkit-filter;transition-property:opacity,-webkit-filter;transition-property:opacity,filter;transition-property:opacity,filter,-webkit-filter;-webkit-transition-duration:.15s;transition-duration:.15s;-webkit-transition-timing-function:linear;transition-timing-function:linear;font:inherit;color:inherit;text-transform:none;background-color:transparent;border:0;margin:0;overflow:visible}
 .hamburger:hover{opacity:.7}
 .hamburger-box{width:32px;height:24px;display:inline-block;vertical-align:top;position:relative}

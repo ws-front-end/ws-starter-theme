@@ -28,7 +28,7 @@
 			</a>
 		</div>
 
-        <button class="menu-toggle site-header__menu-toggle hamburger hamburger--squeeze" id="js-main-menu-toggle" aria-controls="primary-menu" aria-expanded="false" type="button">
+        <button class="site-header__menu-toggle menu-toggle hamburger hamburger--squeeze" id="js-main-menu-toggle" aria-controls="primary-menu" aria-expanded="false" type="button">
             <span class="hamburger-box">
                 <span class="hamburger-inner"></span>
             </span>

@@ -9,6 +9,9 @@
 	</div><!-- #content -->
 
 	<footer id="colophon" class="site-footer">
+
+        <?php get_template_part( 'template-parts/ws-logo' ); ?>
+
 	</footer><!-- #colophon -->
 
 </div><!-- #page -->

@@ -47,10 +47,11 @@ var imagesSRC               = './assets/src/img/**/*.{png,jpg,gif,svg}'; // Sour
 var imagesDestination       = './assets/dist/img/'; // Destination folder of optimized images. Must be different from the imagesSRC folder.
 
 // Watch file paths
-var styleWatchFiles         = './assets/src/sass/**/*.scss'; // Path to all *.scss files inside css folder and inside them.
-var vendorJSWatchFiles      = './assets/src/js/vendor/*.js'; // Path to all vendor JS files.
-var customJSWatchFiles      = './assets/src/js/custom/*.js'; // Path to all custom JS files.
-var projectPHPWatchFiles    = './**/*.php'; // Path to all PHP files.
+var styleWatchFiles         = 'assets/src/sass/**/*.scss'; // Path to all *.scss files inside css folder and inside them.
+var vendorJSWatchFiles      = 'assets/src/js/vendor/*.js'; // Path to all vendor JS files.
+var customJSWatchFiles      = 'assets/src/js/custom/*.js'; // Path to all custom JS files.
+var projectPHPWatchFiles    = '**/*.php'; // Path to all PHP files.
+var imagesWatchFiles        = 'assets/src/img/**/*.{png,jpg,gif,svg}';
 
 // Browsers you care about for autoprefixing. List: https://github.com/ai/browserslist
 const AUTOPREFIXER_BROWSERS = [
@@ -297,4 +298,5 @@ gulp.task( 'browser-sync', function() {
   gulp.watch( styleWatchFiles, [ 'styles' ] );
   gulp.watch( vendorJSWatchFiles, [ 'vendorsJs', reload ] );
   gulp.watch( customJSWatchFiles, [ 'customJS', reload ] );
+  gulp.watch( imagesWatchFiles, [ 'images' ] );
  });

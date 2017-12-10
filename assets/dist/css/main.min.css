@@ -60,7 +60,6 @@ input[type="text"]:focus,input[type="email"]:focus,input[type="url"]:focus,input
 select{border:1px solid #ccc}
 textarea{width:100%}
 a{color:#443f3a;text-decoration:none}
-a:visited{color:#443f3a}
 a:hover,a:focus,a:active{color:#443f3a;text-decoration:underline}
 a:focus{outline:thin dotted}
 a:hover,a:active{outline:0}
@@ -95,7 +94,7 @@ h3,h4{font-size:1.5rem}
 .site-header__logo a{display:inline-block}
 .site-header__logo svg,.site-header__logo img{vertical-align:top}
 .site-header__nav{display:none}
-.site-header__main-menu{list-type:none;padding:0;margin:0}
+.site-header__main-menu{list-style:none;padding:0;margin:0}
 .site-footer__ws-logo{display:inline-block}
 .site-footer__ws-logo img,.site-footer__ws-logo svg{opacity:.5;-webkit-transform:rotate(0);-ms-transform:rotate(0);transform:rotate(0);-webkit-transition:opacity .5s,-webkit-transform .5s;transition:opacity .5s,-webkit-transform .5s;transition:opacity .5s,transform .5s;transition:opacity .5s,transform .5s,-webkit-transform .5s}
 .site-footer__ws-logo:hover img,.site-footer__ws-logo:hover svg,.site-footer__ws-logo:focus img,.site-footer__ws-logo:focus svg,.site-footer__ws-logo:active img,.site-footer__ws-logo:active svg{opacity:1;-webkit-transform:rotate(-360deg);-ms-transform:rotate(-360deg);transform:rotate(-360deg)}

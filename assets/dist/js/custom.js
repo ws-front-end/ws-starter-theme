@@ -31,13 +31,14 @@
                 
             });
 
-            /* Close menu when clicking anywhere else */
+            /* Close menu when a click is made elsewhere on the page */
             $(document).on('click', function(e) {
 
                 if ($mainMenuContainer.is('.is-toggled')) {
                     mainMenuArea = $(e.target).closest($mainMenuContainer).length;
                     menuToggleArea = $(e.target).closest($mainMenuToggle).length;
                     if(!mainMenuArea && !menuToggleArea) {
+                        $mainMenuContainer.stop().slideToggle(350);
                         $mainMenuContainer.removeClass('is-toggled');
                         $mainMenuToggle.attr('aria-expanded', 'false').removeClass('is-active');
                         $mainMenu.attr('aria-expanded', 'false');

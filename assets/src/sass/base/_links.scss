@@ -2,18 +2,17 @@ a {
 	color: $color_link;
 	text-decoration: none;
 
-	&:visited {
-		color: $color_link-visited;
-	}
 	&:hover,
 	&:focus,
 	&:active {
 		color: $color_link-hover;
 		text-decoration: underline;
 	}
+
 	&:focus {
 		outline: thin dotted;
 	}
+	
 	&:hover,
 	&:active {
 		outline: 0;

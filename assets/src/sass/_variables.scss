@@ -1,17 +1,17 @@
 // Breakpoints
 
-$breakpoint_mobile: 480px;
-$breakpoint_tablet: 720px;
-$breakpoint_desktop-small: 960px;
-$breakpoint_desktop-medium: 1260px;
-$breakpoint_desktop-large: 1540px;
+$bp_mobile: 480px;
+$bp_tablet: 720px;
+$bp_desktop-sm: 960px;
+$bp_desktop-md: 1260px;
+$bp_desktop-lg: 1540px;
 
-$breakpoint_menu: $breakpoint_desktop-small;
-$breakpoint_content: $breakpoint_desktop-medium;
+$bp_menu: $bp_desktop-sm;
+$bp_content: $bp_desktop-md;
 
 // Colors
 
-$color_main: blue;
+$color_primary: blue;
 $color_secondary: red;
 
 $color_bg-body: #fff;

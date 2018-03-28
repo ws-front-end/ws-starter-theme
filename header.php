@@ -24,7 +24,7 @@
 
 		<div class="site-header__logo">
 			<a href="<?php echo esc_url( home_url( '/' ) ); ?>" rel="home" title="<?php bloginfo( 'name' ); ?>">
-				<?php get_template_part( 'template-parts/site-logo' ); ?>
+				<?php get_template_part( 'template-parts/svg/site-logo' ); ?>
 			</a>
 		</div>
 

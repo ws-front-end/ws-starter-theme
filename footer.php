@@ -10,7 +10,7 @@
 
 	<footer id="colophon" class="site-footer">
 
-        <a class="site-footer__ws-logo" href="http://www.websystems.ee" target="_blank" title="Web Systems OÜ"><?php get_template_part( 'template-parts/ws-logo' ); ?></a>
+        <a class="site-footer__ws-logo" href="http://www.websystems.ee" target="_blank" title="Web Systems OÜ"><?php get_template_part( 'template-parts/svg/ws-logo' ); ?></a>
 
 	</footer><!-- #colophon -->
 

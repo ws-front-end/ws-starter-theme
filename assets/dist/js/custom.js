@@ -1,5 +1,11 @@
 (function($) {
 
+    $(function() {
+
+        objectFitImages();
+
+    });
+
 })( jQuery );
 (function($) {
 

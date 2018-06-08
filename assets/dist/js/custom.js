@@ -1,98 +1,91 @@
-(function($) {
+'use strict';
 
-    $(function() {
+(function ($) {
+
+    $(function () {
 
         objectFitImages();
-
     });
+})(jQuery);
+(function ($) {
 
-})( jQuery );
-(function($) {
+    var mainMenu = function mainMenu() {
 
-        var mainMenu = function() {
+        var $mainMenuContainer = $('#js-main-menu-container');
+        var $mainMenuToggle = $('#js-main-menu-toggle');
+        var $mainMenu = $('#js-main-menu');
 
-            var $mainMenuContainer = $('#js-main-menu-container');
-            var $mainMenuToggle = $('#js-main-menu-toggle');
-            var $mainMenu = $('#js-main-menu');
+        $mainMenu.attr('aria-expanded', 'false');
 
-            $mainMenu.attr('aria-expanded', 'false');
+        /* Toggle menu */
+        $mainMenuToggle.on('click', function (e) {
 
-            /* Toggle menu */
-            $mainMenuToggle.on('click', function(e) {
+            e.preventDefault();
+            e.stopImmediatePropagation();
 
-                e.preventDefault();
-                e.stopImmediatePropagation();
+            $mainMenuContainer.stop().slideToggle(350);
 
-                $mainMenuContainer.stop().slideToggle(350);
+            if ($mainMenuContainer.is('.is-toggled')) {
+                $mainMenuContainer.removeClass('is-toggled');
+                $mainMenuToggle.attr('aria-expanded', 'false').removeClass('is-active');
+                $mainMenu.attr('aria-expanded', 'false');
+            } else {
+                $mainMenuContainer.addClass('is-toggled');
+                $mainMenuToggle.attr('aria-expanded', 'true').addClass('is-active');
+                $mainMenu.attr('aria-expanded', 'true');
+            }
+        });
 
-                if ($mainMenuContainer.is('.is-toggled')) {
+        /* Close menu when a click is made elsewhere on the page */
+        $(document).on('click', function (e) {
+
+            if ($mainMenuContainer.is('.is-toggled')) {
+                mainMenuArea = $(e.target).closest($mainMenuContainer).length;
+                menuToggleArea = $(e.target).closest($mainMenuToggle).length;
+                if (!mainMenuArea && !menuToggleArea) {
+                    $mainMenuContainer.stop().slideToggle(350);
                     $mainMenuContainer.removeClass('is-toggled');
                     $mainMenuToggle.attr('aria-expanded', 'false').removeClass('is-active');
                     $mainMenu.attr('aria-expanded', 'false');
-                } else {
-                    $mainMenuContainer.addClass('is-toggled');
-                    $mainMenuToggle.attr('aria-expanded', 'true').addClass('is-active');
-                    $mainMenu.attr('aria-expanded', 'true');
                 }
-                
-            });
+            }
+        });
+    };
 
-            /* Close menu when a click is made elsewhere on the page */
-            $(document).on('click', function(e) {
+    mainMenu();
 
-                if ($mainMenuContainer.is('.is-toggled')) {
-                    mainMenuArea = $(e.target).closest($mainMenuContainer).length;
-                    menuToggleArea = $(e.target).closest($mainMenuToggle).length;
-                    if(!mainMenuArea && !menuToggleArea) {
-                        $mainMenuContainer.stop().slideToggle(350);
-                        $mainMenuContainer.removeClass('is-toggled');
-                        $mainMenuToggle.attr('aria-expanded', 'false').removeClass('is-active');
-                        $mainMenu.attr('aria-expanded', 'false');
-                    }
-                }
+    var tabsNav = function tabsNav() {
 
-            });
+        $('.js-tabs-nav a').on('click', function (e) {
 
-		}
+            e.preventDefault();
 
-		mainMenu();
+            var tab = $(this).attr('href');
+            var $navItem = $(this).parent('li');
 
-        var tabsNav = function() {
+            if (!$navItem.hasClass('is-active')) {
+                $navItem.siblings('li').removeClass('is-active');
+                $navItem.addClass('is-active');
+                $(tab).siblings().removeClass('is-active');
+                $(tab).addClass('is-active');
+            }
+        });
+    };
 
-            $('.js-tabs-nav a').on('click', function(e) {
+    tabsNav();
 
-                e.preventDefault();
+    var anchorScroll = function anchorScroll() {
+        $('.js-anchor').on('click', function (e) {
 
-                var tab = $(this).attr('href');
-                var $navItem = $(this).parent('li');
+            e.preventDefault();
+            var section = $(this).attr('href');
+            var scrollDistance = $(section).offset().top;
 
-                if ( !$navItem.hasClass('is-active') ) {
-                    $navItem.siblings('li').removeClass('is-active');
-                    $navItem.addClass('is-active');
-                    $(tab).siblings().removeClass('is-active');
-                    $(tab).addClass('is-active');
-                }
+            $('html, body').animate({
+                scrollTop: scrollDistance
+            }, 800);
+        });
+    };
 
-            });
-
-        }
-
-        tabsNav();
-
-        var anchorScroll = function() {
-            $('.js-anchor').on('click', function(e) {
-
-                e.preventDefault();
-                var section = $(this).attr('href');
-                var scrollDistance = $(section).offset().top;
-                
-                $('html, body').animate({
-                    scrollTop: scrollDistance
-                }, 800);
-
-            });
-        }
-
-        anchorScroll();
-
-})( jQuery );
+    anchorScroll();
+})(jQuery);

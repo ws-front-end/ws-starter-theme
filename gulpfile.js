@@ -68,6 +68,19 @@ const AUTOPREFIXER_BROWSERS = [
     'bb >= 10'
 ];
 
+const BABEL_BROWSERS = [
+  'last 2 version',
+  '> 1%',
+  'ie >= 9',
+  'ie_mob >= 10',
+  'ff >= 30',
+  'chrome >= 34',
+  'safari >= 7',
+  'opera >= 23',
+  'ios >= 7',
+  'android >= 4',
+  'bb >= 10'
+];
 /**
  * Load Plugins
  */
@@ -83,6 +96,8 @@ var mmq          = require('gulp-merge-media-queries'); // Combine matching medi
 // JS
 var concat       = require('gulp-concat'); // Concatenates JS files
 var uglify       = require('gulp-uglify'); // Minifies JS files
+var babel        = require('gulp-babel');  // Compiles ES6 to compatible browser JS
+var jshint       = require('gulp-jshint');
 
 // Images
 var imagemin     = require('gulp-imagemin'); // Minify PNG, JPEG, GIF and SVG images with imagemin.
@@ -159,7 +174,7 @@ gulp.task( 'browser-sync', function() {
       // outputStyle: 'expanded',
       precision: 10
     } ) )
-    .on('error', console.error.bind(console))
+    .on('error', handleError)
     .pipe( sourcemaps.write( { includeContent: false } ) )
     .pipe( sourcemaps.init( { loadMaps: true } ) )
     .pipe( autoprefixer( AUTOPREFIXER_BROWSERS ) )
@@ -182,7 +197,7 @@ gulp.task( 'browser-sync', function() {
 
     .pipe( filter( '**/*.css' ) ) // Filtering stream to only css files
     .pipe( browserSync.stream() )// Reloads style.min.css if that is enqueued.
-    .pipe( notify( { message: 'TASK: "styles" Completed! 💯', onLast: true } ) )
+    .pipe( notify( { message: 'TASK: "styles" Completed! ', onLast: true } ) )
  });
 
  /**
@@ -201,6 +216,19 @@ gulp.task( 'browser-sync', function() {
   gulp.src( jsVendorSRC )
     .pipe( concat( jsVendorFile + '.js' ) )
     .pipe( lineec() ) // Consistent Line Endings for non UNIX systems.
+    // .pipe( jshint.reporter('default') )
+    .pipe( 
+      babel({
+        presets: [
+          ['env', {
+            'targets': {
+              'browsers': BABEL_BROWSERS
+            }
+          }] 
+        ] 
+      })
+    )
+    .on('error', handleError)
     .pipe( gulp.dest( jsVendorDestination ) )
     .pipe( rename( {
       basename: jsVendorFile,
@@ -209,7 +237,7 @@ gulp.task( 'browser-sync', function() {
     .pipe( uglify() )
     .pipe( lineec() ) // Consistent Line Endings for non UNIX systems.
     .pipe( gulp.dest( jsVendorDestination ) )
-    .pipe( notify( { message: 'TASK: "vendorsJs" Completed! 💯', onLast: true } ) );
+    .pipe( notify( { message: 'TASK: "vendorsJs" Completed! ', onLast: true } ) );
  });
 
  /**
@@ -228,6 +256,20 @@ gulp.task( 'browser-sync', function() {
     gulp.src( jsCustomSRC )
     .pipe( concat( jsCustomFile + '.js' ) )
     .pipe( lineec() ) // Consistent Line Endings for non UNIX systems.
+    // .pipe( jshint() )
+    // .pipe(jshint.reporter('default'))
+    .pipe( 
+      babel({
+        presets: [
+          ['env', {
+            'targets': {
+              'browsers': BABEL_BROWSERS
+            }
+          }] 
+        ] 
+      })
+    )
+    .on('error', handleError)
     .pipe( gulp.dest( jsCustomDestination ) )
     .pipe( rename( {
       basename: jsCustomFile,
@@ -236,9 +278,13 @@ gulp.task( 'browser-sync', function() {
     .pipe( uglify() )
     .pipe( lineec() ) // Consistent Line Endings for non UNIX systems.
     .pipe( gulp.dest( jsCustomDestination ) )
-    .pipe( notify( { message: 'TASK: "customJs" Completed! 💯', onLast: true } ) );
+    .pipe( notify( { message: 'TASK: "customJs" Completed! ', onLast: true } ) );
  });
 
+function handleError (error) {
+  console.log(error.toString());
+  this.emit('end');
+}
  /**
   * Task: images.
   *
@@ -256,13 +302,14 @@ gulp.task( 'browser-sync', function() {
  gulp.task( 'images', function() {
   gulp.src( imagesSRC )
     .pipe( imagemin( {
-          progressive: true,
-          optimizationLevel: 3, // 0-7 low-high
-          interlaced: true,
-          svgoPlugins: [{removeViewBox: false}]
-        } ) )
+      progressive: true,
+      optimizationLevel: 7, // 0-7 low-high
+      interlaced: true,
+      svgoPlugins: [{removeViewBox: false}]
+    } ) )
+    .on('error', handleError)
     .pipe(gulp.dest( imagesDestination ))
-    .pipe( notify( { message: 'TASK: "images" Completed! 💯', onLast: true } ) );
+    .pipe( notify( { message: 'TASK: "images" Completed! ', onLast: true } ) );
  });
 
  /**
@@ -283,7 +330,7 @@ gulp.task( 'browser-sync', function() {
              destFile      : translationFile,
          } ))
         .pipe(gulp.dest(translationDestination))
-        .pipe( notify( { message: 'TASK: "translate" Completed! 💯', onLast: true } ) )
+        .pipe( notify( { message: 'TASK: "translate" Completed! ', onLast: true } ) )
 
  });
 

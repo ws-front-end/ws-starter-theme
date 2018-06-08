@@ -282,7 +282,7 @@ gulp.task( 'browser-sync', function() {
  });
 
 function handleError (error) {
-  console.log(error.toString());
+  console.log(error); //.toString()
   this.emit('end');
 }
  /**

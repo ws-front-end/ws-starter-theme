@@ -75,7 +75,7 @@ add_action( 'widgets_init', 'ws_starter_theme_widgets_init' );
 
 // Enqueue scripts and styles.
 function ws_starter_theme_scripts() {
-	$assetVersion = '0.1';
+	$assetVersion = WP_DEBUG == true && WP_DEBUG_DISPLAY == true  ? date('YmdH'):'0.1';
     // Styles
 	wp_enqueue_style( 'ws-style-css', get_stylesheet_uri() );
 	wp_enqueue_style( 'ws-main-css', get_template_directory_uri() . '/assets/dist/css/main.css', array(), $assetVersion );

@@ -283,7 +283,6 @@ gulp.task( 'browser-sync', function() {
     .pipe( notify( { message: 'TASK: "customJs" Completed! ', onLast: true } ) );
  });
 
- .on('error', handleError)
 function handleError (error) {
   console.log(error); //.toString()
   this.emit('end');

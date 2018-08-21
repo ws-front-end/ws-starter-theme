@@ -23,7 +23,6 @@
     "gulp-uglify": "^1.5.3",
     "gulp-uglifycss": "^1.0.6",
     "gulp-wp-pot": "^1.2.2",
-    "jshint": "^2.9.5",
-    // "windows-build-tools": "^3.0.0"
+    "jshint": "^2.9.5"
   }
 }

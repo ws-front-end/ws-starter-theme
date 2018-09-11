@@ -21,12 +21,7 @@
  */
 
 // Project
-var projectURL              = 'localhost/starter-theme-test'; // Local project URL of your already running WordPress site. Could be something like local.dev or localhost:8888.
-
-// Translations
-var text_domain             = 'ws-starter-theme'; // Your textdomain here.
-var translationFile         = 'ws-starter-theme.pot'; // Name of the transalation file.
-var translationDestination  = './languages' // Where to save the translation files.
+var projectURL              = 'localhost/change-in-gulpfile-line-24'; // Local project URL of your already running WordPress site. Could be something like local.dev or localhost:8888.
 
 // CSS
 var styleSRC                = './assets/src/sass/main.scss'; // Path to main .scss file.
@@ -97,7 +92,6 @@ var mmq          = require('gulp-merge-media-queries'); // Combine matching medi
 var concat       = require('gulp-concat'); // Concatenates JS files
 var uglify       = require('gulp-uglify'); // Minifies JS files
 var babel        = require('gulp-babel');  // Compiles ES6 to compatible browser JS
-var jshint       = require('gulp-jshint');
 
 // Images
 var imagemin     = require('gulp-imagemin'); // Minify PNG, JPEG, GIF and SVG images with imagemin.
@@ -110,8 +104,6 @@ var sourcemaps   = require('gulp-sourcemaps'); // Maps code in a compressed file
 var notify       = require('gulp-notify'); // Sends message notification to you
 var browserSync  = require('browser-sync').create(); // Reloads browser and injects CSS. Time-saving synchronised browser testing.
 var reload       = browserSync.reload; // For manual browser reload.
-var wpPot        = require('gulp-wp-pot'); // For generating the .pot file.
-var sort         = require('gulp-sort'); // Recommended to prevent unnecessary changes in pot-file.
 
 /**
  * Task: browser-sync.
@@ -136,7 +128,7 @@ gulp.task( 'browser-sync', function() {
 
     // 'true' Automatically open the browser with BrowserSync live server.
     // 'false' Stop the browser from automatically opening.
-    open: false,
+    open: true,
 
     // Inject CSS changes.
     // Commnet it to reload browser for every CSS change.
@@ -312,28 +304,6 @@ function handleError (error) {
     .on('error', handleError)
     .pipe(gulp.dest( imagesDestination ))
     .pipe( notify( { message: 'TASK: "images" Completed! ', onLast: true } ) );
- });
-
- /**
-  * WP POT Translation File Generator.
-  *
-  * This task does the following:
-  * 1. Gets the source of all the PHP files
-  * 2. Sort files in stream by path or any custom sort comparator
-  * 3. Applies wpPot with the variable set at the top of this file
-  * 4. Generate a .pot file of i18n that can be used for l10n to build .mo file
-  */
-
- gulp.task( 'translate', function () {
-     return gulp.src( projectPHPWatchFiles )
-         .pipe(sort())
-         .pipe(wpPot( {
-             domain        : text_domain,
-             destFile      : translationFile,
-         } ))
-        .pipe(gulp.dest(translationDestination))
-        .pipe( notify( { message: 'TASK: "translate" Completed! ', onLast: true } ) )
-
  });
 
  /**

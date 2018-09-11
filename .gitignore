@@ -3,3 +3,5 @@
 **/.sass-cache/*
 **/.map
 package-lock.json
+
+**/.history

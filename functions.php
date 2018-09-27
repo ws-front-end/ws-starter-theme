@@ -129,5 +129,6 @@ add_action('the_generator', 'project_remove_version');
 /*******************/
 /*** Woocommerce ***/
 /*******************/
-
-require_once('woocommerce-functions.php');
+if ( class_exists( 'WooCommerce' ) ) {
+	require_once('woocommerce-functions.php');
+}

@@ -1,124 +1,144 @@
 <?php 
 
-add_theme_support( 'wc-product-gallery-zoom' );
-add_theme_support( 'wc-product-gallery-lightbox' );
-add_theme_support( 'wc-product-gallery-slider' );
 
-add_action( 'save_post', 'ws_set_images_in_languages', 5 );
-function ws_set_images_in_languages( $post_id ) {
+function my_custom_woocommerce_theme_support() {
+    add_theme_support( 'woocommerce', array(
+        // . . .
+        // thumbnail_image_width, single_image_width, etc.
+ 
+        // Product grid theme settings
+        'product_grid'          => array(
+            'default_rows'    => 3,
+            'min_rows'        => 2,
+            'max_rows'        => 8,
+             
+            'default_columns' => 4,
+            'min_columns'     => 2,
+            'max_columns'     => 5,
+        ),
+    ) );
+    add_theme_support( 'wc-product-gallery-zoom' );
+    add_theme_support( 'wc-product-gallery-lightbox' );
+    add_theme_support( 'wc-product-gallery-slider' );
+}
+ 
+add_action( 'after_setup_theme', 'my_custom_woocommerce_theme_support' );
 
-	// If this is just a revision, don't update.
-	if ( wp_is_post_revision( $post_id ) ) return;
+// add_action( 'save_post', 'ws_set_images_in_languages', 5 );
+// function ws_set_images_in_languages( $post_id ) {
+
+// 	// If this is just a revision, don't update.
+// 	if ( wp_is_post_revision( $post_id ) ) return;
 
     
-    // If this isn't a 'product' post, don't update it.
-    $post_type = get_post_type($post_id);
-    if ( 'product' != $post_type ) return;
+//     // If this isn't a 'product' post, don't update it.
+//     $post_type = get_post_type($post_id);
+//     if ( 'product' != $post_type ) return;
 
 
-    $gallery = get_post_meta($post_id, '_product_image_gallery', true);
-    $thumb = get_post_meta($post_id, '_thumbnail_id', true);
-    global $wpdb;
-    foreach (icl_get_languages('skip_missing=0&orderby=code') as $key2 => $value) {
+//     $gallery = get_post_meta($post_id, '_product_image_gallery', true);
+//     $thumb = get_post_meta($post_id, '_thumbnail_id', true);
+//     global $wpdb;
+//     foreach (icl_get_languages('skip_missing=0&orderby=code') as $key2 => $value) {
         
-        if ($key2 != ICL_LANGUAGE_CODE || $gallery === 'instock' || $thumb === 'no' ) {
+//         if ($key2 != ICL_LANGUAGE_CODE || $gallery === 'instock' || $thumb === 'no' ) {
 
-            $trans_id = $wpdb->get_var( 
-                $wpdb->prepare( 
-                    "SELECT t.element_id FROM rst_icl_translations as t
-                    WHERE t.language_code = %s
-                        AND t.trid = (
-                            SELECT t2.trid FROM rst_icl_translations as t2 WHERE t2.element_id = %d AND t.element_type = 'post_product'
-                        )
-                        AND t.element_type = 'post_product'
-                    ",
-                    $key2,
-                    $post_id
-                )
-            );
-            if ( $trans_id !== NULL ) {
+//             $trans_id = $wpdb->get_var( 
+//                 $wpdb->prepare( 
+//                     "SELECT t.element_id FROM rst_icl_translations as t
+//                     WHERE t.language_code = %s
+//                         AND t.trid = (
+//                             SELECT t2.trid FROM rst_icl_translations as t2 WHERE t2.element_id = %d AND t.element_type = 'post_product'
+//                         )
+//                         AND t.element_type = 'post_product'
+//                     ",
+//                     $key2,
+//                     $post_id
+//                 )
+//             );
+//             if ( $trans_id !== NULL ) {
 
-                if ( $gallery === 'instock' || ( strpos($gallery, ',') === false && !is_int( $gallery ) ) ) {
-                    $gallery = '';
-                }
-                if ( $thumb === 'no' || !is_int( $thumb ) ) {
-                    $thumb = '';
-                }
+//                 if ( $gallery === 'instock' || ( strpos($gallery, ',') === false && !is_int( $gallery ) ) ) {
+//                     $gallery = '';
+//                 }
+//                 if ( $thumb === 'no' || !is_int( $thumb ) ) {
+//                     $thumb = '';
+//                 }
                 
-                if( !$wpdb->update($wpdb->postmeta,array('meta_value' => $gallery),array( 'meta_key' => '_product_image_gallery','post_id'	=> $trans_id)) ){
-                    $wpdb->insert(
-                        $wpdb->postmeta,
-                        array(
-                            'meta_key' => 	'_product_image_gallery',
-                            'meta_value'=> 	$gallery,
-                            'post_id'	=> 	$trans_id
-                        )
-                    );
-                }
-                if( !$wpdb->update($wpdb->postmeta,array('meta_value' => $thumb),array( 'meta_key' => '_thumbnail_id','post_id'	=> $trans_id)) ){
-                    $wpdb->insert(
-                        $wpdb->postmeta,
-                        array(
-                            'meta_key' => 	'_thumbnail_id',
-                            'meta_value'=> 	$thumb,
-                            'post_id'	=> 	$trans_id
-                        )
-                    );
-                }
-            }
-        }
-    }
-}
+//                 if( !$wpdb->update($wpdb->postmeta,array('meta_value' => $gallery),array( 'meta_key' => '_product_image_gallery','post_id'	=> $trans_id)) ){
+//                     $wpdb->insert(
+//                         $wpdb->postmeta,
+//                         array(
+//                             'meta_key' => 	'_product_image_gallery',
+//                             'meta_value'=> 	$gallery,
+//                             'post_id'	=> 	$trans_id
+//                         )
+//                     );
+//                 }
+//                 if( !$wpdb->update($wpdb->postmeta,array('meta_value' => $thumb),array( 'meta_key' => '_thumbnail_id','post_id'	=> $trans_id)) ){
+//                     $wpdb->insert(
+//                         $wpdb->postmeta,
+//                         array(
+//                             'meta_key' => 	'_thumbnail_id',
+//                             'meta_value'=> 	$thumb,
+//                             'post_id'	=> 	$trans_id
+//                         )
+//                     );
+//                 }
+//             }
+//         }
+//     }
+// }
 
-add_action( 'wp_insert_post_data', 'ws_set_opposite_upsell', 5, 2 );
-function ws_set_opposite_upsell($data, $postarr) {
-    $post_id = $postarr['ID'];
-    // If this is just a revision, don't update.
-	if ( wp_is_post_revision( $post_id ) ) return;
+// add_action( 'wp_insert_post_data', 'ws_set_opposite_upsell', 5, 2 );
+// function ws_set_opposite_upsell($data, $postarr) {
+//     $post_id = $postarr['ID'];
+//     // If this is just a revision, don't update.
+// 	if ( wp_is_post_revision( $post_id ) ) return;
     
     
-    // If this isn't a 'product' post, don't update it.
-    $post_type = get_post_type($post_id);
-    if ( 'product' != $post_type ) return;
+//     // If this isn't a 'product' post, don't update it.
+//     $post_type = get_post_type($post_id);
+//     if ( 'product' != $post_type ) return;
     
-    $oldUpsells = get_post_meta( $post_id, '_upsell_ids', true);
-    if ( isset($postarr['upsell_ids']) ) {
+//     $oldUpsells = get_post_meta( $post_id, '_upsell_ids', true);
+//     if ( isset($postarr['upsell_ids']) ) {
 
-        $differencesToRemove = array_diff( $oldUpsells, $postarr['upsell_ids'] );
+//         $differencesToRemove = array_diff( $oldUpsells, $postarr['upsell_ids'] );
 
-        foreach ($differencesToRemove as $key => $id) {
-            $productUpsells = get_post_meta($id, '_upsell_ids', true);
-            if ( is_array( $productUpsells ) && ( count( $productUpsells ) > 0 && in_array( $post_id, $productUpsells ) ) ) {
-                if (($key = array_search($post_id, $productUpsells)) !== false) {
-                    unset($productUpsells[$key]);
-                }
-                update_post_meta( $id, '_upsell_ids', $productUpsells );
-            }
-        }
+//         foreach ($differencesToRemove as $key => $id) {
+//             $productUpsells = get_post_meta($id, '_upsell_ids', true);
+//             if ( is_array( $productUpsells ) && ( count( $productUpsells ) > 0 && in_array( $post_id, $productUpsells ) ) ) {
+//                 if (($key = array_search($post_id, $productUpsells)) !== false) {
+//                     unset($productUpsells[$key]);
+//                 }
+//                 update_post_meta( $id, '_upsell_ids', $productUpsells );
+//             }
+//         }
         
-        if ( count($postarr['upsell_ids']) > 0 ) {
-            $differencesToAdd = array_diff( $postarr['upsell_ids'], $oldUpsells );
-            foreach ( $differencesToAdd as $key => $upsell_id) {
-                $productUpsells = get_post_meta($upsell_id, '_upsell_ids', true);
-                if ( is_array( $productUpsells ) && ( ( count( $productUpsells ) > 0 && !in_array( $post_id, $productUpsells ) ) || count( $productUpsells ) == 0 ) ) {
-                    $productUpsells[] = $post_id;
-                    update_post_meta( $upsell_id, '_upsell_ids', $productUpsells );
-                }
-            }
-        }
-    } else {
-        foreach ($oldUpsells as $key => $id) {
-            $productUpsells = get_post_meta($id, '_upsell_ids', true);
-            if ( is_array( $productUpsells ) && ( count( $productUpsells ) > 0 && in_array( $post_id, $productUpsells ) ) ) {
-                if (($key = array_search($post_id, $productUpsells)) !== false) {
-                    unset($productUpsells[$key]);
-                }
-                update_post_meta( $id, '_upsell_ids', $productUpsells );
-            }
-        }
-    }
-    update_post_meta( $post_id, '_upsell_ids', $postarr['upsell_ids'] );
-}
+//         if ( count($postarr['upsell_ids']) > 0 ) {
+//             $differencesToAdd = array_diff( $postarr['upsell_ids'], $oldUpsells );
+//             foreach ( $differencesToAdd as $key => $upsell_id) {
+//                 $productUpsells = get_post_meta($upsell_id, '_upsell_ids', true);
+//                 if ( is_array( $productUpsells ) && ( ( count( $productUpsells ) > 0 && !in_array( $post_id, $productUpsells ) ) || count( $productUpsells ) == 0 ) ) {
+//                     $productUpsells[] = $post_id;
+//                     update_post_meta( $upsell_id, '_upsell_ids', $productUpsells );
+//                 }
+//             }
+//         }
+//     } else {
+//         foreach ($oldUpsells as $key => $id) {
+//             $productUpsells = get_post_meta($id, '_upsell_ids', true);
+//             if ( is_array( $productUpsells ) && ( count( $productUpsells ) > 0 && in_array( $post_id, $productUpsells ) ) ) {
+//                 if (($key = array_search($post_id, $productUpsells)) !== false) {
+//                     unset($productUpsells[$key]);
+//                 }
+//                 update_post_meta( $id, '_upsell_ids', $productUpsells );
+//             }
+//         }
+//     }
+//     update_post_meta( $post_id, '_upsell_ids', $postarr['upsell_ids'] );
+// }
 //Tootekategooriaid mitmekeelselt sünkroonides, ei seo WPML All import neid ära.
 // Siin fix.
 

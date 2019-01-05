@@ -1,9 +1,0 @@
-(function($) {
-
-    $(function() {
-
-        objectFitImages();
-
-    });
-
-})( jQuery );

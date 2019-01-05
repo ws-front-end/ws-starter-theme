@@ -1,0 +1,94 @@
+.site-header {
+    position: fixed;
+    top: 0;
+    width: 230px;
+    width: 13em;
+    z-index: 10;
+    bottom: 0;
+    left: 0;
+    background-color: #fff;
+    text-align: center;
+    padding: 3vh 0;
+
+    @media screen and (max-height:800px) {
+        padding: 2vh 0;
+    }
+    @media screen and (max-width: $bp_desktop-sm) {
+        width: 11em;
+    }
+    @media screen and (max-width: $bp_mobile) {
+        width: 100% !important;
+        bottom: auto;
+        right: 0;
+        height: 100px;
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        flex-wrap: nowrap;
+        align-items: center;
+        padding: 0 1em !important;
+        
+        -webkit-box-shadow: 0px 0px 12px 0px rgba(0,0,0,0.18);
+        -moz-box-shadow: 0px 0px 12px 0px rgba(0,0,0,0.18);
+        box-shadow: 0px 0px 12px 0px rgba(0,0,0,0.18);
+    }
+    @media screen and (max-width: $bp_mobile-sm) {
+        height: 60px;
+    }
+
+    &:before {
+        content: '';
+        display: block;
+        position: absolute;
+        top: 0;
+        left: 100%;
+        width: 40px;
+        bottom: 0;
+        height: 100%;
+        background-image: url('./assets/dist/img/muster-right.png');
+        background-position: top right;
+        background-repeat: repeat-y;
+        pointer-events: none;
+        z-index: 1;
+    }
+
+    &__logo {
+        max-width: 100%;
+
+        a {
+            display: inline-block;
+            max-width: 100%;
+        }
+
+        svg, img {
+            vertical-align: top;
+            height: 17vh;
+            max-height: 170px;
+            width: auto;
+            max-width: 100%;
+            
+            @media screen and (max-width: $bp_tablet) {
+                height: 60px;
+                max-height: none;
+            }
+            @media screen and (max-width: $bp_mobile-sm) {
+                height: 30px !important;
+                max-height: none;
+            }
+            
+            &.mobile-only {
+                display: none;
+                
+                @media screen and (max-width: $bp_tablet) {
+                    display: block;
+                }
+            }
+            @media screen and (max-width: $bp_tablet) {
+                &:not(.mobile-only) {
+                    display: none;
+                }
+            }
+
+        }
+    }
+}

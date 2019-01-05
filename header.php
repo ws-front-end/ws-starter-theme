@@ -11,9 +11,6 @@
 	<meta charset="<?php bloginfo( 'charset' ); ?>">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<link rel="profile" href="http://gmpg.org/xfn/11">
-
-    <link rel="shortcut icon" href="<?php echo get_stylesheet_directory_uri(); ?>/favicon.ico" />
-
 	<?php wp_head(); ?>
 </head>
 
@@ -36,6 +33,16 @@
 
 		<nav class="site-header__nav" id="js-main-menu-container">
 
+			<?php if( is_plugin_active('sitepress-multilingual-cms/sitepress.php') ):?>
+				<div class="site-header__lang">
+					<ul>
+						<?php foreach( icl_get_languages('skip_missing=0') as $key => $value ):?>
+							<a class="<?=$value['active']?'active':'';?>" href="<?=$value['url']?>"><?=$value['translated_name'];?></a>
+						<?php endforeach; ?>
+					</ul>
+				</div>
+			<?php endif;?>
+
 			<?php
 				wp_nav_menu( array(
 					'theme_location' => 'menu-1',
@@ -43,7 +50,7 @@
 					'menu_id'        => 'js-main-menu',
 				) );
 			?>
-            
+
 		</nav>
 
 	</header><!-- #masthead -->

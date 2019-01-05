@@ -1,5 +1,16 @@
 html {
-    font-size: 16px;
+    font-size: 14px;
+    
+    /* 14px @ 520px increasing to 20px @ 1920px */
+    @media (min-width: 520px) {
+        font-size: calc(0.875rem + ((1vw - 5.2px) * 0.4286));
+        /* Where: * 0.4286 = 100 * font_Size_Difference / viewport_Width_Difference */
+    }
+    /* Prevent font scaling beyond this breakpoint */
+    @media (min-width: 1920px) {
+        font-size: 20px;
+    }
+
 }
 
 body,
@@ -10,24 +21,43 @@ optgroup,
 textarea {
 	color: $color_text-main;
 	font-family: $font_body;
-	@include font-size(1);
+    font-size: 1em;
 	line-height: $font_line-height-body;
 }
 
 body {
+    font-weight: 400;
+}
+
+strong, b {
     font-weight: 500;
 }
 
+.page-content {
+    h1, h2, h3, h4, h5, h6 {
+	   font-family: $font_body;
+    }
+}
 h1, h2, h3, h4, h5, h6 {
-    font-family: $font_heading;
+	font-family: $font_body;
     line-height: 1.25;
     clear: both;
+    font-weight: normal;
 }
 
 h1, h2 {
-    font-size: 1.875rem;
+    font-size: 1.5em;
+    font-family: $font_heading;
+    
+    @media screen and (max-width:$bp_mobile) {
+        font-size: 1.3em;
+    }
 }
 
 h3, h4 {
-    font-size: 1.5rem;
+    font-size: 1.3em;
+    
+    @media screen and (max-width:$bp_mobile) {
+        font-size: 1.1em;
+    }
 }

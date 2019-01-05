@@ -1,0 +1,12 @@
+last 1 version
+> 0.2%
+ie >= 11
+ie_mob >= 10
+ff >= 45
+chrome >= 42
+safari >= 9
+opera >= 29
+ios >= 9
+android >= 4
+bb >= 10
+not dead

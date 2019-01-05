@@ -1,12 +1,13 @@
 a {
-	color: $color_link;
+	color: $color_primary;
 	text-decoration: none;
+    @include smooth-animation;
 
 	&:hover,
 	&:focus,
 	&:active {
-		color: $color_link-hover;
-		text-decoration: underline;
+		color: $color_secondary;
+		text-decoration: none;
 	}
 
 	&:focus {
@@ -17,4 +18,19 @@ a {
 	&:active {
 		outline: 0;
 	}
+    
+    &.archive-link {
+        color: $color_primary;
+        text-transform: uppercase;
+        font-weight: 500;
+        font-size: 0.7em;
+        
+        &:hover,
+        &:focus,
+        &:active {
+            color: $color_secondary;
+            text-decoration: none;
+        }
+
+    }
 }

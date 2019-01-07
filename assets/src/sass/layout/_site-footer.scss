@@ -1,0 +1,94 @@
+.site-footer {
+    width: 230px;
+    width: 13em;
+    z-index: 10;
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    text-align: center;
+    padding: 3vh 1em;
+    
+    @media screen and (max-width: $bp_desktop-sm) {
+        width: 11em;
+    }
+    @media screen and (max-width: $bp_tablet) {
+        width: 100%;
+        bottom: auto;
+        position: relative;
+        background-color: #fff;
+    }
+    
+    &__logos {
+        
+        ul {
+            display: block;
+            margin: 0;
+            padding: 0;
+            list-style: none;
+            
+            li {
+                display: block;
+                margin-bottom: 3vh;
+
+                @media screen and (max-height:800px) {
+                    margin-bottom: 2vh;
+                }
+        
+                svg,
+                img {
+                    max-width: 100px;
+                    max-height: 8vh;
+                    width: auto;
+                    height: auto;
+                    
+                    @media screen and (max-height:800px) {
+                        max-height: 5vh;
+                    }
+                }
+            }
+        }
+    }
+    
+    &__info {
+        font-size: 0.8em;
+        line-height: 1.4;
+        padding-bottom: 2vh;
+        
+        ul {
+            display: block;
+            margin: 0;
+            padding: 0;
+            list-style: none;
+            
+            li {
+                display: block;
+            }
+        }
+        
+        a {
+            color: $color_text-main;
+        }
+    }
+    
+    &__ws-logo {
+        display: inline-block;
+
+        img,
+        svg {
+            opacity: .5;
+            transform: rotate(0);
+            transition: opacity .5s, transform .5s;
+        }
+
+        &:hover,
+        &:focus,
+        &:active {
+
+            img,
+            svg {
+                opacity: 1;
+                transform: rotate(-360deg);
+            }
+        }
+    }
+}

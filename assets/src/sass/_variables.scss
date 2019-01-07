@@ -1,18 +1,25 @@
 // Breakpoints
 
-$bp_mobile: 480px;
-$bp_tablet: 720px;
-$bp_desktop-sm: 960px;
-$bp_desktop-md: 1260px;
+$bp_mobile-sm: 520px;
+$bp_mobile: 767px;
+$bp_tablet: 992px;
+$bp_desktop-sm: 1200px;
+$bp_desktop-md: 1366px;
 $bp_desktop-lg: 1540px;
+$bp_desktop-xl: 1620px;
 
-$bp_menu: $bp_desktop-sm;
-$bp_content: $bp_desktop-md;
+$bp_menu: (nth($bp_mobile, 1) + 1px);
+$bp_content: (nth($bp_tablet, 1) + 1px);
 
 // Colors
 
-$color_primary: blue;
-$color_secondary: red;
+$color_primary: #00aeef;
+$color_secondary: #f42028;
+
+$color_lightbrown: #faf7f3;
+$color_lightblue: #ebf4fa;
+
+$color_border: #f1f1f1;
 
 $color_bg-body: #fff;
 $color_bg-screen: #f1f1f1;
@@ -31,11 +38,11 @@ $color_link-hover: $color_link;
 
 // Typography
 
-$font_heading: serif;
-$font_body: sans-serif;
+$font_heading:  'Aino', 'Avenir Next LT Pro', sans-serif;
+$font_body:  'Avenir Next LT Pro', sans-serif;
 
-$font_code: Monaco, Consolas, "Andale Mono", "DejaVu Sans Mono", monospace;
-$font_pre: "Courier 10 Pitch", Courier, monospace;
+$font_code:  'Avenir Next LT Pro', sans-serif;
+$font_pre:  'Avenir Next LT Pro', sans-serif;
 
 $font_line-height-body: 1.5;
 $font_line-height-pre: 1.6;

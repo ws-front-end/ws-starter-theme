@@ -33,7 +33,7 @@
 
 		<nav class="site-header__nav" id="js-main-menu-container">
 
-			<?php if( is_plugin_active('sitepress-multilingual-cms/sitepress.php') ):?>
+			<?php if( function_exists('icl_get_languages') ):?>
 				<div class="site-header__lang">
 					<ul>
 						<?php foreach( icl_get_languages('skip_missing=0') as $key => $value ):?>

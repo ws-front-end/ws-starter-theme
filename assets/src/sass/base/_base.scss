@@ -1,0 +1,17 @@
+// -----------------------------------------------------------------------------
+// This file contains very basic styles.
+// -----------------------------------------------------------------------------
+
+html {
+  box-sizing: border-box;
+  font-size: 0.625rem;
+
+  @media (max-width: 1919px) {
+    font-size: calc(0.625rem - 0.1vw);
+  }
+}
+
+.max-width {
+  max-width: $max-width;
+  margin: 0 auto;
+}

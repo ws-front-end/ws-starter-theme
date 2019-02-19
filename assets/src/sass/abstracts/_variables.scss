@@ -1,0 +1,37 @@
+// -----------------------------------------------------------------------------
+// This file contains all application-wide Sass variables.
+// -----------------------------------------------------------------------------
+
+/// Breakpoints map
+$breakpoints: (
+  "small": 700px,
+  "medium": 1000px,
+  "medium-larger": 1200px,
+  "larger": 1920px
+) !default;
+
+/// Container's maximum width
+$max-width: 1920px !default;
+
+/// Regular font family
+$font-body: "Roboto", sans-serif !default;
+
+$font-heading: "Roboto", sans-serif !default;
+
+/// Main colors
+$color-brand: rgb(229, 0, 80) !default;
+
+/// Text colors
+$color-text: rgb(34, 34, 34) !default;
+
+/// Page background color
+$color-bg: rgb(255, 255, 255) !default;
+
+/// Link color
+$color-link: rgb(22, 107, 219) !default;
+$color-link-visited: $color-link !default;
+$color-link-hover: $color-link !default;
+
+/// More colors
+/// Light grey
+$light-grey: rgb(237, 237, 237) !default;

@@ -1,45 +1,24 @@
+// -----------------------------------------------------------------------------
+// This file contains all @font-face declarations, if any.
+// -----------------------------------------------------------------------------
+
 @font-face {
-    font-family: 'Avenir Next LT Pro';
-    src: url('./assets/dist/fonts/AvenirNextLTPro-Bold.eot');
-    src: url('./assets/dist/fonts/AvenirNextLTPro-Bold.eot?#iefix') format('embedded-opentype'),
-        url('./assets/dist/fonts/AvenirNextLTPro-Bold.woff2') format('woff2'),
-        url('./assets/dist/fonts/AvenirNextLTPro-Bold.woff') format('woff'),
-        url('./assets/dist/fonts/AvenirNextLTPro-Bold.ttf') format('truetype'),
-        url('./assets/dist/fonts/AvenirNextLTPro-Bold.svg#AvenirNextLTPro-Bold') format('svg');
-    font-weight: bold;
-    font-style: normal;
+  font-family: "Roboto";
+  @import url("https://fonts.googleapis.com/css?family=Roboto:300");
+  font-weight: normal;
+  font-style: normal;
 }
 
 @font-face {
-    font-family: 'Avenir Next LT Pro';
-    src: url('./assets/dist/fonts/AvenirNextLTPro-Demi.eot');
-    src: url('./assets/dist/fonts/AvenirNextLTPro-Demi.eot?#iefix') format('embedded-opentype'),
-        url('./assets/dist/fonts/AvenirNextLTPro-Demi.woff2') format('woff2'),
-        url('./assets/dist/fonts/AvenirNextLTPro-Demi.woff') format('woff'),
-        url('./assets/dist/fonts/AvenirNextLTPro-Demi.ttf') format('truetype'),
-        url('./assets/dist/fonts/AvenirNextLTPro-Demi.svg#AvenirNextLTPro-Demi') format('svg');
-    font-weight: 500;
-    font-style: normal;
+  font-family: "Roboto";
+  @import url("https://fonts.googleapis.com/css?family=Roboto:100");
+  font-weight: lighter;
+  font-style: normal;
 }
 
 @font-face {
-    font-family: 'Avenir Next LT Pro';
-    src: url('./assets/dist/fonts/AvenirNextLTPro-Regular.eot');
-    src: url('./assets/dist/fonts/AvenirNextLTPro-Regular.eot?#iefix') format('embedded-opentype'),
-        url('./assets/dist/fonts/AvenirNextLTPro-Regular.woff2') format('woff2'),
-        url('./assets/dist/fonts/AvenirNextLTPro-Regular.woff') format('woff'),
-        url('./assets/dist/fonts/AvenirNextLTPro-Regular.ttf') format('truetype'),
-        url('./assets/dist/fonts/AvenirNextLTPro-Regular.svg#AvenirNextLTPro-Regular') format('svg');
-    font-weight: normal;
-    font-style: normal;
-}
-
-@font-face {
-    font-family: 'Aino';
-    src: url('./assets/dist/fonts/Aino-Headline.otf');
-    src: url('./assets/dist/fonts/Aino-Headline.otf?#iefix') format('embedded-opentype'),
-        url('./assets/dist/fonts/Aino-Headline.woff2') format('woff2'),
-        url('./assets/dist/fonts/Aino-Headline.woff') format('woff');
-    font-weight: normal;
-    font-style: normal;
+  font-family: "Roboto";
+  @import url("https://fonts.googleapis.com/css?family=Roboto:500");
+  font-weight: bolder;
+  font-style: normal;
 }

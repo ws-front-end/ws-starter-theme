@@ -1,54 +1,46 @@
+@charset 'UTF-8';
+
 /*!
-Theme Name: WS Starter Theme gulp+webpack+othershit
+Theme Name: WS Starter Theme gulp+webpack
 Description:
 Author: Web Systems OÜ
 Author URI: https://www.websystems.ee/
-Version: 1.1
+Version: 2.1
 Text Domain: ws-starter-theme
 */
 
-// Variables
-@import "variables";
+// 1. Configuration and helpers
+@import
+  'abstracts/variables',
+  'abstracts/functions',
+  'abstracts/mixins',
+  'abstracts/animations';
 
-// Functions
-@import "functions";
+// 2. Vendors
+// @import
+  // 'vendors/fancybox',
+  // 'vendors/slick';
 
-// Mixins
-@import "mixins";
+// 3. Base stuff
+@import
+  'base/reset',
+  'base/base',
+  'base/fonts',
+  'base/typography';
 
-// Normalize
-@import "normalize";
+// 4. Layout-related sections
+@import
+  'layout/navigation',
+  'layout/grid',
+  'layout/header',
+  'layout/footer',
+  'layout/sidebar',
+  'layout/forms';
 
-// Base
-@import "base/buttons";
-@import "base/copy";
-@import "base/elements";
-@import "base/fields";
-@import "base/links";
-@import "base/lists";
-@import "base/tables";
-@import "base/fonts";
-@import "base/typography";
+// 5. Components
+// @import
 
-// Animations
-@import "animations";
-
-// Utilities
-@import "utilities";
-
-// Layout
-@import "layout/general";
-@import "layout/site-header";
-@import "layout/site-footer";
-@import "layout/site-sidebar";
-
-// Components
-@import "components/menu-toggle";
-
-// Vendor
-@import "vendor/hamburgers/hamburgers";
-@import "vendor/fancybox";
-// @import "vendor/slick";
-// @import "vendor/bootstrap/bootstrap";
-// @import "vendor/bootstrap/bootstrap-grid";
-// @import "vendor/bootstrap/bootstrap-reboot";
+// 6. Page-specific styles
+@import
+  'pages/home',
+  'pages/content';

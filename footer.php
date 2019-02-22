@@ -5,8 +5,7 @@
  */
 
 ?>
-
-	</div><!-- #content -->
+</main>
 
 	<footer id="colophon" class="site-footer">
 

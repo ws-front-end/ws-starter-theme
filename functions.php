@@ -1,11 +1,8 @@
 <?php
 define('WS_TEXT_DOMAIN', 'default');
-// require_once('includes/ws-automatic-theme-functions.php');
 
-// require_once( 'includes/acf-functions.php' );
-require_once( 'includes/woocommerce-functions.php' );
-
-// require_once( 'includes/custom-functions.php' );
+require_once('includes/ws-automatic-theme-functions.php');
+require_once('includes/woocommerce-functions.php');
 
 
 if ( ! function_exists( 'ws_starter_theme_setup' ) ) :
@@ -55,7 +52,7 @@ if ( ! function_exists( 'ws_starter_theme_setup' ) ) :
 
 		register_nav_menus( array(
 		 'primary-menu' => esc_html__( 'Primary', 'ws-starter-theme' ),
-		 'sub-menu' => esc_html__( 'Sub', 'ws-starter-theme' ),
+		//  'sub-menu' => esc_html__( 'Sub', 'ws-starter-theme' ),
 		) );
 
 		// Switch default core markup for search form, comment form, and comments

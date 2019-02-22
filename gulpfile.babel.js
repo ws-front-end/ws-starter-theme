@@ -113,10 +113,6 @@ const jsTask = () => {
 				module: {
 					rules: [
 						{
-							test: /\.loader\.js$/,
-							use: [ 'script-loader' ]
-						},
-						{
 							test: /\.js?$/,
 							use: {
 								loader: 'babel-loader',

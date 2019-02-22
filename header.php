@@ -45,7 +45,7 @@
 
 			<?php
 				wp_nav_menu( array(
-					'theme_location' => 'menu-1',
+					'theme_location' => 'primary-menu',
 					'menu_class'     => 'site-header__main-menu',
 					'menu_id'        => 'js-main-menu',
 				) );
@@ -54,5 +54,6 @@
 		</nav>
 
 	</header><!-- #masthead -->
+<main id="content" class="site-content">
 
-	<div id="content" class="site-content">
+

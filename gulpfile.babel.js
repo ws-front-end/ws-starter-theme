@@ -113,6 +113,10 @@ const jsTask = () => {
 				module: {
 					rules: [
 						{
+							test: /\.loader\.js$/,
+							use: [ 'script-loader' ]
+						},
+						{
 							test: /\.js?$/,
 							use: {
 								loader: 'babel-loader',
@@ -121,6 +125,10 @@ const jsTask = () => {
 									babelrc: true,
 								},
 							},
+						},
+						{
+							test: /\.css$/,
+							use: ['style-loader', 'css-loader'],
 						},
 					],
 				},

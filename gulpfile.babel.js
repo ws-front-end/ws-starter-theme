@@ -141,7 +141,8 @@ const jsTask = () => {
 				},
 			})
 		)
-		.pipe(gulp.dest(js.build));
+		.pipe(gulp.dest(js.build))
+		.pipe(browserSyncServer.reload({ stream: true }));
 };
 
 const build = gulp.series(imagesTask, gulp.parallel(cssTask, jsTask));

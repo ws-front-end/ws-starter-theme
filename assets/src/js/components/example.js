@@ -1,5 +1,8 @@
+/* eslint import/no-unresolved: [2, {ignore: ["jquery"]}] */
+import $ from 'jquery'
 import { postData } from './helpers'
 
+console.log($('#page'))
 class Main {
   constructor() {
     this.eventListeners()

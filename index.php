@@ -20,5 +20,6 @@ else :
 
 endif;
 
-// get_sidebar();
+// get_sidebar('main-sidebar');
+
 get_footer();

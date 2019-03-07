@@ -4,7 +4,7 @@
  * @link https://codex.wordpress.org/Template_Hierarchy
  */
 
-get_header(); 
+get_header();
 
 if ( have_posts() ) :
 
@@ -18,7 +18,8 @@ if ( have_posts() ) :
 
 else :
 
-endif; 
+endif;
 
-// get_sidebar();
+// get_sidebar('main-sidebar');
+
 get_footer();

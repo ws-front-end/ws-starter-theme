@@ -5,7 +5,8 @@
 	"main": "gulpfile.babel.js",
 	"private": true,
 	"scripts": {
-		"test": "echo \"Error: no test specified\" && exit 1"
+		"start": "cross-env NODE_ENV=development gulp",
+		"build": "cross-env NODE_ENV=production gulp build"
 	},
 	"author": "Web Systems OÜ",
 	"devDependencies": {
@@ -20,9 +21,17 @@
 		"babel-minify-webpack-plugin": "^0.3.1",
 		"babel-register": "^6.26.0",
 		"browser-sync": "^2.26.3",
+		"cross-env": "^5.2.0",
 		"css-loader": "^2.1.0",
 		"css-mqpacker": "^7.0.0",
 		"cssnano": "^4.1.7",
+		"eslint": "^5.14.1",
+		"eslint-config-airbnb": "^17.1.0",
+		"eslint-config-prettier": "^4.1.0",
+		"eslint-plugin-import": "^2.14.0",
+		"eslint-plugin-jsx-a11y": "^6.2.1",
+		"eslint-plugin-prettier": "^3.0.1",
+		"eslint-plugin-react": "^7.12.4",
 		"gulp": "^4.0.0",
 		"gulp-cli": "^2.0.1",
 		"gulp-imagemin": "^5.0.3",
@@ -33,8 +42,12 @@
 		"gulp-sass": "^4.0.2",
 		"gulp-sourcemaps": "^2.6.4",
 		"postcss-assets": "^5.0.0",
+		"prettier": "^1.16.4",
 		"style-loader": "^0.23.1",
+		"uglifyjs-webpack-plugin": "^2.1.2",
 		"webpack-stream": "^5.2.1"
 	},
-	"dependencies": {}
+	"dependencies": {
+		"qs": "^6.6.0"
+	}
 }

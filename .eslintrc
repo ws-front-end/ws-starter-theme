@@ -1,26 +1,18 @@
 {
-  "parser": "babel-eslint",
   "env": {
-    "node": true,
-    "es6": true
+    "browser": true,
+    "jquery": true
   },
-  "plugins": [
-    "prettier"
-  ],
+  "globals": {
+    "php_object": "readonly"
+  },
+  "extends": ["airbnb", "prettier"],
+  "plugins": ["prettier"],
   "rules": {
-    "prettier/prettier": [
-      2,
-      {
-        "trailingComma": "es5",
-        "singleQuote": true,
-        "printWidth": 80,
-        "semi": false,
-        "parser": "flow",
-        "jsxBracketSameLine": true
-      }
-    ],
     "no-unused-vars": 2,
-    "no-console": 2,
-    "no-restricted-syntax": 2
+    "no-console": 0,
+    "func-names": ["error", "never"],
+    "no-new": 0,
+    "class-methods-use-this": 0
   }
 }

@@ -45,7 +45,7 @@
 
 			<?php
 				wp_nav_menu( array(
-					'theme_location' => 'primary-menu',
+					'theme_location' => 'header-menu',
 					'menu_class'     => 'site-header__main-menu',
 					'menu_id'        => 'js-main-menu',
 				) );

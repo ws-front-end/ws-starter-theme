@@ -3,12 +3,15 @@
 // -----------------------------------------------------------------------------
 
 /// Breakpoints map
-$breakpoints: (
-  "small": 700px,
-  "medium": 1000px,
-  "medium-larger": 1200px,
-  "larger": 1920px
-) !default;
+$small: 700px !default;
+// $small-larger kasutada ainult koos $orientation-landscape
+$small-larger: 900px !default;
+$medium: 1000px !default;
+$medium-larger: 1200px !default;
+$larger: 1920px !default;
+
+/// Orientations
+$orientation-landscape: landscape !default;
 
 /// Container's maximum width
 $max-width: 1920px !default;
@@ -18,14 +21,14 @@ $font-body: "Roboto", sans-serif !default;
 
 $font-heading: "Roboto", sans-serif !default;
 
-/// Main colors
+/// Brand colors
 $color-brand: rgb(229, 0, 80) !default;
-
-/// Text colors
-$color-text: rgb(34, 34, 34) !default;
 
 /// Page background color
 $color-bg: rgb(255, 255, 255) !default;
+
+/// Text colors
+$color-text: rgb(34, 34, 34) !default;
 
 /// Link color
 $color-link: rgb(22, 107, 219) !default;
@@ -33,5 +36,6 @@ $color-link-visited: $color-link !default;
 $color-link-hover: $color-link !default;
 
 /// More colors
+
 /// Light grey
 $light-grey: rgb(237, 237, 237) !default;

@@ -16,3 +16,6 @@ RewriteCond %{REQUEST_FILENAME} !-f
 RewriteRule ^wp-content/uploads/(.*)$ https://www.russkoeradio.fm/wp-content/uploads/$1 [NC,L]
 </IfModule>
 ```
+```
+mysql -u username -h hostname --ssl-mode=DISABLED --password=password databaseName < "D:\path\to\file\location.sql"
+```

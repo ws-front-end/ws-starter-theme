@@ -10,37 +10,33 @@ Text Domain: ws-starter-theme
 */
 
 // 1. Configuration and helpers
-@import
-  'abstracts/variables',
-  'abstracts/functions',
-  'abstracts/mixins',
-  'abstracts/animations';
+@import 'abstracts/variables';
+@import 'abstracts/functions';
+@import 'abstracts/mixins';
+@import 'abstracts/animations';
 
 // 2. Vendors
 // @import
-  // 'vendors/fancybox',
-  // 'vendors/slick';
+// 'vendors/fancybox',
+// 'vendors/slick';
 
 // 3. Base stuff
-@import
-  'base/reset',
-  'base/base',
-  'base/fonts',
-  'base/typography';
+@import 'base/reset';
+@import 'base/base';
+@import 'base/fonts';
+@import 'base/typography';
 
 // 4. Layout-related sections
-@import
-  'layout/navigation',
-  'layout/grid',
-  'layout/header',
-  'layout/footer',
-  'layout/sidebar',
-  'layout/forms';
+@import 'layout/navigation';
+@import 'layout/grid';
+@import 'layout/header';
+@import 'layout/footer';
+@import 'layout/sidebar';
+@import 'layout/forms';
 
 // 5. Components
 // @import
 
 // 6. Page-specific styles
-@import
-  'pages/home',
-  'pages/content';
+@import 'pages/home';
+@import 'pages/content';

@@ -4,6 +4,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 }
 define('WS_TEXT_DOMAIN', 'starter-theme');
 
+require_once('includes/WS_Acf_Controller.php');
 require_once('includes/ws-relative-url-maker.php');
 require_once('includes/woocommerce-functions.php');
 require_once('includes/wp-ajax-functions.php');
@@ -17,6 +18,7 @@ class ThemeSetup {
 		$this->add_actions();
 		$this->add_filters();
 
+		new WS_Acf_Controller();
 		new WS_Relative_Url_Maker();
 		new WS_Admin_Post_Functions();
 		new WS_Ajax_Functions();

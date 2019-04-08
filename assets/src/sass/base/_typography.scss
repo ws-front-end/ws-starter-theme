@@ -1,6 +1,6 @@
 /**
  * Basic typography style for copy text
- */
+*/
 body {
   color: $color-text;
   font-weight: 300;
@@ -49,4 +49,8 @@ p, span {
 a, button {
   font-size: 2rem;
   color: $color-link;
+}
+
+a:hover {
+  text-decoration: underline;
 }

@@ -6,30 +6,16 @@
     //cookiebar text color and mobile size
     p {
         color: $color-text;
-        
-        @media screen and (max-width: $small) {
-            line-height: 3rem;
-            font-size: 1.6rem;
-        }
     }
 }
 
 //cookiebar accept button
 .ws-cookiebar-accept-cookies {
     background-color: $color-link;
-
-    @media screen and (max-width: $small) {
-        font-size: 1.6rem;
-    }
 }
 
 //cookiebar policy link color and boldness
 .ws-cookiebar-content p a {
     color: $color-text;
     font-weight: 400;
-
-    //cokiebar policy mobile size
-    @media screen and (max-width: $small) {
-        font-size: 1.6rem;
-    }
 }

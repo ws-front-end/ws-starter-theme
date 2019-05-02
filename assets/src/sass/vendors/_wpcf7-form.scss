@@ -1,0 +1,170 @@
+// Input fields
+// Select field
+// Checkbox
+// Submit button
+// Alerts
+
+.wpcf7 {
+    .wpcf7-form {
+        // Input Fields
+        .wpcf7-form-control-wrap {
+            input[type='text'],
+            input[type='email'],
+            input[type='url'],
+            input[type='password'],
+            input[type='search'],
+            input[type='number'],
+            input[type='tel'],
+            input[type='range'],
+            input[type='date'],
+            input[type='month'],
+            input[type='week'],
+            input[type='time'],
+            input[type='datetime'],
+            input[type='datetime-local'],
+            input[type='color'],
+            textarea {
+                background-color: transparent;
+                border: none;
+                padding: 0.5rem;
+                margin: auto;
+                width: 100%;
+                color: $color-link;
+                border-bottom: 0.1rem solid $light-grey;
+
+                &:hover,
+                &:active,
+                &:focus {
+                    border: 0.1rem solid $light-grey;
+                }
+            }
+
+            textarea {
+                resize: vertical;
+            }
+        }
+
+        // Select field
+        .custom-select {
+            position: relative;
+
+            &:after {
+                pointer-events: none;
+                content: '⌝';
+                transform: rotate(135deg);
+                display: inline-block;
+                font-size: 1.6rem;
+                font-weight: 400;
+                position: absolute;
+                top: 0;
+                right: 0;
+            }
+
+            select {
+                width: 100%;
+                color: $color-link;
+                border-bottom: 0.1rem solid $light-grey;
+                padding: 1.5rem 0;
+                font-weight: 500;
+                font-size: 2rem;
+                padding-right: 3rem;
+                -webkit-user-select: none;
+                -moz-user-select: -moz-none;
+                -ms-user-select: none;
+                user-select: none;
+                -webkit-appearance: none;
+                -moz-appearance: radio-container;
+                appearance: none;
+            }
+        }
+
+        // Checkbox
+        input[type='checkbox'] {
+            appearance: none;
+            border: 0.1rem solid $color-brand;
+            height: 2rem;
+            width: 2rem;
+            cursor: pointer;
+            padding: 0;
+            position: relative;
+
+            &::after {
+                content: '';
+                position: absolute;
+                display: none;
+            }
+
+            &:checked:after {
+                display: block;
+                left: 0;
+                top: -0.4rem;
+                right: 0;
+                bottom: 0;
+                margin: auto;
+                width: 0.8rem;
+                height: 1.2rem;
+                border: solid $color-brand;
+                border-width: 0 0.2rem 0.2rem 0;
+                transform: rotate(45deg);
+            }
+        }
+
+        // Submit button
+        .wpcf7-submit {
+            border: 0.1rem solid $color-brand;
+            padding: 3rem 6rem;
+            transition: all 0.2s ease-in-out;
+
+            &:hover {
+                transform: scale(1.1);
+            }
+        }
+
+        // Alerts
+        div.wpcf7-response-output {
+            position: fixed;
+            top: 0;
+            right: 0;
+            margin: 0;
+            transform: translateX(100%);
+            color: $white;
+            padding: 1rem 3rem;
+            max-width: 50vw;
+
+            @media screen and (max-width: $small) {
+                max-width: 80vw;
+            }
+        }
+
+        div.wpcf7-validation-errors,
+        div.wpcf7-mail-sent-ok {
+            animation: alertSlide 6s 1;
+        }
+
+        div.wpcf7-validation-errors {
+            background-color: #a93331;
+        }
+
+        div.wpcf7-mail-sent-ok {
+            background-color: #009f19;
+        }
+
+        @keyframes alertSlide {
+            0% {
+                transform: translateX(100%);
+            }
+
+            20% {
+                transform: translateX(0);
+            }
+
+            80% {
+                transform: translateX(0);
+            }
+
+            100% {
+                transform: translateX(100%);
+            }
+        }
+    }
+}

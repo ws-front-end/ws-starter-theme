@@ -1,0 +1,40 @@
+article.page,
+article.post {
+    h1,
+    h2,
+    h3,
+    h4,
+    h5,
+    h6 {
+        margin: 6rem 0 3rem 0;
+    }
+
+    p {
+        margin: 1rem 0;
+    }
+
+    img {
+        width: 100%;
+        height: auto;
+    }
+
+    blockquote {
+        padding-left: 5rem;
+        border-left: 1.5rem solid $color-brand;
+    }
+
+    ul,
+    ol {
+        list-style: disc;
+        margin-top: 1rem;
+
+        li {
+            margin-left: 3rem;
+        }
+    }
+
+    .wp-block-cover,
+    .wp-block-cover-image {
+        margin: 1rem 0;
+    }
+}

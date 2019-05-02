@@ -16,15 +16,14 @@ Text Domain: ws-starter-theme
 @import 'abstracts/animations';
 
 // 2. Vendors
-// @import
-// 'vendors/fancybox',
-// 'vendors/slick';
+// @import 'vendors/wpcf7-form';
 
 // 3. Base stuff
 @import 'base/reset';
 @import 'base/base';
 @import 'base/fonts';
 @import 'base/typography';
+@import 'base/cookiebar';
 
 // 4. Layout-related sections
 @import 'layout/navigation';
@@ -33,9 +32,9 @@ Text Domain: ws-starter-theme
 @import 'layout/footer';
 @import 'layout/sidebar';
 @import 'layout/forms';
+@import 'layout/admin-content';
 
 // 5. Components
-@import 'components/cookiebar';
 
 // 6. Page-specific styles
 @import 'pages/home';

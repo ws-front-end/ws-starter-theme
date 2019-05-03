@@ -33,15 +33,20 @@
 
 		<nav class="site-header__nav" id="js-main-menu-container">
 
-			<?php if( function_exists('icl_get_languages') ):?>
-				<div class="site-header__lang">
-					<ul>
-						<?php foreach( icl_get_languages('skip_missing=0') as $key => $value ):?>
-							<a class="<?=$value['active']?'active':'';?>" href="<?=$value['url']?>"><?=$value['translated_name'];?></a>
-						<?php endforeach; ?>
-					</ul>
-				</div>
-			<?php endif;?>
+			<div class="lang-container">
+				<?php
+					$languages = apply_filters('wpml_active_languages', NULL, 'orderby=id&order=desc');
+					$current_language = apply_filters( 'wpml_current_language', NULL );
+				?>
+                		<button id="lang-dropdown"><?php echo $languages[$current_language]['translated_name']; ?><span><img src="<?php bloginfo('template_url'); ?>/assets/dist/img/svg/arrow_down_bold_black.svg" alt="<?php _e('Select language'); ?>"></span></button>
+                		<div class="site-header__lang-other">
+					<?php foreach($languages as $language_code => $language): ?>
+						<?php if($language_code === $current_language) continue; ?>
+
+                        			<a href="<?php echo $language['url']; ?>"><?php echo $language['translated_name']; ?></a>
+					<?php endforeach; ?>
+                		</div>
+			</div>
 
 			<?php
 				wp_nav_menu( array(

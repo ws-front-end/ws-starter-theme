@@ -38,6 +38,7 @@ class ThemeSetup {
 		add_action( 'wp_enqueue_scripts', [$this, 'ws_theme_enqueue_scripts_and_styles']);
 		add_action( 'the_generator', '__return_empty_string' );
 		add_action( 'widgets_init', [$this, 'theme_widgets_sidebar_register'] );
+		add_filter( 'ws_get_url_from_acf_image_array', [ $this, 'ws_get_url_from_acf_image_array' ], 10, 3 );
 	}
 	private function remove_filters() {
 		// remove_filter('filter_name', 'function_name', 'priority);
@@ -126,6 +127,30 @@ class ThemeSetup {
 		if ( is_singular() && pings_open() ) {
 			echo '<link rel="pingback" href="', esc_url( get_bloginfo( 'pingback_url' ) ), '">';
 		}
+	}
+	
+	/** Get any field from ACF image array. Also able to get certain size only if image URL is asked for.
+	 *
+	 * @param array  $image_array Image array from ACF image field.
+	 * @param string $field Name of the field required from the image array.
+	 * @param string $size Image size slug.
+	 *
+	 * @return bool|mixed Returns false if field or image size not found. Otherwise returns the requested value.
+	 */
+	public function ws_get_url_from_acf_image_array( $image_array = [], $field = 'url', $size = 'medium' ) {
+		if ( ! is_array( $image_array ) || empty( $image_array ) ) {
+			return false;
+		}
+		if ( 'url' === $field || 'sizes' === $field ) {
+			if ( isset( $image_array['sizes'][ $size ] ) ) {
+				return $image_array['sizes'][ $size ];
+			}
+		} else {
+			if ( isset( $image_array[ $field ] ) ) {
+				return $image_array[ $field ];
+			}
+		}
+		return false;
 	}
 
 	public function theme_widgets_sidebar_register() {

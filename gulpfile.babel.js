@@ -17,6 +17,7 @@ const UglifyJsPlugin = require('uglifyjs-webpack-plugin')
 const browsersync = require('browser-sync')
 const autoprefixer = require('autoprefixer')
 const cssMqpacker = require('css-mqpacker')
+const sortCSSmq = require('sort-css-media-queries')
 const cssnano = require('cssnano')
 
 /**
@@ -64,7 +65,9 @@ let css = {
       baseUrl: `/wp-content/themes/${projectName}/`,
     }),
     autoprefixer,
-    cssMqpacker,
+    cssMqpacker({
+		  sort: sortCSSmq.desktopFirst
+	  }),
   ],
 }
 if (process.env.NODE_ENV === 'production') {

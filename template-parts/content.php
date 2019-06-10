@@ -1,6 +1,7 @@
 <?php
 /**
  * Template part for displaying posts
+ *
  * @link https://codex.wordpress.org/Template_Hierarchy
  */
 
@@ -15,16 +16,17 @@
 		the_title( '<h2 class="entry-title"><a href="' . esc_url( get_permalink() ) . '" rel="bookmark">', '</a></h2>' );
 	endif;
 	?>
-
-	<div class="entry-content">
+<div class="entry-content">
 		<?php
-			the_content();
+		the_content();
 
-			wp_link_pages( array(
-				'before' => '<div class="page-links">' . esc_html__( 'Pages:', 'ws-starter-theme' ),
+		wp_link_pages(
+			[
+				'before' => '<div class="page-links">' . esc_html__( 'Pages:' ),
 				'after'  => '</div>',
-			) );
+			]
+		);
 		?>
-	</div><!-- .entry-content -->
-    
+</div><!-- .entry-content -->
+
 </article><!-- #post-<?php the_ID(); ?> -->

@@ -1,9 +1,14 @@
 <?php
-// Front page template
+/**
+ * The template for the front page.
+ *
+ * @link https://developer.wordpress.org/themes/basics/template-files/#template-partials
+ */
+
 get_header();?>
 
+<!-- Stuff goes in here. -->
 
-    <!-- Stuff goes in here. -->
 <?php
 // get_sidebar('main-sidebar');
 

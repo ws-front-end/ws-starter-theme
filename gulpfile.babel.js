@@ -66,8 +66,8 @@ let css = {
     }),
     autoprefixer,
     cssMqpacker({
-		  sort: sortCSSmq.desktopFirst
-	  }),
+		sort: sortCSSmq.desktopFirst
+	}),
   ],
 }
 if (process.env.NODE_ENV === 'production') {

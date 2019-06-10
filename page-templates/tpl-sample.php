@@ -1,12 +1,14 @@
 <?php
-// Template Name: Sample template
+/**
+ * Template Name: Sample template
+ */
 
 get_header(); ?>
 
 <?php while ( have_posts() ) : the_post(); ?>
 
-    <!-- Write HTML here -->
-	
+<!-- Write HTML here -->
+
 <?php endwhile; ?>
 
 <?php

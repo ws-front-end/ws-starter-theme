@@ -13,7 +13,7 @@ const postcss = require('gulp-postcss')
 const postcssAssets = require('postcss-assets')
 const path = require('path')
 const webpack = require('webpack-stream')
-const UglifyJsPlugin = require('uglifyjs-webpack-plugin')
+const UglifyJsPlugin = require('terser-webpack-plugin')
 const browsersync = require('browser-sync')
 const autoprefixer = require('autoprefixer')
 const cssMqpacker = require('css-mqpacker')
@@ -130,7 +130,7 @@ if (process.env.NODE_ENV === 'production') {
       optimization: {
         minimizer: [
           new UglifyJsPlugin({
-            uglifyOptions: {
+            terserOptions: {
               parallel: true,
               output: {
                 comments: false,

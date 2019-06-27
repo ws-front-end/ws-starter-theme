@@ -12,8 +12,6 @@ class WS_Woocommerce_Functions {
 	public function __construct() {
 		$this->add_actions();
 		$this->remove_actions();
-		
-		$this->add_filters();
 	}
 	/**
 	 * Add action hooks.

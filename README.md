@@ -5,7 +5,7 @@ RewriteEngine On
 RewriteBase /
 RewriteCond %{REQUEST_FILENAME} !-f
 RewriteCond %{HTTP_HOST} ^sitename\.test$
-RewriteRule ^wp-content/uploads/(.*)$ https://wsys.ee/sitename/wp-content/uploads/$1 [NC,L]
+RewriteRule ^wp-content/uploads/(.*)$ https://arendus.wsys.ee/sitename/wp-content/uploads/$1 [NC,L]
 </IfModule>
 ```
 ```

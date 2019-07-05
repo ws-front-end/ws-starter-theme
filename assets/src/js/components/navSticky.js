@@ -1,37 +1,20 @@
 class NavSticky {
-  constructor(observable, options = {}) {
-    const observerOptions = {
-      ...{
-        root: null,
-        rootMargin: '0px',
-        threshold: [0.25, 0.75],
-      },
-      ...options,
-    }
+  constructor(header) {
+    this.header = header
+    this.sticky = header.offsetTop
 
-    const thresholdSets = []
-    for (let i = 0; i <= 1.0; i += 0.01) {
-      thresholdSets.push(i.toFixed(2))
-    }
-    observerOptions.threshold = thresholdSets
-    this.observer = new IntersectionObserver((entries, observer) => {
-      this.observerCallback(entries, observer)
-    }, observerOptions)
-    observable.classList.add('sticky')
-    this.observer.observe(observable)
+    window.addEventListener('scroll', () => {
+      this.stickyHeader()
+    })
+    this.stickyHeader()
   }
 
-  observerCallback(entries, observer) {
-    entries.forEach(entry => {
-      if (entry.isIntersecting) {
-        const elem = entry.target
-        if (entry.intersectionRatio >= 0.5) {
-          elem.classList.remove('sticky')
-        } else if (entry.intersectionRatio < 0.5) {
-          elem.classList.add('sticky')
-        }
-      }
-    })
+  stickyHeader() {
+    if (window.pageYOffset > this.sticky) {
+      this.header.classList.add('sticky')
+    } else {
+      this.header.classList.remove('sticky')
+    }
   }
 }
 document.querySelectorAll('header').forEach(el => {

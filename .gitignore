@@ -6,3 +6,5 @@ package-lock.json
 
 **/.history
 \.vscode/
+
+/vendor/

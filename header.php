@@ -36,28 +36,26 @@
             </button>
 
             <nav class="site-header__nav" id="js-main-menu-container">
-
-                <div class="site-header__nav__lang-container">
+                <?php if (class_exists('SitePress')):?>
+                <div class="lang-container">
                     <?php
-						$languages = apply_filters('wpml_active_languages', NULL, 'orderby=id&order=desc');
-						$current_language = apply_filters( 'wpml_current_language', NULL );
-					?>
+					$languages = apply_filters('wpml_active_languages', NULL, 'orderby=id&order=desc');
+					$current_language = apply_filters( 'wpml_current_language', NULL );
+                    ?>
 
-                    <button id="lang-dropdown"><?php echo $languages[$current_language]['translated_name']; ?>
-                        <span>
-                            <img src="<?php bloginfo('template_url'); ?>/assets/dist/img/svg/arrow_down_bold_black.svg"
-                                alt="<?php _e('Select language'); ?>">
-                        </span>
-                    </button>
+                    <button id="lang-dropdown"><?php echo $languages[$current_language]['translated_name']; ?><span><img
+                                src="<?php echo esc_url( get_template_directory_uri() ); ?>/assets/dist/img/svg/arrow_down_bold_black.svg"
+                                alt="<?php _e('Select language'); ?>"></span></button>
 
-                    <div class="site-header__nav__lang-container__other">
+                    <div class="site-header__lang-other">
                         <?php foreach($languages as $language_code => $language): ?>
                         <?php if($language_code === $current_language) continue; ?>
-
-                        <a href="<?php echo $language['url']; ?>"><?php echo $language['translated_name']; ?></a>
+                        <a
+                            href="<?php echo esc_url( $language['url'] ); ?>"><?php echo $language['translated_name']; ?></a>
                         <?php endforeach; ?>
                     </div>
                 </div>
+                <?php endif;?>
 
                 <?php
 				wp_nav_menu( array(
@@ -66,7 +64,6 @@
 					'menu_id'        => 'js-main-menu',
 				) );
 				?>
-
             </nav>
 
         </header><!-- #masthead -->

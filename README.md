@@ -5,15 +5,15 @@ RewriteEngine On
 RewriteBase /
 RewriteCond %{REQUEST_FILENAME} !-f
 RewriteCond %{HTTP_HOST} ^sitename\.test$
-RewriteRule ^wp-content/uploads/(.*)$ https://wsys.ee/sitename/wp-content/uploads/$1 [NC,L]
+RewriteRule ^wp-content/uploads/(.*)$ https://arendus.wsys.ee/sitename/wp-content/uploads/$1 [NC,L]
 </IfModule>
 ```
 ```
 <IfModule mod_rewrite.c>
 RewriteEngine On
-RewriteBase /russkoeradio/
+RewriteBase /sitename/
 RewriteCond %{REQUEST_FILENAME} !-f
-RewriteRule ^wp-content/uploads/(.*)$ https://www.russkoeradio.fm/wp-content/uploads/$1 [NC,L]
+RewriteRule ^wp-content/uploads/(.*)$ https://www.sitename.ee/wp-content/uploads/$1 [NC,L]
 </IfModule>
 ```
 ```

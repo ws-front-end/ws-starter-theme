@@ -1,0 +1,17 @@
+{
+    "name": "websystems/ws-starter-theme",
+    "description": "Web Systems O\u0000 Wordpress starter theme",
+    "type": "project",
+	"config": { 
+		"vendor-dir": "includes/vendor/" 
+	}, 
+    "require": {
+        "mustache/mustache": "^2.12",
+        "tecnickcom/tcpdf": "^6.2"
+    },
+    "require-dev": {
+        "sebastian/phpcpd": "^4.1",
+		"squizlabs/php_codesniffer": "3.*",
+		"phpmd/phpmd" : "@stable"
+    }
+}

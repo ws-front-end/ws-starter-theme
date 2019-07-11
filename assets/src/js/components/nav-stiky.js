@@ -1,14 +1,22 @@
-window.onscroll = function() {
-    stickyHeader();
-  };
-  
-  let header = document.getElementById("header");
-  let sticky = header.offsetTop;
-  
-  function stickyHeader() {
-    if (window.pageYOffset > sticky) {
-      header.classList.add("sticky");
+class NavSticky {
+  constructor(header) {
+    this.header = header
+    this.sticky = header.offsetTop
+
+    window.addEventListener('scroll', () => {
+      this.stickyHeader()
+    })
+    this.stickyHeader()
+  }
+
+  stickyHeader() {
+    if (window.pageYOffset > this.sticky) {
+      this.header.classList.add('sticky')
     } else {
-      header.classList.remove("sticky");
+      this.header.classList.remove('sticky')
     }
   }
+}
+document.querySelectorAll('header').forEach(el => {
+  new NavSticky(el)
+})

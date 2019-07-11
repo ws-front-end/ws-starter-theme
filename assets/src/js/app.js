@@ -4,5 +4,3 @@
 
 // Require scripts
 // import './components/example'
-import './components/navigation'
-import './components/custom'

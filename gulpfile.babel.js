@@ -66,8 +66,8 @@ let css = {
     }),
     autoprefixer,
     cssMqpacker({
-		  sort: sortCSSmq.desktopFirst
-	  }),
+      sort: sortCSSmq.desktopFirst,
+    }),
   ],
 }
 if (process.env.NODE_ENV === 'production') {
@@ -110,6 +110,13 @@ let webPackConfig = {
       {
         test: /\.css$/,
         use: ['style-loader', 'css-loader'],
+      },
+      {
+        test: /\.(png|jpe?g|gif|svg|eot|ttf|woff|woff2)$/,
+        loader: 'url-loader',
+        options: {
+          limit: 8192,
+        },
       },
     ],
   },

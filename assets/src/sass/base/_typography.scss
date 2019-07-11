@@ -5,12 +5,8 @@ body {
     color: $color-text;
     font-weight: 300;
     font-family: $font-body;
-    line-height: 1.8;
+    line-height: 1;
     font-size: 2rem;
-
-    @media screen and (max-width: $small) {
-        font-size: calc(2rem - 1vw);
-    }
 }
 
 strong,
@@ -26,54 +22,31 @@ h5,
 h6 {
     font-family: $font-heading;
     font-weight: 500;
+    line-height: 1;
 }
 
 h1 {
     font-size: 5.5rem;
-
-    @media screen and (max-width: $small) {
-        font-size: calc(5.5rem - 5vw);
-    }
 }
 
 h2 {
     font-size: 5rem;
-
-    @media screen and (max-width: $small) {
-        font-size: calc(5rem - 4.5vw);
-    }
 }
 
 h3 {
     font-size: 4rem;
-
-    @media screen and (max-width: $small) {
-        font-size: calc(4rem - 4vw);
-    }
 }
 
 h4 {
     font-size: 3.5rem;
-
-    @media screen and (max-width: $small) {
-        font-size: calc(3.5rem - 3.5vw);
-    }
 }
 
 h5 {
     font-size: 3rem;
-
-    @media screen and (max-width: $small) {
-        font-size: calc(3rem - 3vw);
-    }
 }
 
 h6 {
     font-size: 2.5rem;
-
-    @media screen and (max-width: $small) {
-        font-size: calc(2.5rem - 2.5vw);
-    }
 }
 
 p,
@@ -81,21 +54,15 @@ span,
 input,
 input::placeholder,
 textarea {
-    font-size: 2rem;
-
-    @media screen and (max-width: $small) {
-        font-size: calc(2rem - 1vw);
-    }
+    font-size: 1.8rem;
+    line-height: 1;
 }
 
 a,
 button {
-    font-size: 2rem;
+    font-size: 1.8rem;
+    line-height: 1;
     color: $color-link;
-
-    @media screen and (max-width: $small) {
-        font-size: calc(2rem - 1vw);
-    }
 }
 
 a:hover {

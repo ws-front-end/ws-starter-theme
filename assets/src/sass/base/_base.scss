@@ -3,15 +3,37 @@
 // -----------------------------------------------------------------------------
 
 html {
-  box-sizing: border-box;
-  font-size: 0.625rem;
+    box-sizing: border-box;
+    font-size: 0.625rem;
 
-  @media (max-width: 1919px) {
-    font-size: calc(0.625rem - 0.1vw);
-  }
+    @media screen and (min-width: $small) and (max-width: 1919px) {
+        font-size: calc(0.3rem + 0.28vw);
+    }
+
+    @media screen and (max-width: $small) {
+        font-size: calc(0.3rem + 1vw);
+    }
 }
 
-.max-width {
-  max-width: $max-width;
-  margin: 0 auto;
+.max--width {
+    max-width: $max-width;
+    margin: 0 auto;
+}
+
+.overflow--disable {
+    overflow: hidden;
+}
+
+.desktop--only {
+    @media screen and (max-width: $medium-larger) {
+        display: none;
+    }
+}
+
+.touch--only {
+    display: none;
+
+    @media screen and (max-width: $medium-larger) {
+        display: block;
+    }
 }

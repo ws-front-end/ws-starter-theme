@@ -1,0 +1,14 @@
+.site-footer {
+    &__ws-logo {
+        img {
+            height: 2rem;
+            opacity: 0.8;
+            transition: all 0.3s ease-in-out;
+
+            &:hover {
+                transform: rotate(360deg);
+                opacity: 1;
+            }
+        }
+    }
+}

@@ -39,6 +39,7 @@ class ThemeSetup {
 		add_action( 'wp_enqueue_scripts', [ $this, 'ws_theme_enqueue_scripts_and_styles' ] );
 		add_action( 'the_generator', '__return_empty_string' );
 		add_action( 'widgets_init', [$this, 'theme_widgets_sidebar_register'] );
+		add_action( 'wp_before_admin_bar_render', ['ThemeSetup', 'add_admin_bar_button'] ); 
 		add_filter( 'ws_get_url_from_acf_image_array', [ $this, 'ws_get_url_from_acf_image_array' ], 10, 3 );
 	}
 	/**
@@ -192,6 +193,9 @@ class ThemeSetup {
 				'after_title'   => '</h3>',
 			)
 		);
+	}
+	public static function add_admin_bar_button() {
+		get_template_part('template-parts/adminbar-button');
 	}
 }
 

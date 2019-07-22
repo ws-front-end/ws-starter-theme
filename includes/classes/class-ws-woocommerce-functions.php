@@ -12,14 +12,16 @@ class WS_Woocommerce_Functions {
 	public function __construct() {
 		$this->add_actions();
 		$this->remove_actions();
+		$this->add_filters();
+		$this->remove_filters();
 	}
 	/**
 	 * Add action hooks.
 	 */
 	private function add_actions() {
-		add_action( 'after_setup_theme', [ $this, 'ws_theme_add_woocommerce_support' ] );
-		
-		
+		add_action( 'after_setup_theme', [ 'WS_Woocommerce_Functions', 'ws_theme_add_woocommerce_support' ] );
+
+
 		add_action( 'woocommerce_checkout_process', [ 'WS_Woocommerce_Functions', 'not_approved_privacy' ] );
 		add_action( 'woocommerce_checkout_terms_and_conditions', [ 'WS_Woocommerce_functions', 'add_checkout_privacy_policy' ], 20 );
 	}
@@ -31,9 +33,22 @@ class WS_Woocommerce_Functions {
 		remove_action( 'woocommerce_checkout_terms_and_conditions', 'wc_checkout_privacy_policy_text', 20 );
 	}
 	/**
+	 * Add filter hooks.
+	 */
+	private function add_filters() {
+		add_filter( 'woocommerce_breadcrumb_defaults', [ 'WS_Woocommerce_Functions', 'change_breadcrumb_delimiter'] );
+		add_filter( 'woocommerce_enqueue_styles', '__return_empty_array' );
+	}
+	/**
+	 * Remove filter hooks.
+	 */
+	private function remove_filters() {
+		// remove_filter( 'woocommerce_checkout_order_review', 'woocommerce_order_review', 10 );
+	}
+	/**
 	 * Add Woocommerce support to current theme.
 	 */
-	public function ws_theme_add_woocommerce_support() {
+	public static function ws_theme_add_woocommerce_support() {
 		add_theme_support(
 			'woocommerce',
 			array(
@@ -54,23 +69,11 @@ class WS_Woocommerce_Functions {
 	 * Adds a privacy policy agreement checkbox to checkout.
 	 */
 	public static function add_checkout_privacy_policy() {
-	    
+
 	    $privacy_policy_url = get_permalink(  wc_privacy_policy_page_id() );
-	    
-	    $link_start = '<a href="' . esc_url( $privacy_policy_url ) . '">';
-	    $link_end   = '</a>';
-		
-		woocommerce_form_field( 'privacy_policy', array(
-			'type'          => 'checkbox',
-			'class'         => array('form-row privacy'),
-			'label_class'   => array('woocommerce-form__label woocommerce-form__label-for-checkbox checkbox'),
-			'input_class'   => array('woocommerce-form__input woocommerce-form__input-checkbox input-checkbox'),
-			'required'      => true,
-			'label'         => sprintf( __('I\'ve read and accept the %s privacy policy %s'), $link_start, $link_end ),
-		));
-		
+		echo '<label for="privacy_policy"><input type="checkbox" name="privacy_policy" id="privacy_policy"/>'.sprintf('<p>Olen tutvunud ning aktsepteerin %sprivaatsuspoliitika%s', '<a href="' . esc_url( $privacy_policy_url ) . '" target="_blank">', '</a></p>').'</label>';
+
 	}
-	
 	/**
 	 * Validates the privacy policy agreement checkbox.
 	 */
@@ -78,5 +81,14 @@ class WS_Woocommerce_Functions {
 		if ( ! (int) isset( $_POST['privacy_policy'] ) ) {
 			wc_add_notice( __( 'Please acknowledge the privacy policy' ), 'error' );
 		}
+	}
+	/**
+	 * Change the breadcrumb separator
+	 */
+	public static function change_breadcrumb_delimiter( $defaults ) {
+		// Change the breadcrumb delimeter from '/' to '>'
+		$defaults['home'] = get_the_title( get_option('page_on_front') );
+		$defaults['delimiter'] = '<span>›</span>';
+		return $defaults;
 	}
 }

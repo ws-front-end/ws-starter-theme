@@ -197,6 +197,37 @@ class ThemeSetup {
 	public static function add_admin_bar_button() {
 		get_template_part('template-parts/adminbar-button');
 	}
+	/**
+	 * returns the themes options page id.
+	 * TODO: Check if template is in use
+	 * TODO: Get ID from specific template
+	 * TODO: Add options page to admin menu
+	 * TODO: Hide from pages list in admin
+	 * @return int
+	 */
+	public static function get_theme_options_page_id() {
+	    $options_page_id = 5844;
+	    return $options_page_id;
+	}
+	/**
+	 * Gets the theme option value for the page id or current page
+	 *
+	 * @param string $meta_key
+	 * @param integer $post_id
+	 * @return string|int|array
+	 */
+	public static function get_theme_option(string $meta_key, int $post_id = 0) {
+	    if (0 === $post_id) {
+		$post_id = get_the_id();
+	    }
+	    if (class_exists('SitePress')) {
+		$post_id = apply_filters( 'wpml_object_id', $post_id, 'page');
+	    }
+	    if ($meta_value = get_field($meta_key, $post_id)) {
+		return $meta_value;
+	    }
+	    return get_field($meta_key, self::get_theme_options_page_id());
+	}
 }
 
 new ThemeSetup();

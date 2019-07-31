@@ -49,8 +49,8 @@ const images = {
   build: `${dir.build}assets/dist/img/`,
 }
 let css = {
-  src: `${dir.src}assets/src/sass/main.scss`,
-  watch: `${dir.src}assets/src/sass/**/*`,
+  src: `${dir.src}assets/src/scss/main.scss`,
+  watch: `${dir.src}assets/src/scss/**/*`,
   build: dir.build,
   sassOpts: {
     outputStyle: 'compressed',

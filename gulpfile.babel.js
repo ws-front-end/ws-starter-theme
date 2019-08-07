@@ -5,6 +5,7 @@
 const gulp = require('gulp')
 const newer = require('gulp-newer')
 const plumber = require('gulp-plumber')
+const notifier = require('node-notifier')
 const imagemin = require('gulp-imagemin')
 const rename = require('gulp-rename')
 const sass = require('gulp-sass')
@@ -27,6 +28,7 @@ const projectUrlName = 'starter'
 // const projectUrl = `http://localhost/${projectUrlName}`
 const projectUrl = `${projectUrlName}.test`
 const projectName = path.basename(__dirname)
+const enableNotify = true
 const dir = {
   src: './',
   build: './',
@@ -156,19 +158,22 @@ const browserSyncServer = browsersync.create()
 const imagesTask = () => {
   return gulp
     .src(images.src)
-    .pipe(plumber())
+    .pipe(plumber({ errorHandle: onError }))
     .pipe(newer(images.build))
     .pipe(imagemin())
     .pipe(gulp.dest(images.build))
 }
 const cssTask = () => {
-  let $retVal = gulp.src(css.src).pipe(plumber())
+  let $retVal = gulp.src(css.src).pipe(plumber({ errorHandle: onError }))
 
   if (process.env.NODE_ENV !== 'production') {
     $retVal = $retVal.pipe(sourcemaps.init())
   }
   $retVal = $retVal
-    .pipe(sass(css.sassOpts))
+    .pipe(sass(css.sassOpts).on('error',function(err) {
+		console.log(err.toString());
+		return onError();
+	}))
     .pipe(postcss(css.processors))
     .pipe(
       rename({
@@ -179,16 +184,26 @@ const cssTask = () => {
     $retVal = $retVal.pipe(sourcemaps.write())
   }
   $retVal = $retVal.pipe(gulp.dest(css.build)).pipe(browserSyncServer.stream())
+  
   return $retVal
 }
 
 const jsTask = () => {
   return gulp
     .src(js.src)
-    .pipe(plumber())
+    .pipe(plumber({ errorHandle: onError }))
     .pipe(webpack(webPackConfig))
     .pipe(gulp.dest(js.build))
     .pipe(browserSyncServer.reload({ stream: true }))
+}
+
+const onError = () => {
+	if ( enableNotify ) {
+		notifier.notify({
+			title: 'Gulp Task Error',
+			message: 'Check the console.'
+		})
+	}
 }
 
 const development = gulp.series(imagesTask, gulp.parallel(cssTask, jsTask))

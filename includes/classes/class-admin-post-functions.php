@@ -35,8 +35,9 @@ class WS_Admin_Post_Functions {
 			die( 'Failed security check' );
 		}
 
-		if ( isset( $_REQUEST['variable'] ) && ! empty( $_REQUEST['variable'] ) ) {
-			wp_send_json_success( $_REQUEST );
+		$some_variable = filter_input( INPUT_POST, 'some_variable_name', FILTER_VALIDATE_INT );
+		if ( ! $some_variable ) {
+			wp_send_json_success( 'POST value doesn\'t exist or isn\'t an integer.' );
 		}
 		wp_send_json_error( 'No variable set.' );
 	}

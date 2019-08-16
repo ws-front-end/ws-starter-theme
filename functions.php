@@ -218,13 +218,13 @@ class ThemeSetup {
 	 */
 	public static function get_theme_option(string $meta_key, int $post_id = 0) {
 	    if (0 === $post_id) {
-		$post_id = get_the_id();
+			$post_id = get_the_id();
 	    }
 	    if (class_exists('SitePress')) {
-		$post_id = apply_filters( 'wpml_object_id', $post_id, 'page');
+			$post_id = apply_filters( 'wpml_object_id', $post_id, 'page');
 	    }
 	    if ($meta_value = get_field($meta_key, $post_id)) {
-		return $meta_value;
+			return $meta_value;
 	    }
 	    return get_field($meta_key, self::get_theme_options_page_id());
 	}

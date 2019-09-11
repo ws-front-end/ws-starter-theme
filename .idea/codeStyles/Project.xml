@@ -5,8 +5,8 @@
       <option name="HTML_ALIGN_ATTRIBUTES" value="false" />
     </HTMLCodeStyleSettings>
     <PHPCodeStyleSettings>
-      <option name="INDENT_CODE_IN_PHP_TAGS" value="true" />
       <option name="ALIGN_KEY_VALUE_PAIRS" value="true" />
+      <option name="ALIGN_PHPDOC_PARAM_NAMES" value="true" />
       <option name="ALIGN_ASSIGNMENTS" value="true" />
       <option name="PHPDOC_BLANK_LINES_AROUND_PARAMETERS" value="true" />
       <option name="LOWER_CASE_BOOLEAN_CONST" value="true" />

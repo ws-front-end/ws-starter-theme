@@ -23,12 +23,11 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/functions.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="714">
-              <caret line="249" lean-forward="true" selection-start-line="249" selection-end-line="249" />
+            <state relative-caret-position="476">
+              <caret line="213" column="14" lean-forward="true" selection-start-line="213" selection-start-column="14" selection-end-line="213" selection-end-column="14" />
               <folding>
                 <element signature="e#5656#5698#0#PHP" />
                 <element signature="n#add_admin_bar_button#0;n#ThemeSetup#0;n#!!top" />
-                <element signature="n#get_theme_options_page_id#0;n#ThemeSetup#0;n#!!top" />
               </folding>
             </state>
           </provider>
@@ -62,7 +61,7 @@
   </component>
   <component name="PhpWorkspaceProjectConfiguration" interpreter_name="PHP" />
   <component name="ProjectFrameBounds" extendedState="6">
-    <option name="x" value="-8" />
+    <option name="x" value="1869" />
     <option name="y" value="-8" />
     <option name="width" value="1936" />
     <option name="height" value="1056" />
@@ -127,15 +126,15 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1568192317295</updated>
-      <workItem from="1568192318534" duration="472000" />
+      <workItem from="1568192318534" duration="2491000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="472000" />
+    <option name="totallyTimeSpent" value="2491000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="-8" y="-8" width="1936" height="1056" extended-state="6" />
+    <frame x="1912" y="-8" width="1936" height="1056" extended-state="6" />
     <editor active="true" />
     <layout>
       <window_info id="npm" side_tool="true" />
@@ -169,14 +168,16 @@
     <entry file="file://$PROJECT_DIR$/page-templates/ws-general-options-page-dummy-template.php">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
+    <entry file="file://$PROJECT_DIR$/../../../../signeseebid/wp-content/debug.log">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
     <entry file="file://$PROJECT_DIR$/functions.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="714">
-          <caret line="249" lean-forward="true" selection-start-line="249" selection-end-line="249" />
+        <state relative-caret-position="476">
+          <caret line="213" column="14" lean-forward="true" selection-start-line="213" selection-start-column="14" selection-end-line="213" selection-end-column="14" />
           <folding>
             <element signature="e#5656#5698#0#PHP" />
             <element signature="n#add_admin_bar_button#0;n#ThemeSetup#0;n#!!top" />
-            <element signature="n#get_theme_options_page_id#0;n#ThemeSetup#0;n#!!top" />
           </folding>
         </state>
       </provider>

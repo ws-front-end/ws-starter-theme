@@ -9,10 +9,10 @@ export const postData = (url = ``, data = {}) => {
     },
     body: qs.stringify(data, { arrayFormat: 'index' }),
   }).then(response => response.json()) // parses response to JSON
-}
+};
 
 /**
- * Adds an event listener that attaches to the document. 
+ * Adds an event listener that attaches to the document.
  *
  * @param eventType Type of event to listen to.
  * @param target Target element selector.
@@ -29,7 +29,7 @@ export const addGlobalEventListener = (eventType, target, callback) => {
 
 /**
  * Trigger an event on a selected HTML DOM element.
- * 
+ *
  * @param eventType Type of event to trigger on element.
  * @param targetEl Target element to trigger event on.
  */
@@ -37,6 +37,15 @@ export const triggerEvent = function(eventType, targetEl){
   const event = document.createEvent('HTMLEvents');
   event.initEvent(eventType, true, false);
   targetEl.dispatchEvent(event);
+};
+
+export const debounce = (callback, wait) => {
+  let timeout;
+  return (...args) => {
+    const context = this;
+    clearTimeout(timeout);
+    timeout = setTimeout(() => callback.apply(context, args), wait);
+  };
 };
 
 export default null

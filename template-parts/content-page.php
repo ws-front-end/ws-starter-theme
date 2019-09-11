@@ -8,11 +8,11 @@
 ?>
 
 <article id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
-    <div class="page-heading">
-        <h2><?php the_title(); ?></h2>
-    </div>
+	<div class="page-heading">
+		<h2><?php the_title(); ?></h2>
+	</div>
 
-    <div class="entry-content">
+	<div class="entry-content">
 		<?php
 		the_content();
 
@@ -23,6 +23,6 @@
 			]
 		);
 		?>
-    </div><!-- .entry-content -->
+	</div><!-- .entry-content -->
 
 </article><!-- #post-<?php the_ID(); ?> -->

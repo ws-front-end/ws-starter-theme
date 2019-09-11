@@ -7,8 +7,8 @@ class CF7Disabler {
   init() {
     setTimeout(() => {
       document.querySelectorAll('.wpcf7-form input[type="submit"]').forEach(function(el) {
-        el.removeAttribute('disabled')
-        const container = el.closest('.wpcf7')
+        el.removeAttribute('disabled');
+        const container = el.closest('.wpcf7');
         container.addEventListener(
           'wpcf7invalid',
           () => {
@@ -27,4 +27,4 @@ class CF7Disabler {
   }
 }
 
-new CF7Disabler()
+new CF7Disabler();

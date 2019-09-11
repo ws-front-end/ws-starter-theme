@@ -2,6 +2,7 @@
 if ( ! defined( 'ABSPATH' ) ) {
 	exit; // Exit if accessed directly.
 }
+
 /**
  * WS_Woocommerce_Functions class
  */
@@ -15,16 +16,23 @@ class WS_Woocommerce_Functions {
 		$this->add_filters();
 		$this->remove_filters();
 	}
+
 	/**
 	 * Add action hooks.
 	 */
 	private function add_actions() {
 		add_action( 'after_setup_theme', [ 'WS_Woocommerce_Functions', 'ws_theme_add_woocommerce_support' ] );
-
-
 		add_action( 'woocommerce_checkout_process', [ 'WS_Woocommerce_Functions', 'not_approved_privacy' ] );
-		add_action( 'woocommerce_checkout_terms_and_conditions', [ 'WS_Woocommerce_functions', 'add_checkout_privacy_policy' ], 20 );
+		add_action(
+			'woocommerce_checkout_terms_and_conditions',
+			[
+				'WS_Woocommerce_functions',
+				'add_checkout_privacy_policy',
+			],
+			20
+		);
 	}
+
 	/**
 	 * Remove already added action hooks.
 	 */
@@ -32,11 +40,12 @@ class WS_Woocommerce_Functions {
 		// Remove default privacy policy text from checkout to replace it with a checkbox.
 		remove_action( 'woocommerce_checkout_terms_and_conditions', 'wc_checkout_privacy_policy_text', 20 );
 	}
+
 	/**
 	 * Add filter hooks.
 	 */
 	private function add_filters() {
-		add_filter( 'woocommerce_breadcrumb_defaults', [ 'WS_Woocommerce_Functions', 'change_breadcrumb_delimiter'] );
+		add_filter( 'woocommerce_breadcrumb_defaults', [ 'WS_Woocommerce_Functions', 'change_breadcrumb_delimiter' ] );
 		add_filter( 'woocommerce_enqueue_styles', '__return_empty_array' );
 	}
 	/**
@@ -65,30 +74,43 @@ class WS_Woocommerce_Functions {
 			)
 		);
 	}
+
 	/**
 	 * Adds a privacy policy agreement checkbox to checkout.
 	 */
 	public static function add_checkout_privacy_policy() {
-
-	    $privacy_policy_url = get_permalink(  wc_privacy_policy_page_id() );
-		echo '<label for="privacy_policy"><input type="checkbox" name="privacy_policy" id="privacy_policy"/>'.sprintf('<p>Olen tutvunud ning aktsepteerin %sprivaatsuspoliitika%s', '<a href="' . esc_url( $privacy_policy_url ) . '" target="_blank">', '</a></p>').'</label>';
-
+		if ( function_exists( 'wc_privacy_policy_page_id' ) ) {
+			$privacy_policy_url = get_permalink( wc_privacy_policy_page_id() );
+			?><label for="privacy_policy">
+				<input type="checkbox" name="privacy_policy" id="privacy_policy" value="yes"/>
+				<p><?php echo sprintf( esc_html__( 'Olen tutvunud ning aktsepteerin %s privaatsuspoliitikat %s' ), '<a href="' . esc_url( $privacy_policy_url ) . '" target="_blank">', '</a>' ); ?></p>
+			</label>
+			<?php
+		}
 	}
+
 	/**
 	 * Validates the privacy policy agreement checkbox.
 	 */
 	public static function not_approved_privacy() {
-		if ( ! (int) isset( $_POST['privacy_policy'] ) ) {
-			wc_add_notice( __( 'Please acknowledge the privacy policy' ), 'error' );
+		if ( ! filter_input( INPUT_POST, 'privacy_policy', FILTER_VALIDATE_BOOLEAN ) ) {
+			if ( function_exists( 'wc_add_notice' ) ) {
+				wc_add_notice( __( 'Please acknowledge the privacy policy' ), 'error' );
+			}
 		}
 	}
+
 	/**
-	 * Change the breadcrumb separator
+	 * Change the breadcrumb separator.
+	 *
+	 * @param array $defaults Array of breadcrumbs options.
+	 *
+	 * @return mixed
 	 */
 	public static function change_breadcrumb_delimiter( $defaults ) {
-		// Change the breadcrumb delimeter from '/' to '>'
-		$defaults['home'] = get_the_title( get_option('page_on_front') );
+		$defaults['home']      = get_the_title( get_option( 'page_on_front' ) );
 		$defaults['delimiter'] = '<span>›</span>';
+
 		return $defaults;
 	}
 }

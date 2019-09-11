@@ -14,7 +14,7 @@ class ScrollTo {
 
   scrollView(e) {
     if (document.getElementById('scroll-here') !== null) {
-      e.preventDefault()
+      e.preventDefault();
 
       document.getElementById('scroll-here').scrollIntoView({
         behavior: 'smooth',
@@ -24,4 +24,4 @@ class ScrollTo {
   }
 }
 
-new ScrollTo()
+new ScrollTo();

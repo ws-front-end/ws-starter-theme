@@ -33,7 +33,7 @@ class WS_Ajax_Functions {
 		if ( ! check_ajax_referer( 'my_nonce' ) ) {
 			wp_die(); // Die because nonce verification has failed.
 		}
-		
+
 		$some_boolean_variable = filter_input( INPUT_GET, 'some_boolean_variable', FILTER_VALIDATE_BOOLEAN );
 		if ( $some_boolean_variable ) {
 			wp_send_json_success( 'Some boolean variable value is set and has value of 1, true, on or yes' );

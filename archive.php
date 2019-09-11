@@ -2,7 +2,7 @@
 /**
  * The template for displaying archive pages
  *
- * @link https://codex.wordpress.org/Template_Hierarchy
+ * @package ws-starter-theme
  */
 
 get_header();
@@ -18,10 +18,8 @@ if ( have_posts() ) :
 
 	the_posts_navigation();
 
-else:
-	echo _e( 'Nothing found.' );
+else :
+	esc_html_e( 'Nothing found.' );
 endif;
-
-// get_sidebar('main-sidebar');
 
 get_footer();

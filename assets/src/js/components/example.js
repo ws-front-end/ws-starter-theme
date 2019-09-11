@@ -2,10 +2,9 @@
 import $ from 'jquery'
 import { postData } from './helpers'
 
-console.log($('#page'))
 class Main {
   constructor() {
-    this.eventListeners()
+    this.eventListeners();
     this.fetchExample()
   }
 
@@ -21,7 +20,7 @@ class Main {
   }
 
   clickEvent(e) {
-    const $this = e.currentTarget
+    const $this = e.currentTarget;
     console.log($this)
   }
 
@@ -35,7 +34,7 @@ class Main {
         string: 'example',
         float: 2.22,
       },
-    }
+    };
     postData(php_object.ajax_url, inputData)
       // JSON-string from `response.json()` call
       .then(res => {
@@ -50,4 +49,4 @@ class Main {
       .catch(error => console.error(error))
   }
 }
-new Main()
+new Main();

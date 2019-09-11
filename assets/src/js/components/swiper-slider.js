@@ -2,7 +2,7 @@ import { Swiper, Lazy, Autoplay, Navigation } from 'swiper/dist/js/swiper.esm.js
 
 import 'swiper/dist/css/swiper.css'
 
-Swiper.use([Lazy, Autoplay, Navigation])
+Swiper.use([Lazy, Autoplay, Navigation]);
 
 new Swiper('.slider__container', {
   preloadImages: false,
@@ -19,4 +19,4 @@ new Swiper('.slider__container', {
     nextEl: '.swiper-button-next',
     prevEl: '.swiper-button-prev',
   },
-})
+});

@@ -14,4 +14,4 @@ class LangMenu {
   }
 }
 
-new LangMenu()
+new LangMenu();

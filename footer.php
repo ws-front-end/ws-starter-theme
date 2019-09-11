@@ -9,7 +9,7 @@
 </main>
 
 	<footer id="colophon" class="site-footer">
-        <a class="site-footer__ws-logo" href="http://www.websystems.ee" target="_blank" title="Web Systems OÜ">
+		<a class="site-footer__ws-logo" href="http://www.websystems.ee" target="_blank" title="Web Systems OÜ">
 			<img src="<?php echo esc_url( get_template_directory_uri() ); ?>/assets/dist/img/svg/ws-logo.svg" alt="Websystems Logo" />
 		</a>
 

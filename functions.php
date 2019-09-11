@@ -41,6 +41,9 @@ class ThemeSetup {
 		add_action( 'the_generator', '__return_empty_string' );
 		add_action( 'widgets_init', [ $this, 'theme_widgets_sidebar_register' ] );
 		add_action( 'wp_before_admin_bar_render', [ $this, 'add_admin_bar_button' ] );
+		add_action( 'admin_init', [ $this, 'add_site_options_menu_item' ] );
+		add_action( 'admin_init', [ $this, 'hide_content_editor_from_options_page' ] );
+		add_action( 'admin_menu', [ $this, 'hide_page_attributes_from_options_page' ] );
 	}
 
 	/**
@@ -193,15 +196,14 @@ class ThemeSetup {
 
 	/**
 	 * Returns the themes options page id.
-	 * TODO: Add options page to admin menu
-	 * TODO: Hide from pages list in admin
 	 *
 	 * @return int|WP_Error
 	 */
 	public static function get_theme_options_page_id() {
-		$ws_options_page_id = get_option( 'WS_OPTIONS_PAGE_ID', false );
+		$ws_options_page_id = wp_cache_get( 'WS_OPTIONS_PAGE_ID' );
 		if ( false === $ws_options_page_id ) {
 			$args  = [
+				'post_status'						=> ['publish', 'private'],
 				'post_type'                         => 'page',
 				'fields'                            => 'ids',
 				'nopaging'                          => true,
@@ -213,6 +215,7 @@ class ThemeSetup {
 			$pages = get_posts( $args );
 			if ( ! empty( $pages ) ) {
 				$ws_options_page_id = $pages[0];
+				wp_cache_set( 'WS_OPTIONS_PAGE_ID', $ws_options_page_id );
 
 				return apply_filters( 'wpml_object_id', $ws_options_page_id, 'page', true );
 			} else {
@@ -249,9 +252,58 @@ class ThemeSetup {
 	}
 
 	/**
+	 * Hides the content editor from the options page admin UI.
+	 */
+	public function hide_content_editor_from_options_page() {
+		$post_id = filter_input( INPUT_GET, 'post', FILTER_VALIDATE_INT );
+		if ( ! $post_id ) {
+			$post_id = filter_input( INPUT_POST, 'post', FILTER_VALIDATE_INT );
+		}
+		if ( ! $post_id ) {
+			return;
+		}
+
+		if ( self::get_theme_options_page_id() === $post_id ) {
+			remove_post_type_support( 'page', 'editor' );
+			remove_post_type_support( 'page', 'thumbnail' );
+		}
+	}
+	/**
+	 * Hides the page attributes from the options page admin UI.
+	 */
+	public function hide_page_attributes_from_options_page() {
+		$post_id = filter_input( INPUT_GET, 'post', FILTER_VALIDATE_INT );
+		if ( ! $post_id ) {
+			$post_id = filter_input( INPUT_POST, 'post', FILTER_VALIDATE_INT );
+		}
+		if ( ! $post_id ) {
+			return;
+		}
+
+		if ( self::get_theme_options_page_id() === $post_id ) {
+			remove_meta_box('pageparentdiv', 'page', 'normal');
+		}
+	}
+
+	/**
+	 * Adds the options page link to the admin menu.
+	 */
+	public function add_site_options_menu_item() {
+		add_menu_page(
+			'ws_site_options',
+			esc_html__( 'Site options' ),
+			'read',
+			'post.php?post=' . self::get_theme_options_page_id() . '&action=edit',
+			'',
+			'dashicons-admin-site',
+			12
+		);
+	}
+
+	/**
 	 * Gets the theme option value for the page id or current page
 	 *
-	 * @param string $meta_key Meta key of theme option that is fetched.
+	 * @param string  $meta_key Meta key of theme option that is fetched.
 	 * @param integer $post_id Post ID from which to get meta value from.
 	 *
 	 * @return string|int|array
@@ -280,7 +332,7 @@ class ThemeSetup {
 	 * Generate img tag with various attributes.
 	 *
 	 * @param int|bool $image_id Image ID to generate img tag of.
-	 * @param array $args Various arguments.
+	 * @param array    $args Various arguments.
 	 *
 	 * @return string
 	 */

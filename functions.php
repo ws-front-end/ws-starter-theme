@@ -41,7 +41,6 @@ class ThemeSetup {
 		add_action( 'the_generator', '__return_empty_string' );
 		add_action( 'widgets_init', [ $this, 'theme_widgets_sidebar_register' ] );
 		add_action( 'wp_before_admin_bar_render', [ $this, 'add_admin_bar_button' ] );
-		add_action( 'pre_get_posts', [ $this, 'hide_options_page' ], 99999 );
 	}
 
 	/**
@@ -81,6 +80,7 @@ class ThemeSetup {
 		add_filter( 'use_default_gallery_style', '__return_false' );
 		add_filter( 'emoji_svg_url', '__return_false' );
 		add_filter( 'show_recent_comments_widget_style', '__return_false' );
+		add_filter( 'parse_query', [ $this, 'hide_options_page' ] );
 	}
 
 	/**
@@ -229,12 +229,21 @@ class ThemeSetup {
 	 * @param WP_Query $query WordPress query instance.
 	 */
 	public function hide_options_page( $query ) {
-		if ( ! filter_var( $query->get( 'disable_for_options_page_id_query' ), FILTER_VALIDATE_BOOLEAN ) ) {
-			$options_page_id = self::get_theme_options_page_id();
-			if ( ! is_wp_error( $options_page_id ) && filter_var( $options_page_id, FILTER_VALIDATE_INT ) ) {
-				$excluded_posts   = $query->get( 'post__not_in' );
-				$excluded_posts[] = $options_page_id;
-				$query->set( 'post__not_in', $excluded_posts );
+		global $pagenow, $post_type;
+		if ( is_admin() && 'edit.php' === $pagenow && 'page' === $post_type ) {
+			if ( ! filter_var( $query->get( 'disable_for_options_page_id_query' ), FILTER_VALIDATE_BOOLEAN ) ) {
+				$options_page_id = self::get_theme_options_page_id();
+				if ( ! is_wp_error( $options_page_id ) && filter_var( $options_page_id, FILTER_VALIDATE_INT ) ) {
+					if ( 'ws-general-options-page-dummy-template.php' !== $query->query_vars['meta_value'] ) {
+						$post_not_in = $query->query_vars['post__not_in'];
+						if ( ! is_array( $post_not_in ) ) {
+							$post_not_in = [];
+						}
+						$post_not_in[] = $options_page_id;
+
+						$query->query_vars['post__not_in'] = $post_not_in;
+					}
+				}
 			}
 		}
 	}
@@ -242,7 +251,7 @@ class ThemeSetup {
 	/**
 	 * Gets the theme option value for the page id or current page
 	 *
-	 * @param string  $meta_key Meta key of theme option that is fetched.
+	 * @param string $meta_key Meta key of theme option that is fetched.
 	 * @param integer $post_id Post ID from which to get meta value from.
 	 *
 	 * @return string|int|array
@@ -271,7 +280,7 @@ class ThemeSetup {
 	 * Generate img tag with various attributes.
 	 *
 	 * @param int|bool $image_id Image ID to generate img tag of.
-	 * @param array    $args Various arguments.
+	 * @param array $args Various arguments.
 	 *
 	 * @return string
 	 */

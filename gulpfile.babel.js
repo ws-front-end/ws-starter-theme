@@ -2,31 +2,33 @@
  * Gulpfile.
  *
  */
-const gulp           = require( 'gulp' );
-const newer          = require( 'gulp-newer' );
-const plumber        = require( 'gulp-plumber' );
-const notifier       = require( 'node-notifier' );
-const imagemin       = require( 'gulp-imagemin' );
-const rename         = require( 'gulp-rename' );
-const sass           = require( 'gulp-sass' );
-const sourcemaps     = require( 'gulp-sourcemaps' );
-const postcss        = require( 'gulp-postcss' );
-const postcssAssets  = require( 'postcss-assets' );
-const path           = require( 'path' );
-const webpack        = require( 'webpack-stream' );
-const UglifyJsPlugin = require( 'terser-webpack-plugin' );
-const browsersync    = require( 'browser-sync' );
-const autoprefixer   = require( 'autoprefixer' );
-const cssMqpacker    = require( 'css-mqpacker' );
-const sortCSSmq      = require( 'sort-css-media-queries' );
-const cssnano        = require( 'cssnano' );
+const gulp           = require('gulp');
+const newer          = require('gulp-newer');
+const plumber        = require('gulp-plumber');
+const notifier       = require('node-notifier');
+const imagemin       = require('gulp-imagemin');
+const rename         = require('gulp-rename');
+const sass           = require('gulp-sass');
+const sourcemaps     = require('gulp-sourcemaps');
+const postcss        = require('gulp-postcss');
+const postcssAssets  = require('postcss-assets');
+const path           = require('path');
+const webpack        = require('webpack-stream');
+const UglifyJsPlugin = require('terser-webpack-plugin');
+const browsersync    = require('browser-sync');
+const autoprefixer   = require('autoprefixer');
+const cssMqpacker    = require('css-mqpacker');
+const sortCSSmq      = require('sort-css-media-queries');
+const cssnano        = require('cssnano');
+const shell          = require('gulp-shell');
+const replace        = require('gulp-replace');
 
 /**
  * Configuration.
  */
 const projectUrlName = 'starter';
 const projectUrl     = `${projectUrlName}.test`;
-const projectName    = path.basename( __dirname );
+const projectName    = path.basename(__dirname);
 const enableNotify   = true;
 const dir            = {
 	src: './',
@@ -70,13 +72,13 @@ let css = {
 				loadPaths: ['assets/dist/img/', 'assets/dist/img/svg'],
 				basePath: dir.build,
 				baseUrl: `/wp-content/themes/${projectName}/`,
-			}
+			},
 		),
 		autoprefixer,
 		cssMqpacker(
 			{
 				sort: sortCSSmq.desktopFirst,
-			}
+			},
 		),
 	],
 };
@@ -87,7 +89,7 @@ if (process.env.NODE_ENV === 'production') {
 		...{
 			processors: [...css.processors, cssnano],
 		},
-	}
+	};
 }
 
 const js = {
@@ -110,35 +112,35 @@ let webPackConfig = {
 	},
 	module: {
 		rules: [
-		{
-			test: /\.js?$/,
-			use: {
-				loader: 'babel-loader',
-				options: {
-					exclude: /node_modules/,
-					babelrc: true,
+			{
+				test: /\.js?$/,
+				use: {
+					loader: 'babel-loader',
+					options: {
+						exclude: /node_modules/,
+						babelrc: true,
+					},
 				},
 			},
-		},
-		{
-			test: /\.css$/,
-			use: ['style-loader', 'css-loader'],
-		},
-		{
-			test: /\.(png|jpe?g|gif|svg|eot|ttf|woff|woff2)$/,
-			loader: 'url-loader',
-			options: {
-				limit: 8192,
+			{
+				test: /\.css$/,
+				use: ['style-loader', 'css-loader'],
 			},
-		},
+			{
+				test: /\.(png|jpe?g|gif|svg|eot|ttf|woff|woff2)$/,
+				loader: 'url-loader',
+				options: {
+					limit: 8192,
+				},
+			},
 		],
 	},
 	resolve: {
-		modules: [ path.resolve( __dirname ), 'node_modules' ],
+		modules: [path.resolve(__dirname), 'node_modules'],
 	},
 	output: {
 		filename: js.filename.dev,
-		path: path.resolve( js.build ),
+		path: path.resolve(js.build),
 	},
 };
 
@@ -159,86 +161,97 @@ if (process.env.NODE_ENV === 'production') {
 								},
 								toplevel: true,
 							},
-						}
+						},
 					),
 				],
 			},
 		},
 	};
-	delete webPackConfig.devtool
+	delete webPackConfig.devtool;
 }
 const browserSyncServer = browsersync.create();
 
 const imagesTask = () => {
 	return gulp
-		.src( images.src )
-		.pipe( plumber( {errorHandle: onError} ) )
-		.pipe( newer( images.build ) )
-		.pipe( imagemin() )
-		.pipe( gulp.dest( images.build ) )
-}
+	.src(images.src)
+	.pipe(plumber({errorHandle: onError}))
+	.pipe(newer(images.build))
+	.pipe(imagemin())
+	.pipe(gulp.dest(images.build));
+};
 
 const cssTask = () => {
-	let $retVal = gulp.src( css.src ).pipe( plumber( {errorHandle: onError} ) );
+	let $retVal = gulp.src(css.src).pipe(plumber({errorHandle: onError}));
 
 	if (process.env.NODE_ENV !== 'production') {
-		$retVal = $retVal.pipe( sourcemaps.init() )
+		$retVal = $retVal.pipe(sourcemaps.init());
 	}
 	$retVal = $retVal
-		.pipe( sass( css.sassOpts ).on( 'error', function ( err ) {
-			console.log(err.toString());
-			return onError();
-		}))
-		.pipe(postcss(css.processors))
-		.pipe(
-			rename({
-				basename: 'style',
-			})
-		)
+	.pipe(sass(css.sassOpts).on('error', function (err) {
+		console.log(err.toString());
+		return onError();
+	}))
+	.pipe(postcss(css.processors))
+	.pipe(
+		rename({
+			basename: 'style',
+		}),
+	);
 	if (process.env.NODE_ENV !== 'production') {
-		$retVal = $retVal.pipe(sourcemaps.write())
+		$retVal = $retVal.pipe(sourcemaps.write());
 	}
-	$retVal = $retVal.pipe(gulp.dest(css.build)).pipe(browserSyncServer.stream())
 
-	return $retVal
-}
+	const packageData = require('./package.json');
+	$retVal = $retVal.pipe(replace('__WS_THEME_VERSION__', packageData.version));
 
-const jsTask = () => {
-	return gulp
-		.src(js.src)
-		.pipe(plumber({errorHandle: onError}))
-		.pipe(webpack(webPackConfig))
-		.pipe(gulp.dest(js.build))
-		.pipe(browserSyncServer.reload({stream: true}))
-}
+	$retVal = $retVal.pipe(gulp.dest(css.build)).pipe(browserSyncServer.stream());
+
+	return $retVal;
+};
 
 const onError = () => {
 	if (enableNotify) {
 		notifier.notify({
 			title: 'Gulp Task Error',
-			message: 'Check the console.'
-		})
+			message: 'Check the console.',
+		});
 	}
-}
+};
 
-const development = gulp.series(imagesTask, gulp.parallel(cssTask, jsTask))
-const build = gulp.series(imagesTask, gulp.parallel(cssTask, jsTask))
-const serve = done => {
-	browserSyncServer.init(browserSyncOptions)
-	done()
-}
-const reload = done => {
-	browserSyncServer.reload()
-	done()
-}
+const jsTask = () => {
+	return gulp
+	.src(js.src)
+	.pipe(plumber({errorHandle: onError}))
+	.pipe(webpack(webPackConfig))
+	.pipe(gulp.dest(js.build))
+	.pipe(browserSyncServer.reload({stream: true}));
+};
+
+const bumpVersion = () => {
+	return gulp
+	.src(js.src)
+	.pipe(shell(['npm version patch']));
+};
+
+
+const development     = gulp.series(imagesTask, gulp.parallel(cssTask, jsTask));
+const build           = gulp.series(imagesTask, bumpVersion, gulp.parallel(cssTask, jsTask));
+const serve           = done => {
+	browserSyncServer.init(browserSyncOptions);
+	done();
+};
+const reload          = done => {
+	browserSyncServer.reload();
+	done();
+};
 const watchEverything = () => {
-	gulp.watch(php.src, gulp.series(reload))
-	gulp.watch(images.src, gulp.series(imagesTask))
-	gulp.watch(css.watch, gulp.series(cssTask))
-	gulp.watch(js.watch, gulp.series(jsTask))
-}
-const defaultTask = gulp.parallel(development, gulp.series(serve, watchEverything))
+	gulp.watch(php.src, gulp.series(reload));
+	gulp.watch(images.src, gulp.series(imagesTask));
+	gulp.watch(css.watch, gulp.series(cssTask));
+	gulp.watch(js.watch, gulp.series(jsTask));
+};
+const defaultTask     = gulp.parallel(development, gulp.series(serve, watchEverything));
 
-export {imagesTask, cssTask, jsTask, watchEverything, build}
+export {imagesTask, cssTask, jsTask, watchEverything, build};
 
-export default defaultTask
+export default defaultTask;

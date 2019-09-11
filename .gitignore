@@ -7,4 +7,6 @@ package-lock.json
 **/.history
 \.vscode/
 
+/.idea/workspace.xml
+
 /vendor/

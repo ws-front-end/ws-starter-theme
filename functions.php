@@ -142,7 +142,7 @@ class ThemeSetup {
 	/** Enqueues theme stylesheet and Javascript files.
 	 */
 	public function ws_theme_enqueue_scripts_and_styles() {
-		$manifest      = json_decode( file_get_contents( get_template_directory_uri() . '/package.json', true ) );
+		$manifest      = json_decode( file_get_contents( get_template_directory() . '/package.json', true ) );
 		$asset_version = $manifest->version;
 
 		wp_enqueue_style( 'ws-main-stylesheet', get_stylesheet_uri(), [], $asset_version );

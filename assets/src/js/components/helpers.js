@@ -48,4 +48,64 @@ export const debounce = (callback, wait) => {
   };
 };
 
+export class WsLoader {
+  static generateLoaderHtml() {
+    if ( ! WsLoader.loaderHtml ) {
+      const outputHtml = document.createElement('div');
+      outputHtml.classList.add('loader-container');
+      outputHtml.style.display = 'flex';
+
+      const rollers = document.createElement('div');
+      rollers.classList.add('lds-roller');
+
+      for (let i = 0; i < 8; i += 1) {
+        rollers.appendChild(document.createElement('div'));
+      }
+
+      outputHtml.appendChild(rollers);
+      WsLoader.loaderHtml = outputHtml;
+    }
+
+    return WsLoader.loaderHtml.cloneNode(true);
+  }
+
+  static addLoader( targetElement, loaderId ) {
+    let customLoaderId = loaderId;
+    if ( typeof customLoaderId === 'undefined' || customLoaderId === null || ! customLoaderId ) {
+      customLoaderId = 'ws-default-loader-id';
+    }
+
+    let targetedElement = targetElement;
+    if ( typeof targetedElement === 'string' ) {
+      targetedElement = document.querySelector(targetedElement);
+      if ( ! targetedElement ) {
+        return;
+      }
+    }
+
+    if ( targetedElement.querySelector(`[data-loader_id=${  customLoaderId}]` ) ) {
+      return;
+    }
+
+    const loaderHtml = WsLoader.generateLoaderHtml();
+    loaderHtml.setAttribute( 'data-loader_id', customLoaderId );
+
+    targetedElement.insertAdjacentElement( 'afterbegin', loaderHtml );
+  }
+
+  static removeLoader( loaderId ) {
+    const targetLoader = document.querySelector( `[data-loader_id=${  loaderId  }]` );
+    if ( targetLoader ) {
+      targetLoader.remove();
+    }
+  }
+
+  static removeAllLoaders() {
+    document.querySelectorAll( 'loader-container' ).forEach( (el) => {
+      el.remove();
+    });
+  }
+}
+
+
 export default null

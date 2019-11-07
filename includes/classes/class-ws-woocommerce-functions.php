@@ -22,15 +22,6 @@ class WS_Woocommerce_Functions {
 	 */
 	private function add_actions() {
 		add_action( 'after_setup_theme', [ 'WS_Woocommerce_Functions', 'ws_theme_add_woocommerce_support' ] );
-		add_action( 'woocommerce_checkout_process', [ 'WS_Woocommerce_Functions', 'not_approved_privacy' ] );
-		add_action(
-			'woocommerce_checkout_terms_and_conditions',
-			[
-				'WS_Woocommerce_functions',
-				'add_checkout_privacy_policy',
-			],
-			20
-		);
 	}
 
 	/**
@@ -73,31 +64,6 @@ class WS_Woocommerce_Functions {
 				),
 			)
 		);
-	}
-
-	/**
-	 * Adds a privacy policy agreement checkbox to checkout.
-	 */
-	public static function add_checkout_privacy_policy() {
-		if ( function_exists( 'wc_privacy_policy_page_id' ) ) {
-			$privacy_policy_url = get_permalink( wc_privacy_policy_page_id() );
-			?><label for="privacy_policy">
-				<input type="checkbox" name="privacy_policy" id="privacy_policy" value="yes"/>
-				<p><?php echo sprintf( esc_html__( 'Olen tutvunud ning aktsepteerin %s privaatsuspoliitikat %s' ), '<a href="' . esc_url( $privacy_policy_url ) . '" target="_blank">', '</a>' ); ?></p>
-			</label>
-			<?php
-		}
-	}
-
-	/**
-	 * Validates the privacy policy agreement checkbox.
-	 */
-	public static function not_approved_privacy() {
-		if ( ! filter_input( INPUT_POST, 'privacy_policy', FILTER_VALIDATE_BOOLEAN ) ) {
-			if ( function_exists( 'wc_add_notice' ) ) {
-				wc_add_notice( __( 'Please acknowledge the privacy policy' ), 'error' );
-			}
-		}
 	}
 
 	/**

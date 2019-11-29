@@ -8,6 +8,7 @@ $small: 700px !default;
 $small-larger: 900px !default;
 $medium: 1000px !default;
 $medium-larger: 1200px !default;
+$larger-medium: 1440px !default;
 $larger: 1920px !default;
 
 /// Orientations
@@ -15,6 +16,7 @@ $orientation-landscape: landscape !default;
 
 /// Container's maximum width
 $max-width: 1920px !default;
+$max-width-smaller: 130rem !default;
 
 /// Regular font family
 $font-body: 'Roboto', sans-serif !default;
@@ -22,18 +24,24 @@ $font-body: 'Roboto', sans-serif !default;
 $font-heading: 'Roboto', sans-serif !default;
 
 /// Brand colors
-$color-brand: #262629 !default;
+$color-brand: #f0f4e4 !default;
 
 /// Page background color
 $color-bg: #ffffff !default;
 
 /// Text colors
-$color-text: #202028 !default;
+$color-text: #00505a !default;
 
 /// Link color
-$color-link: #797981 !default;
+$color-link: #00505a !default;
 $color-link-visited: $color-link !default;
 $color-link-hover: $color-link !default;
+
+/// Error color
+$color-error: #f44336 !default;
+
+/// Correct color
+$color-correct: #009f19 !default;
 
 /// More colors
 
@@ -44,3 +52,6 @@ $color-white: #ffffff !default;
 /// Black
 $black: #000000 !default;
 $color-black: #000000 !default;
+
+/// Light Gray
+$color-light-gray: lightgray !default;

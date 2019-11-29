@@ -30,12 +30,12 @@
                 margin: auto;
                 width: 100%;
                 color: $color-link;
-                border-bottom: 0.1rem solid $light-grey;
+                border-bottom: 0.1rem solid $color-light-gray;
 
                 &:hover,
                 &:active,
                 &:focus {
-                    border: 0.1rem solid $light-grey;
+                    border: 0.1rem solid $color-light-gray;
                 }
             }
 
@@ -63,7 +63,7 @@
             select {
                 width: 100%;
                 color: $color-link;
-                border-bottom: 0.1rem solid $light-grey;
+                border-bottom: 0.1rem solid $color-light-gray;
                 padding: 1.5rem 0;
                 font-weight: 500;
                 font-size: 2rem;
@@ -130,6 +130,7 @@
             color: $white;
             padding: 1rem 3rem;
             max-width: 50vw;
+            border: none;
 
             @media screen and (max-width: $small) {
                 max-width: 80vw;
@@ -142,11 +143,11 @@
         }
 
         div.wpcf7-validation-errors {
-            background-color: #a93331;
+            background-color: $color-error;
         }
 
         div.wpcf7-mail-sent-ok {
-            background-color: #009f19;
+            background-color: $color-correct;
         }
 
         @keyframes alertSlide {

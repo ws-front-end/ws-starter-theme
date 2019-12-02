@@ -11,11 +11,12 @@
 
 //cookiebar accept button
 .ws-cookiebar-accept-cookies {
-    background-color: $color-link;
+    background-color: $color-brand;
+    color: $color-white;
 }
 
 //cookiebar policy link color and boldness
 .ws-cookiebar-content p a {
     color: $color-text;
-    font-weight: 400;
+    font-weight: bold;
 }

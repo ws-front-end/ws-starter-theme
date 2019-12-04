@@ -7,6 +7,12 @@
     }
 }
 
+@mixin small-larger {
+    @media screen and (max-width: $small-larger) and (orientation: $orientation-landscape) {
+        @content;
+    }
+}
+
 @mixin medium {
     @media screen and (max-width: $medium) {
         @content;

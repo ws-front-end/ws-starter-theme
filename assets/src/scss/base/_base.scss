@@ -35,7 +35,7 @@ html {
 }
 
 .desktop--only {
-    @media screen and (max-width: $medium-larger) {
+    @include medium {
         display: none;
     }
 }
@@ -43,7 +43,37 @@ html {
 .touch--only {
     display: none;
 
-    @media screen and (max-width: $medium-larger) {
+    @include medium {
         display: block;
+    }
+}
+
+.screen-reader-text {
+    border: 0;
+    clip: rect(1px, 1px, 1px, 1px);
+    clip-path: inset(50%);
+    height: 1px;
+    margin: -1px;
+    overflow: hidden;
+    padding: 0;
+    position: absolute;
+    width: 1px;
+    word-wrap: normal !important;
+}
+
+.page--shadow {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: black;
+    opacity: 0;
+    z-index: 7;
+    pointer-events: none;
+
+    &.visible {
+        pointer-events: all;
+        opacity: 0.5;
     }
 }

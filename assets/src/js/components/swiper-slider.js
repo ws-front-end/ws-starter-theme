@@ -1,6 +1,6 @@
-import { Swiper, Lazy, Autoplay, Navigation } from 'swiper/dist/js/swiper.esm.js'
+import { Swiper, Lazy, Autoplay, Navigation } from 'swiper/js/swiper.esm.js';
 
-import 'swiper/dist/css/swiper.css'
+import 'swiper/css/swiper.css';
 
 Swiper.use([Lazy, Autoplay, Navigation]);
 

@@ -8,14 +8,14 @@
     //Scrollbar track
 
     ::-webkit-scrollbar-track {
-        background-color: $light-grey;
+        background-color: $color-light-gray;
         border-radius: 0.5rem;
     }
 
     //Scrollbar thumb
 
     ::-webkit-scrollbar-thumb {
-        background-color: $white;
+        background-color: $color-white;
         border-radius: 0.3rem;
         border: 0.2rem solid transparent; //to make scrollbar thumb smaller than track
         background-clip: content-box; //to make scrollbar thumb smaller than track
@@ -24,7 +24,7 @@
     //Scrollbar thumb hover
 
     ::-webkit-scrollbar-thumb:hover {
-        background: $light-grey;
+        background: $color-light-gray;
         border-radius: 0.3rem;
         border: 0.2rem solid transparent; //to make scrollbar thumb smaller than track
         background-clip: content-box; //to make scrollbar thumb smaller than track
@@ -33,7 +33,7 @@
     //Firefox scrollbar settings
 
     .content-popup__content__scroll {
-        scrollbar-color: $white $light-grey; //Scrollbar thumb color / track color
+        scrollbar-color: $color-white $color-light-gray; //Scrollbar thumb color / track color
         scrollbar-width: thin; //3 width options : auto/thin/none
     }
 }

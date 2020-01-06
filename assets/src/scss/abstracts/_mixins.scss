@@ -1,6 +1,21 @@
 // -----------------------------------------------------------------------------
 // This file contains all application-wide Sass mixins.
 // -----------------------------------------------------------------------------
+@mixin background-opacity($color, $opacity: 0.3) {
+    background: $color; /* The Fallback */
+    background: rgba($color, $opacity);
+}
+
+@mixin remove-margin-left-right {
+    &:first-child {
+        margin-left: 0;
+    }
+
+    &:last-child {
+        margin-right: 0;
+    }
+}
+
 @mixin small {
     @media screen and (max-width: $small) {
         @content;
@@ -28,15 +43,5 @@
 @mixin larger-medium {
     @media screen and (max-width: $larger-medium) {
         @content;
-    }
-}
-
-@mixin remove-margin-left-right {
-    &:first-child {
-        margin-left: 0;
-    }
-
-    &:last-child {
-        margin-right: 0;
     }
 }

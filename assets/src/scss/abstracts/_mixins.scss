@@ -1,11 +1,6 @@
 // -----------------------------------------------------------------------------
 // This file contains all application-wide Sass mixins.
 // -----------------------------------------------------------------------------
-@mixin background-opacity($color, $opacity: 0.3) {
-    background: $color; /* The Fallback */
-    background: rgba($color, $opacity);
-}
-
 @mixin remove-margin-left-right {
     &:first-child {
         margin-left: 0;

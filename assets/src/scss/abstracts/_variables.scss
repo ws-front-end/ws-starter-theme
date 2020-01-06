@@ -34,8 +34,8 @@ $color-text: #00505a !default;
 
 /// Link color
 $color-link: #00505a !default;
-$color-link-visited: $color-link !default;
-$color-link-hover: $color-link !default;
+$color-link-visited: darken($color-link, 7%) !default;
+$color-link-hover: darken($color-link, 7%) !default;
 
 /// Error color
 $color-error: #f44336 !default;

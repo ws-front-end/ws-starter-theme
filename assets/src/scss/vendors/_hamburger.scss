@@ -1,0 +1,59 @@
+// -------------------------------------------------------------------------
+// This file contains Hamburger variables
+// -------------------------------------------------------------------------
+
+$hamburger-padding-x: 2rem;
+$hamburger-padding-y: 2rem;
+$hamburger-layer-width: 3.8rem;
+$hamburger-layer-height: 3px;
+$hamburger-layer-spacing: 7px;
+$hamburger-layer-color: $color-brand;
+$hamburger-layer-border-radius: 0;
+$hamburger-hover-opacity: 1;
+$hamburger-active-layer-color: $hamburger-layer-color;
+$hamburger-active-hover-opacity: $hamburger-hover-opacity;
+
+// To use CSS filters as the hover effect instead of opacity,
+// set $hamburger-hover-use-filter as true and
+// change the value of $hamburger-hover-filter accordingly.
+$hamburger-hover-use-filter: false;
+$hamburger-hover-filter: opacity(50%);
+$hamburger-active-hover-filter: $hamburger-hover-filter;
+
+// Remove or comment out the hamburger types you don’t want
+// or need, so they get excluded from the compiled CSS.
+$hamburger-types: (
+    // 3dx,
+        // 3dx-r,
+        // 3dy,
+        // 3dy-r,
+        // 3dxy,
+        // 3dxy-r,
+        // arrow,
+        // arrow-r,
+        // arrowalt,
+        // arrowalt-r,
+        // arrowturn,
+        // arrowturn-r,
+        // boring,
+        // collapse,
+        // collapse-r,
+        // elastic,
+        // elastic-r,
+        // emphatic,
+        // emphatic-r,
+        // minus,
+        // slider,
+        // slider-r,
+        // spring,
+        // spring-r,
+        // stand,
+        // stand-r,
+        // spin,
+        // spin-r,
+        squeeze,
+    // vortex,
+        // vortex-r
+);
+
+@import '../../../node_modules/hamburgers/_sass/hamburgers/hamburgers';

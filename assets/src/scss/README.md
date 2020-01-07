@@ -1,19 +1,29 @@
-# Web Systems OÜ WooCommerce Checkout template changelog
+# WS Style theme changelog
 
-> Version: 1.0.1
+> Latest version: 1.0.1
 
 ## Changelog:
 
+**1.0.0**
+
+- main.scss:
+
+  - Adding Style Version: 1.0.0
+
 **1.0.1**
 
-- CSS:
+- README.md:
 
-  - Added in base.scss class `.checkout--touch--only` to manipulate only in checkout view.
-  - Updated in `Checkout-billing-info.scss` payment method structure style.
-  - Added in `Checkout-billing-info.scss` class `is-invalid` and added animation, style.
+  - Adding README.md file for changelog
 
-- PHP:
+- vendors/:
 
-  - Added PHP admin_init to override MakeCommerce hidden setting for payment method display.
+  - `scrollbar.scss` Updated colors variables
 
-**1.0.2**
+  - Deleted: `/hamburgers` and `fancybox.scss`
+
+  - Added `hamburger.scss` what's including hamburger variables
+
+- abstracts/variables.scss:
+
+  - Updated `color-link-hover` and `color-link-visited color`

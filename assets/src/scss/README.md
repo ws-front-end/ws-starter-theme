@@ -27,3 +27,9 @@
 - abstracts/variables.scss:
 
   - Updated `color-link-hover` and `color-link-visited color`
+
+**1.0.2**
+
+- abstracts/animations.scss:
+
+  - Adding element click effect

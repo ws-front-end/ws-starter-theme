@@ -9,8 +9,7 @@
 ?>
 <div class="admin-login-footer">
     <a href="http://www.websystems.ee" class="admin-login-footer__ws-logo" target="_blank" title="Web Systems OÜ">
-        <img src="<?php echo esc_url(get_template_directory_uri()); ?>/assets/dist/img/svg/ws_logo.svg"
-            alt="Websystems logo">
+        <img src="http://websystems.ee/ws-logos/ws-medium-black-logo.svg" alt="Websystems logo">
     </a>
 
     <p><?php _e('Tõrgete korral võtke palun <br> Web Systems OÜ klienditoega ühendust', 'Websystems'); ?>:</p>

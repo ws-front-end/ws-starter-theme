@@ -1,14 +1,22 @@
 # WS Style theme changelog
 
-> Latest version: 1.0.2
+> Latest version: 1.0.3
 
 ## Changelog:
 
-**1.0.0**
+**1.0.3**
 
-- main.scss:
+- Adding for our projects stylelint.io for helping avoid errors and enforce conventions in our styles.
+- Updated all ws-starter-theme files tab size for 4 to 2.
+- Adding `/admin` folder to WordPress admin elements styles:
+- Adding inside `/components` and `/layout` folders `/front-page` and `/generic` for better understanding where we are using these components and layouts.
+- Adding in `/vendors` `_loader.scss` for element where we need some loader style.
 
-  - Adding Style Version: 1.0.0
+**1.0.2**
+
+- abstracts/animations.scss:
+
+  - Adding element click effect
 
 **1.0.1**
 
@@ -28,8 +36,8 @@
 
   - Updated `color-link-hover` and `color-link-visited color`
 
-**1.0.2**
+**1.0.0**
 
-- abstracts/animations.scss:
+- main.scss:
 
-  - Adding element click effect
+  - Adding Style Version: 1.0.0

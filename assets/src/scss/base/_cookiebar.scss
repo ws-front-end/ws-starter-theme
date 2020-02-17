@@ -4,23 +4,23 @@
 
 //cookiebar background color
 .ws-cookiebar-wrapper {
-    background-color: $color-brand;
-    opacity: 0.9;
+  background-color: $color-brand;
+  opacity: 0.9;
 
-    //cookiebar text color and mobile size
-    p {
-        color: $color-text;
-    }
+  //cookiebar text color and mobile size
+  p {
+    color: $color-text;
+  }
 }
 
 //cookiebar accept button
 .ws-cookiebar-accept-cookies {
-    background-color: $color-brand;
-    color: $color-white;
+  color: $color-white;
+  background-color: $color-brand;
 }
 
 //cookiebar policy link color and boldness
 .ws-cookiebar-content p a {
-    color: $color-text;
-    font-weight: bold;
+  color: $color-text;
+  font-weight: bold;
 }

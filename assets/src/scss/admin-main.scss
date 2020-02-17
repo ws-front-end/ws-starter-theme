@@ -1,0 +1,19 @@
+@charset 'UTF-8';
+
+/*!
+Author: Web Systems OÜ
+Author URI: https://www.websystems.ee/
+Version: __WS_THEME_VERSION__
+*/
+
+@import 'abstracts/variables';
+@import 'abstracts/mixins';
+@import 'base/base';
+
+.login {
+  @import 'base/reset';
+  @import 'base/typography';
+}
+
+@import 'admin/admin-login';
+@import 'admin/admin-widget';

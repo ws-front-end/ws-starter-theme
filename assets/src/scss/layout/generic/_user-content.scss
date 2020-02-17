@@ -1,0 +1,198 @@
+// -------------------------------------------------------------------------
+// This file contains styles for Wordpress content
+// -------------------------------------------------------------------------
+
+.entry-content {
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    margin: 4rem 0 1rem;
+    line-height: 1.4;
+    text-transform: uppercase;
+  }
+
+  h1 {
+    font-size: 3rem;
+  }
+
+  h2 {
+    font-size: 2.5rem;
+  }
+
+  h3 {
+    font-size: 2.3rem;
+  }
+
+  h4 {
+    font-size: 2.1rem;
+  }
+
+  h5 {
+    font-size: 1.9rem;
+  }
+
+  h6 {
+    font-size: 1.7rem;
+  }
+
+  p {
+    margin: 2rem 0;
+    line-height: 1.67;
+  }
+
+  a {
+    text-decoration: underline;
+
+    &:hover {
+      text-decoration: none;
+    }
+  }
+
+  .wp-block-button {
+    a {
+      color: $color-white;
+      background-color: $color-brand;
+    }
+  }
+
+  img {
+    max-width: 100%;
+    height: auto;
+  }
+
+  blockquote {
+    padding-left: 5rem;
+    border-left: 1.5rem solid $color-brand;
+  }
+
+  ul {
+    margin: 1rem 0;
+    list-style: none;
+
+    li {
+      position: relative;
+      margin: 1rem 0;
+      padding-left: 2rem;
+      font-size: 2rem;
+      line-height: 1.3;
+
+      &::before {
+        position: absolute;
+        display: block;
+        margin-left: -2rem;
+        content: '›';
+      }
+    }
+
+    &.children {
+      margin-bottom: 2rem;
+    }
+  }
+
+  ol {
+    margin: 1rem 0;
+    list-style: decimal;
+
+    li {
+      margin: 1rem 0;
+      font-size: 2rem;
+      line-height: 1.3;
+      list-style-type: none;
+      counter-increment: item;
+
+      &::before {
+        display: inline-block;
+        width: 2.7rem;
+        padding-right: 1rem;
+        font-weight: bold;
+        text-align: right;
+        content: counter(item) '.';
+      }
+    }
+  }
+
+  hr {
+    margin: 2rem 0;
+    color: $color-brand;
+
+    &.is-style-wide {
+      margin-right: calc((-100vw + 100%) / 2);
+      margin-left: calc((-100vw + 100%) / 2);
+      padding-right: calc((100vw - 100%) / 2);
+      padding-left: calc((100vw - 100%) / 2);
+    }
+
+    &.is-style-dots {
+      position: relative;
+
+      &::before {
+        position: absolute;
+        top: 0;
+        right: 0;
+        bottom: 0;
+        left: 0;
+        border-top: 0.1rem dashed $color-brand;
+        content: '';
+      }
+    }
+  }
+
+  pre {
+    font-size: 2rem;
+    white-space: pre-wrap;
+
+    b,
+    strong {
+      font-weight: bold;
+    }
+  }
+
+  .wp-block-cover,
+  .wp-block-cover-image {
+    margin: 1rem 0;
+  }
+
+  .wp-block-image {
+    max-width: inherit;
+  }
+
+  .wp-block-gallery {
+    li {
+      padding: 0;
+
+      &::before {
+        display: none;
+      }
+    }
+  }
+
+  .wp-block-table {
+    width: 100%;
+    margin-top: 5rem;
+
+    thead {
+      tr {
+        border-bottom: 0.1rem solid #bbbcbf;
+
+        th {
+          padding: 2.2rem 0;
+          font-size: 2.2rem;
+        }
+      }
+    }
+
+    tbody {
+      tr {
+        border-bottom: 0.1rem solid #bbbcbf;
+
+        td {
+          padding: 1.5rem 0;
+          font-size: 1.8rem;
+        }
+      }
+    }
+  }
+}

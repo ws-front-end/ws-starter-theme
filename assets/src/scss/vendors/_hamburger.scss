@@ -1,7 +1,4 @@
-// -------------------------------------------------------------------------
-// This file contains Hamburger variables
-// -------------------------------------------------------------------------
-
+/* stylelint-disable */
 $hamburger-padding-x: 2rem;
 $hamburger-padding-y: 2rem;
 $hamburger-layer-width: 3.8rem;
@@ -23,37 +20,37 @@ $hamburger-active-hover-filter: $hamburger-hover-filter;
 // Remove or comment out the hamburger types you don’t want
 // or need, so they get excluded from the compiled CSS.
 $hamburger-types: (
-    // 3dx,
-        // 3dx-r,
-        // 3dy,
-        // 3dy-r,
-        // 3dxy,
-        // 3dxy-r,
-        // arrow,
-        // arrow-r,
-        // arrowalt,
-        // arrowalt-r,
-        // arrowturn,
-        // arrowturn-r,
-        // boring,
-        // collapse,
-        // collapse-r,
-        // elastic,
-        // elastic-r,
-        // emphatic,
-        // emphatic-r,
-        // minus,
-        // slider,
-        // slider-r,
-        // spring,
-        // spring-r,
-        // stand,
-        // stand-r,
-        // spin,
-        // spin-r,
-        squeeze,
-    // vortex,
-        // vortex-r
+  // 3dx,
+    // 3dx-r,
+    // 3dy,
+    // 3dy-r,
+    // 3dxy,
+    // 3dxy-r,
+    // arrow,
+    // arrow-r,
+    // arrowalt,
+    // arrowalt-r,
+    // arrowturn,
+    // arrowturn-r,
+    // boring,
+    // collapse,
+    // collapse-r,
+    // elastic,
+    // elastic-r,
+    // emphatic,
+    // emphatic-r,
+    // minus,
+    // slider,
+    // slider-r,
+    // spring,
+    // spring-r,
+    // stand,
+    // stand-r,
+    // spin,
+    // spin-r,
+    squeeze,
+  // vortex,
+    // vortex-r
 );
 
 @import '../../../node_modules/hamburgers/_sass/hamburgers/hamburgers';

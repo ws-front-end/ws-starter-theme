@@ -1,0 +1,367 @@
+// -------------------------------------------------------------------------
+// This file contains styles for Wordpress custom login page.
+// -------------------------------------------------------------------------
+/* stylelint-disable */
+
+// Login header
+// Login alert
+// Login form
+// Login losted password
+// Login back to page
+// Login footer
+// Login page shadow
+
+.site {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  min-height: 100%;
+  background-color: $color-white;
+  background-image: url('assets/dist/img/WS_maja.jpg');
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+  background-attachment: fixed;
+
+  @include small {
+    background-color: $color-white;
+    background-image: none !important;
+  }
+
+  > div#login {
+    width: 39.5rem;
+    padding: 0;
+    margin: 0 auto;
+    z-index: 1;
+
+    @include small {
+      width: 100%;
+    }
+
+    // Login header
+
+    > h1 {
+      width: 39.5rem;
+      background: $color-brand;
+      margin: 0 auto;
+      box-shadow: 0 0 8.7rem 0 rgba(122, 122, 122, 0.49);
+
+      @include small {
+        width: 100%;
+        box-shadow: 0 0 8.7rem 0 rgba(122, 122, 122, 0.2);
+      }
+
+      a {
+        width: 100%;
+        height: 100%;
+        min-height: 13rem;
+        background-image: url('assets/src/img/svg/logo.svg') !important;
+        background-size: 20.3rem 2.5rem;
+        background-position: center;
+        margin: 0 auto;
+
+        @include small {
+          min-height: 10rem;
+        }
+      }
+    }
+
+    // Login alert
+
+    .message {
+      border-left-color: $color-brand;
+      font-size: 1.4rem;
+      line-height: 1.4;
+      margin: 2rem 0;
+      padding: 1rem 4rem;
+
+      @include small {
+        padding: 1rem;
+        margin-bottom: -1rem;
+        margin-left: 3.6rem;
+        margin-right: 3.6rem;
+      }
+    }
+
+    #login_error {
+      border-left-color: $color-error;
+      font-size: 1.4rem;
+      margin: 2rem 0;
+      padding: 1rem 4rem;
+
+      @include small {
+        padding: 1rem;
+        margin-bottom: -1rem;
+        margin-left: 3.6rem;
+        margin-right: 3.6rem;
+      }
+
+      strong {
+        font-weight: bold;
+      }
+
+      a {
+        font-size: 1.4rem;
+        color: $color-text;
+        text-decoration: underline;
+      }
+    }
+
+    // Login form
+
+    > form {
+      display: flex;
+      flex-direction: column;
+      padding: 0 4rem;
+      padding-top: 2rem;
+      margin-top: 2rem;
+      border: none;
+
+      @include small {
+        padding: 2rem;
+        padding-bottom: 1rem;
+        margin-left: 1.6rem;
+        margin-right: 1.6rem;
+      }
+
+      label {
+        font-size: 1.6rem;
+        margin-bottom: 1rem;
+      }
+
+      .input {
+        padding: 1rem;
+        margin: 0;
+        border-radius: 0.2rem;
+        border: solid 0.1rem $color-light-gray;
+        background-color: $color-white;
+        box-shadow: none;
+        font-size: 1.8rem;
+      }
+
+      .user-pass-wrap {
+        margin-top: 2rem;
+
+        input {
+          margin-bottom: 0;
+        }
+
+        .wp-hide-pw {
+          bottom: 0;
+          height: 100%;
+          background-color: $color-white;
+          border: solid 0.1rem $color-light-gray;
+          border-left: none;
+
+          span {
+            top: 0.4rem;
+          }
+        }
+      }
+
+      .forgetmenot {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        margin-top: 2rem;
+
+        input[type='checkbox'] {
+          background: $color-white;
+          margin-right: 1rem;
+          height: 2.5rem;
+          width: 2.5rem;
+          border: 0.1rem solid $color-light-gray;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+
+          &:checked {
+            border-color: #418dbe;
+          }
+
+          &::before {
+            width: 2rem;
+            height: 2rem;
+            margin: 0;
+            margin-left: -0.1rem;
+          }
+        }
+
+        label {
+          margin: 0;
+          font-size: 1.4rem;
+        }
+      }
+
+      .submit {
+        margin-top: 2rem;
+        padding-bottom: 0.3rem;
+
+        input {
+          &#wp-submit {
+            border-radius: 0.2rem;
+            border: 0;
+            padding: 1rem 0;
+            background: $color-brand;
+            color: $color-white;
+            width: 100%;
+            font-size: 1.8rem;
+          }
+        }
+      }
+    }
+
+    // Login losted password
+
+    p#nav {
+      background-color: $color-white;
+      margin: 0;
+      padding: 2rem 0 0 0;
+      line-height: 0.9;
+      display: flex;
+      justify-content: center;
+
+      @include small {
+        padding-top: 1rem;
+        margin-left: 1.6rem;
+        margin-right: 1.6rem;
+      }
+
+      a {
+        @include remove-margin-left-right;
+        display: flex;
+        align-items: center;
+        margin: 0 1rem;
+        color: $color-text;
+        font-size: 1.4rem;
+
+        &:hover {
+          text-decoration: underline;
+        }
+      }
+    }
+
+    // Login back to page
+
+    #backtoblog {
+      background-color: $color-white;
+      display: flex;
+      margin: 0;
+      padding: 1rem 0 2rem 0;
+      justify-content: center;
+
+      @include small {
+        margin-left: 1.6rem;
+        margin-right: 1.6rem;
+        padding-top: 1.5rem;
+      }
+
+      a {
+        color: $color-text;
+        font-size: 1.4rem;
+
+        &:hover {
+          text-decoration: underline;
+        }
+      }
+    }
+  }
+
+  // Login footer
+
+  .admin-login-footer {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    width: 39.5rem;
+    margin: 0 auto;
+    margin-top: 2rem;
+    padding: 2rem 0;
+    background: $color-white;
+    z-index: 1;
+
+    @include small {
+      width: 100%;
+      border-top: 0.1rem solid $color-light-gray;
+      box-shadow: 0 0 8.7rem 0 rgba(122, 122, 122, 0.2);
+    }
+
+    &__ws-logo {
+      margin-bottom: 1rem;
+
+      img {
+        width: 100%;
+        height: 4.5rem;
+      }
+    }
+
+    > p {
+      font-size: 1.5rem;
+      line-height: 1.4;
+      color: $color-text;
+      margin-bottom: 1rem;
+    }
+
+    &__contact {
+      li {
+        margin: 0.7rem 0;
+        display: flex;
+        justify-content: center;
+        @include remove-margin-top-bottom;
+
+        @include small {
+          margin: 1rem 0;
+        }
+
+        a {
+          font-size: 1.4rem;
+          padding-left: 2.5rem;
+          color: $color-text;
+          display: flex;
+          align-items: center;
+          position: relative;
+
+          i {
+            position: absolute;
+            left: 0;
+            font: normal 1.8rem dashicons;
+
+            &::before {
+              color: $color-text;
+            }
+          }
+
+          .mail--icon {
+            &::before {
+              content: '\f465';
+            }
+          }
+
+          .tel--icon {
+            &::before {
+              content: '\f525';
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
+// Login page shadow
+
+.login--shadow {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: linear-gradient(to bottom, #414345, #232526);
+  opacity: 0.2;
+
+  @include small {
+    display: none;
+  }
+}

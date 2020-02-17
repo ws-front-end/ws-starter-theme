@@ -2,13 +2,14 @@
 // This file contains all application-wide Sass variables.
 // -------------------------------------------------------------------------
 
+/* stylelint-disable */
 /// Breakpoints map
 $small: 700px !default;
 // $small-larger kasutada ainult koos $orientation-landscape
 $small-larger: 900px !default;
 $medium: 1000px !default;
 $medium-larger: 1200px !default;
-$larger-medium: 1440px !default;
+$larger-small: 1400px !default;
 $larger: 1920px !default;
 
 /// Orientations
@@ -45,13 +46,14 @@ $color-correct: #009f19 !default;
 
 /// More colors
 
-/// White
-$white: #ffffff !default;
-$color-white: #ffffff !default;
+// White
+$color-white: white !default;
 
-/// Black
-$black: #000000 !default;
-$color-black: #000000 !default;
+// Black
+$color-black: black !default;
 
-/// Light Gray
+//  Gray
+$color-gray: gray !default;
+
+// Light Gray
 $color-light-gray: lightgray !default;

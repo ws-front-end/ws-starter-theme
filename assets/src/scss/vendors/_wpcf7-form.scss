@@ -9,167 +9,162 @@
 // Alerts
 
 .wpcf7 {
-    .wpcf7-form {
-        // Input Fields
-        .wpcf7-form-control-wrap {
-            input[type='text'],
-            input[type='email'],
-            input[type='url'],
-            input[type='password'],
-            input[type='search'],
-            input[type='number'],
-            input[type='tel'],
-            input[type='range'],
-            input[type='date'],
-            input[type='month'],
-            input[type='week'],
-            input[type='time'],
-            input[type='datetime'],
-            input[type='datetime-local'],
-            input[type='color'],
-            textarea {
-                background-color: transparent;
-                border: none;
-                padding: 0.5rem;
-                margin: auto;
-                width: 100%;
-                color: $color-link;
-                border-bottom: 0.1rem solid $color-light-gray;
+  .wpcf7-form {
+    // Input Fields
+    .wpcf7-form-control-wrap {
+      input[type='text'],
+      input[type='email'],
+      input[type='url'],
+      input[type='password'],
+      input[type='search'],
+      input[type='number'],
+      input[type='tel'],
+      input[type='range'],
+      input[type='date'],
+      input[type='month'],
+      input[type='week'],
+      input[type='time'],
+      input[type='datetime'],
+      input[type='datetime-local'],
+      input[type='color'],
+      textarea {
+        width: 100%;
+        margin: auto;
+        padding: 0.5rem;
+        color: $color-link;
+        background-color: transparent;
+        border: 0;
+        border-bottom: 0.1rem solid $color-light-gray;
 
-                &:hover,
-                &:active,
-                &:focus {
-                    border: 0.1rem solid $color-light-gray;
-                }
-            }
-
-            textarea {
-                resize: vertical;
-            }
+        &:hover,
+        &:active,
+        &:focus {
+          border: 0.1rem solid $color-light-gray;
         }
+      }
 
-        // Select field
-        .custom-select {
-            position: relative;
-
-            &:after {
-                pointer-events: none;
-                content: '⌝';
-                transform: rotate(135deg);
-                display: inline-block;
-                font-size: 1.6rem;
-                font-weight: 400;
-                position: absolute;
-                top: 0;
-                right: 0;
-            }
-
-            select {
-                width: 100%;
-                color: $color-link;
-                border-bottom: 0.1rem solid $color-light-gray;
-                padding: 1.5rem 0;
-                font-weight: 500;
-                font-size: 2rem;
-                padding-right: 3rem;
-                -webkit-user-select: none;
-                -moz-user-select: -moz-none;
-                -ms-user-select: none;
-                user-select: none;
-                -webkit-appearance: none;
-                -moz-appearance: radio-container;
-                appearance: none;
-            }
-        }
-
-        // Checkbox
-        input[type='checkbox'] {
-            appearance: none;
-            border: 0.1rem solid $color-brand;
-            height: 2rem;
-            width: 2rem;
-            cursor: pointer;
-            padding: 0;
-            position: relative;
-
-            &::after {
-                content: '';
-                position: absolute;
-                display: none;
-            }
-
-            &:checked:after {
-                display: block;
-                left: 0;
-                top: -0.4rem;
-                right: 0;
-                bottom: 0;
-                margin: auto;
-                width: 0.8rem;
-                height: 1.2rem;
-                border: solid $color-brand;
-                border-width: 0 0.2rem 0.2rem 0;
-                transform: rotate(45deg);
-            }
-        }
-
-        // Submit button
-        .wpcf7-submit {
-            border: 0.1rem solid $color-brand;
-            padding: 3rem 6rem;
-            transition: all 0.2s ease-in-out;
-
-            &:hover {
-                transform: scale(1.1);
-            }
-        }
-
-        // Alerts
-        div.wpcf7-response-output {
-            position: fixed;
-            top: 0;
-            right: 0;
-            margin: 0;
-            transform: translateX(100%);
-            color: $white;
-            padding: 1rem 3rem;
-            max-width: 50vw;
-            border: none;
-
-            @include small {
-                max-width: 80vw;
-            }
-        }
-
-        div.wpcf7-validation-errors,
-        div.wpcf7-mail-sent-ok {
-            animation: alertSlide 6s 1;
-        }
-
-        div.wpcf7-validation-errors {
-            background-color: $color-error;
-        }
-
-        div.wpcf7-mail-sent-ok {
-            background-color: $color-correct;
-        }
-
-        @keyframes alertSlide {
-            0% {
-                transform: translateX(100%);
-            }
-
-            20% {
-                transform: translateX(0);
-            }
-
-            80% {
-                transform: translateX(0);
-            }
-
-            100% {
-                transform: translateX(100%);
-            }
-        }
+      textarea {
+        resize: vertical;
+      }
     }
+
+    // Select field
+    .custom-select {
+      position: relative;
+
+      &::after {
+        position: absolute;
+        top: 0;
+        right: 0;
+        display: inline-block;
+        font-weight: 400;
+        font-size: 1.6rem;
+        transform: rotate(135deg);
+        content: '⌝';
+        pointer-events: none;
+      }
+
+      select {
+        width: 100%;
+        padding: 1.5rem 0;
+        padding-right: 3rem;
+        color: $color-link;
+        font-weight: 500;
+        font-size: 2rem;
+        border-bottom: 0.1rem solid $color-light-gray;
+        appearance: none;
+        user-select: none;
+      }
+    }
+
+    // Checkbox
+    input[type='checkbox'] {
+      position: relative;
+      width: 2rem;
+      height: 2rem;
+      padding: 0;
+      border: 0.1rem solid $color-brand;
+      cursor: pointer;
+      appearance: none;
+
+      &::after {
+        position: absolute;
+        display: none;
+        content: '';
+      }
+
+      &:checked::after {
+        top: -0.4rem;
+        right: 0;
+        bottom: 0;
+        left: 0;
+        display: block;
+        width: 0.8rem;
+        height: 1.2rem;
+        margin: auto;
+        border: solid $color-brand;
+        border-width: 0 0.2rem 0.2rem 0;
+        transform: rotate(45deg);
+      }
+    }
+
+    // Submit button
+    .wpcf7-submit {
+      padding: 3rem 6rem;
+      border: 0.1rem solid $color-brand;
+      transition: all 0.2s ease-in-out;
+
+      &:hover {
+        transform: scale(1.1);
+      }
+    }
+
+    // Alerts
+    div.wpcf7-response-output {
+      position: fixed;
+      top: 0;
+      right: 0;
+      max-width: 50vw;
+      margin: 0;
+      padding: 1rem 3rem;
+      color: $white;
+      border: 0;
+      transform: translateX(100%);
+
+      @include small {
+        max-width: 80vw;
+      }
+    }
+
+    div.wpcf7-validation-errors,
+    div.wpcf7-mail-sent-ok {
+      animation: alertSlide 6s 1;
+    }
+
+    div.wpcf7-validation-errors {
+      background-color: $color-error;
+    }
+
+    div.wpcf7-mail-sent-ok {
+      background-color: $color-correct;
+    }
+
+    @keyframes alertSlide {
+      0% {
+        transform: translateX(100%);
+      }
+
+      20% {
+        transform: translateX(0);
+      }
+
+      80% {
+        transform: translateX(0);
+      }
+
+      100% {
+        transform: translateX(100%);
+      }
+    }
+  }
 }

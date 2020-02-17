@@ -2,78 +2,84 @@
 // This file contains basic styles.
 // -------------------------------------------------------------------------
 
+/* stylelint-disable */
 html {
-    box-sizing: border-box;
-    font-size: 0.625rem;
+  box-sizing: border-box;
+  font-size: 0.625rem;
 
-    @media screen and (min-width: $small) and (max-width: 1919px) {
-        font-size: calc(0.3rem + 0.28vw);
-    }
+  @media screen and (min-width: $small) and (max-width: 1919px) {
+    font-size: calc(0.3rem + 0.28vw);
+  }
 
-    @media screen and (max-width: $small) {
-        font-size: calc(0.3rem + 1vw);
-    }
+  @media screen and (max-width: $small) {
+    font-size: calc(0.3rem + 1vw);
+  }
+
+  &.wp-toolbar {
+    font-size: inherit;
+  }
 }
+/* stylelint-enable */
 
 .max--width {
-    max-width: $max-width;
-    margin: 0 auto;
+  max-width: $max-width;
+  margin: 0 auto;
 }
 
 .max--width--smaller {
-    max-width: $max-width-smaller;
-    margin: 0 auto;
+  max-width: $max-width-smaller;
+  margin: 0 auto;
 
-    @include medium {
-        margin-left: 1.6rem;
-        margin-right: 1.6rem;
-    }
+  @include medium {
+    margin-right: 1.6rem;
+    margin-left: 1.6rem;
+  }
 }
 
 .overflow--disable {
-    overflow: hidden;
+  overflow: hidden;
 }
 
 .desktop--only {
-    @include medium {
-        display: none;
-    }
+  @include medium {
+    display: none;
+  }
 }
 
 .touch--only {
-    display: none;
+  display: none;
 
-    @include medium {
-        display: block;
-    }
+  @include medium {
+    display: block;
+  }
 }
 
 .screen-reader-text {
-    border: 0;
-    clip: rect(1px, 1px, 1px, 1px);
-    clip-path: inset(50%);
-    height: 1px;
-    margin: -1px;
-    overflow: hidden;
-    padding: 0;
-    position: absolute;
-    width: 1px;
-    word-wrap: normal !important;
+  position: absolute;
+  width: 0.1rem;
+  height: 0.1rem;
+  margin: -0.1rem;
+  padding: 0;
+  overflow: hidden;
+  word-wrap: normal !important;
+  border: 0;
+  clip: rect(0.1rem, 0.1rem, 0.1rem, 0.1rem);
+  clip-path: inset(50%);
 }
 
 .page--shadow {
-    position: fixed;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    background-color: black;
-    opacity: 0;
-    z-index: 7;
-    pointer-events: none;
+  position: fixed;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  z-index: 7;
+  background-color: #000;
+  opacity: 0;
+  pointer-events: none;
 
-    &.visible {
-        pointer-events: all;
-        opacity: 0.5;
-    }
+  &.visible {
+    opacity: 0.5;
+    pointer-events: all;
+  }
 }

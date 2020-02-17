@@ -1,0 +1,25 @@
+{
+  "extends": ["stylelint-config-sass-guidelines", "stylelint-config-rational-order"],
+  "plugins": ["stylelint-order", "stylelint-config-rational-order/plugin", "stylelint-scss"],
+  "rules": {
+    "max-nesting-depth": 10,
+    "selector-class-pattern": null,
+    "unit-whitelist": ["rem", "%", "fr", "vh", "vw", "deg", "s"],
+    "selector-no-qualifying-type": [
+      true,
+      {
+        "ignore": ["attribute", "class"]
+      }
+    ],
+    "selector-max-compound-selectors": 10,
+    "order/properties-alphabetical-order": null,
+    "order/properties-order": [],
+    "plugin/rational-order": [
+      true,
+      {
+        "border-in-box-model": false,
+        "empty-line-between-groups": false
+      }
+    ]
+  }
+}

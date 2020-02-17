@@ -37,8 +37,8 @@ class WS_Admin_Controller
 
 		add_action('wp_before_admin_bar_render', [$this, 'add_admin_bar_button']);
 
-		add_action('wp_dashboard_setup', [$this, 'dashboard_ws_info']);
-		add_action('wp_dashboard_setup', [$this, 'dashboard_ws_rss']);
+		// add_action('wp_dashboard_setup', [$this, 'dashboard_ws_info']);
+		// add_action('wp_dashboard_setup', [$this, 'dashboard_ws_rss']);
 	}
 
 	/**

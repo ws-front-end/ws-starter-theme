@@ -12,7 +12,7 @@
 
     <style>
     <?php if (ThemeSetup::get_theme_option('site_logo')) : ?>body.login div#login h1 a {
-        background-image: url('<?php echo ThemeSetup::get_theme_option('site_logo'); ?>');
+        background-image: url('<?php echo ThemeSetup::get_theme_option('site_logo'); ?>') !important;
     }
 
     <?php endif;

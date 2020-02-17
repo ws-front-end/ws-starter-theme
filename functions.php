@@ -3,6 +3,8 @@ if (!defined('ABSPATH')) {
 	exit; // Exit if accessed directly.
 }
 
+define('THEME_TEXT_DOMAIN', 'starter');
+
 require_once 'includes/classes/class-ws-acf-controller.php';
 require_once 'includes/classes/class-ws-relative-url-maker.php';
 require_once 'includes/classes/class-ws-woocommerce-functions.php';
@@ -138,7 +140,6 @@ class ThemeSetup
 	{
 		$manifest      = json_decode(file_get_contents(get_template_directory() . '/package.json', true));
 		$asset_version = $manifest->version;
-
 		wp_enqueue_style('ws-main-stylesheet', get_stylesheet_uri(), [], $asset_version);
 
 		wp_enqueue_script('ws-custom-js', get_template_directory_uri() . '/assets/dist/js/bundle.min.js', array('jquery'), $asset_version, true);

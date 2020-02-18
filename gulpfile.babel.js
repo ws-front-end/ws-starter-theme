@@ -27,7 +27,7 @@ const gulpStylelint = require('gulp-stylelint');
 /**
  * Configuration.
  */
-const projectUrlName = 'anne';
+const projectUrlName = 'klaasjateras';
 const projectUrl = `${projectUrlName}.test`;
 const projectName = path.basename(__dirname);
 const enableNotify = true;
@@ -185,7 +185,9 @@ const imagesTask = () => {
 };
 
 const cssTask = () => {
-  let $retVal = gulp.src(css.src).pipe(plumber({ errorHandle: onError }));
+  let $retVal = gulp
+    .src(css.src)
+    .pipe(plumber({ errorHandle: onError }));
 
   if (process.env.NODE_ENV !== 'production') {
     $retVal = $retVal.pipe(sourcemaps.init());
@@ -269,25 +271,26 @@ const bumpVersion = () => {
   return gulp.src(js.src).pipe(shell(['npm version patch']));
 };
 
-const development = gulp.series(imagesTask, gulp.parallel(admincssTask, cssTask, jsTask));
-const build = gulp.series(imagesTask, bumpVersion, gulp.parallel(admincssTask, cssTask, jsTask));
 const serve = done => {
   browserSyncServer.init(browserSyncOptions);
   done();
 };
+
 const reload = done => {
   browserSyncServer.reload();
   done();
 };
-const cssSeries = gulp.series(cssTask, lintCssTask);
+
+const development = gulp.series(imagesTask, gulp.parallel(gulp.series(lintCssTask, gulp.parallel(admincssTask, cssTask)), jsTask));
+const build = gulp.series(imagesTask, bumpVersion, gulp.parallel(gulp.series(lintCssTask, gulp.parallel(admincssTask, cssTask)), jsTask));
 const watchEverything = () => {
   gulp.watch(php.src, gulp.series(reload));
   gulp.watch(images.src, gulp.series(imagesTask));
-  gulp.watch(css.watch, gulp.parallel(cssSeries, gulp.series(admincssTask, lintCssTask)));
+  gulp.watch(css.watch, gulp.series(lintCssTask, gulp.parallel(cssTask, admincssTask)));
   gulp.watch(js.watch, gulp.series(jsTask));
 };
-const defaultTask = gulp.parallel(development, gulp.series(serve, watchEverything));
+const defaultTask = gulp.series(development, serve, watchEverything);
 
-export { imagesTask, cssTask, admincssTask, jsTask, watchEverything, build, lintCssTask };
+export { imagesTask, cssTask, admincssTask, jsTask, watchEverything, build };
 
 export default defaultTask;

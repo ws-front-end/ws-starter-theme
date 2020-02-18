@@ -148,7 +148,7 @@
             "sub_fields": [
                 {
                     "key": "field_5e1470bdc87fb",
-                    "label": "Kuvatakse?",
+                    "label": "Peidetud?",
                     "name": "is_displayed",
                     "type": "true_false",
                     "instructions": "Peidab \/ kuvab antud rida veebis",

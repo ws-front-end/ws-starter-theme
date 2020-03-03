@@ -137,7 +137,8 @@
     }
 
     div.wpcf7-validation-errors,
-    div.wpcf7-mail-sent-ok {
+    div.wpcf7-mail-sent-ok, 
+    .wpcf7-acceptance-missing {
       animation: alertSlide 6s 1;
     }
 

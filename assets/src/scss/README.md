@@ -1,8 +1,13 @@
 # WS Style theme changelog
 
-> Latest version: 1.0.3
+> Latest version: 1.0.4
 
 ## Changelog:
+
+**1.0.4**
+
+- `base.scss` - Updated page--shadow default z-index.
+
 
 **1.0.3**
 

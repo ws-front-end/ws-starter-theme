@@ -1,27 +1,27 @@
 /* eslint import/no-unresolved: [2, {ignore: ["jquery"]}] */
-import $ from 'jquery'
-import { postData } from './helpers'
+import $ from 'jquery';
+import { postData } from './base/helpers';
 
 class Main {
   constructor() {
     this.eventListeners();
-    this.fetchExample()
+    this.fetchExample();
   }
 
   eventListeners() {
     // https://developer.mozilla.org/en-US/docs/Web/API/EventTarget/addEventListener
     if (document.getElementById('#example') !== null) {
-      document.getElementById('#example').addEventListener('click', this.clickEvent)
+      document.getElementById('#example').addEventListener('click', this.clickEvent);
     }
 
     document.querySelectorAll('.multipleExample').forEach(e => {
-      e.addEventListener('click', this.clickEvent)
-    })
+      e.addEventListener('click', this.clickEvent);
+    });
   }
 
   clickEvent(e) {
     const $this = e.currentTarget;
-    console.log($this)
+    console.log($this);
   }
 
   fetchExample() {
@@ -40,13 +40,13 @@ class Main {
       .then(res => {
         if (res.success) {
           // Do something with the data
-          console.log(res.data)
+          console.log(res.data);
         } else {
           // PHP Side found an error with the input data
-          console.log(res)
+          console.log(res);
         }
       })
-      .catch(error => console.error(error))
+      .catch(error => console.error(error));
   }
 }
 new Main();

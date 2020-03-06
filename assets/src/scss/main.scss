@@ -17,7 +17,7 @@ Text Domain: ws-starter-theme
 @import 'abstracts/animations';
 
 // 2. Vendors
-// @import 'vendors/wpcf7-form';
+@import 'vendors/ie-alert';
 
 // 3. Base stuff
 @import 'base/reset';

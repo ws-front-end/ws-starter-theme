@@ -7,7 +7,16 @@
 **1.0.4**
 
 - `base.scss` - Updated page--shadow default z-index.
-
+- `footer.php` - added back `.page--shadow` div
+- `/js` - Adding new structure logic for JS files.
+- Adding Internet Explorer alert for not using this shit
+  - `footer.php` - adding line for calling in ie-alert part `plate-parts/generic/ie-alert`
+    - `plate-parts/generic/ie-alert` - added IE alert php file
+  - `main.scss` - added for default call in `ie-alert.scss` from `vendors/ie-alert.scss`
+    - `vendors/ie-alert.scss` - added IE alert styles
+  - `app.js` - added for default call in `ie-alert.js` from `components/ie-alert.js`
+    - `components/ie-alert.js` - added IE alert functionality.
+  - `img/svg/ie-logo.scg` - added IE alert image.
 
 **1.0.3**
 
@@ -20,7 +29,6 @@
 **1.0.2**
 
 - abstracts/animations.scss:
-
   - Adding element click effect
 
 **1.0.1**
@@ -32,17 +40,13 @@
 - vendors/:
 
   - `scrollbar.scss` Updated colors variables
-
   - Deleted: `/hamburgers` and `fancybox.scss`
-
   - Added `hamburger.scss` what's including hamburger variables
 
 - abstracts/variables.scss:
-
   - Updated `color-link-hover` and `color-link-visited color`
 
 **1.0.0**
 
 - main.scss:
-
   - Adding Style Version: 1.0.0

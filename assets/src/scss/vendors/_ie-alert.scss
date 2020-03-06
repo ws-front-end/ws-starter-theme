@@ -1,0 +1,117 @@
+/// IE theme color
+$color-ie-theme: #0073ac !default;
+
+/// Added styles for only IE
+@media all and (-ms-high-contrast: none), (-ms-high-contrast: active) {
+  .ie-alert {
+    display: flex;
+  }
+
+  .page--shadow {
+    z-index: 80;
+    opacity: 0.5;
+    transition: all 0.2s ease-in-out;
+    pointer-events: all;
+
+    &.js-hide-on-ie {
+      opacity: 0;
+      pointer-events: none;
+    }
+  }
+}
+
+.ie-alert {
+  position: fixed;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  z-index: 90;
+  display: none;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.2s ease-in-out;
+
+  &.js-hide {
+    opacity: 0;
+    pointer-events: none;
+  }
+
+  &__container {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    max-width: 100rem;
+    padding: 6rem 5rem;
+    background-color: $color-ie-theme;
+    border-radius: 1rem;
+    box-shadow: 0 0 6rem 0 rgba(0, 0, 0, 0.3);
+    animation: ieAlertSlide 0.3s ease-in-out;
+
+    img {
+      width: 16.6rem;
+      height: 100%;
+    }
+
+    &__content {
+      margin-left: 5.8rem;
+
+      p {
+        width: 100%;
+        color: $color-white;
+        font-size: 1.6rem;
+        line-height: 1.63;
+
+        strong {
+          font-weight: bold;
+        }
+      }
+
+      &__browsers-links {
+        margin-top: 2.5rem;
+
+        ul {
+          display: flex;
+          margin-top: 0.5rem;
+          margin-left: -1rem;
+
+          li {
+            @include remove-margin-left-right;
+            display: inline-block;
+            margin: 0 0.5rem;
+
+            a {
+              padding: 1rem;
+              color: $color-white;
+              font-size: 1.6rem;
+            }
+          }
+        }
+      }
+    }
+
+    &__close {
+      position: absolute;
+      top: -6rem;
+      right: -5rem;
+      z-index: 9999;
+      display: flex;
+      padding: 1rem;
+      color: $color-ie-theme;
+      font-size: 5rem;
+    }
+  }
+
+  @keyframes ieAlertSlide {
+    0% {
+      transform: translateY(50%);
+      opacity: 0;
+    }
+
+    100% {
+      transform: translateY(0);
+      opacity: 1;
+    }
+  }
+}

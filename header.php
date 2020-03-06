@@ -17,22 +17,23 @@
     <?php wp_head(); ?>
 </head>
 
-<body <?php body_class(); ?>>
+<body <?php body_class(); ?> id="js-page-body">
     <div id="page" class="site">
 
         <header id="masthead" class="site-header">
 
             <div class="site-header__logo">
                 <a href="<?php echo esc_url(home_url('/')); ?>" rel="home" title="<?php bloginfo('name'); ?>">
-                <?php if (ThemeSetup::get_theme_option('site_logo')) : ?>
+                    <?php if (ThemeSetup::get_theme_option('site_logo')) : ?>
                     <img src="<?php echo ThemeSetup::get_theme_option('site_logo'); ?>" alt="Company logo">
-                <?php else:?>
+                    <?php else:?>
                     <img src="<?php bloginfo('template_url'); ?>/assets/dist/img/svg/site-logo.svg" alt="Company logo">
-                <?php endif;?>
+                    <?php endif;?>
                 </a>
             </div>
 
-            <button class="site-header__menu-toggle menu-toggle hamburger hamburger--squeeze" id="js-main-menu-toggle" aria-controls="js-main-menu" aria-expanded="false" type="button">
+            <button class="site-header__menu-toggle menu-toggle hamburger hamburger--squeeze" id="js-main-menu-toggle"
+                aria-controls="js-main-menu" aria-expanded="false" type="button">
                 <span class="hamburger-box">
                     <span class="hamburger-inner"></span>
                 </span>
@@ -40,25 +41,29 @@
 
             <nav class="site-header__nav" id="js-main-menu-container">
                 <?php if (class_exists('SitePress')) : ?>
-                    <div class="lang-container">
-                        <?php
+                <div class="lang-container">
+                    <?php
                         $languages = apply_filters('wpml_active_languages', NULL, 'orderby=id&order=desc');
                         $current_language = apply_filters('wpml_current_language', NULL);
                         if (count($languages) > 0) :
                         ?>
 
-                            <button class="lang-container__current <?php echo count($languages) > 1 ? 'has--children' : ''; ?>" id="lang-dropdown"><?php echo $languages[$current_language]['translated_name']; ?><span><img src="<?php echo esc_url(get_template_directory_uri()); ?>/assets/dist/img/svg/arrow_down_bold_black.svg" alt="<?php _e('Select language'); ?>"></span></button>
+                    <button class="lang-container__current <?php echo count($languages) > 1 ? 'has--children' : ''; ?>"
+                        id="lang-dropdown"><?php echo $languages[$current_language]['translated_name']; ?><span><img
+                                src="<?php echo esc_url(get_template_directory_uri()); ?>/assets/dist/img/svg/arrow_down_bold_black.svg"
+                                alt="<?php _e('Select language'); ?>"></span></button>
 
-                            <?php if (count($languages) > 1) : ?>
-                                <div class="site-header__lang-other">
-                                    <?php foreach ($languages as $language_code => $language) : ?>
-                                        <?php if ($language_code === $current_language) continue; ?>
-                                        <a href="<?php echo esc_url($language['url']); ?>"><?php echo $language['translated_name']; ?></a>
-                                    <?php endforeach; ?>
-                                </div>
-                            <?php endif; ?>
-                        <?php endif; ?>
+                    <?php if (count($languages) > 1) : ?>
+                    <div class="site-header__lang-other">
+                        <?php foreach ($languages as $language_code => $language) : ?>
+                        <?php if ($language_code === $current_language) continue; ?>
+                        <a
+                            href="<?php echo esc_url($language['url']); ?>"><?php echo $language['translated_name']; ?></a>
+                        <?php endforeach; ?>
                     </div>
+                    <?php endif; ?>
+                    <?php endif; ?>
+                </div>
                 <?php endif; ?>
 
                 <?php

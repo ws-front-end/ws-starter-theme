@@ -55,13 +55,14 @@ if (class_exists('SitePress')) {
 				<?php _e('kodulehe <br /> tegemine', 'WebSystems'); ?>
 			</a>
 			<a class="site-footer__ws-logo" href="http://www.websystems.ee/<?php echo $my_current_lang; ?>" target="_blank" title="Web Systems OÜ">
-				<img src="<?php echo esc_url(get_template_directory_uri()); ?>/assets/dist/img/svg/ws-logo.svg" alt="Websystems Logo" />
+				<img src="http://websystems.ee/ws-logos/ws-small-black-logo.svg" alt="Websystems Logo" />
 			</a>
 		</div>
 	</div>
 </footer><!-- #colophon -->
 
 </div><!-- #page -->
+<div class="page--shadow"></div>
 
 <?php wp_footer(); ?>
 

@@ -9,6 +9,7 @@
 - `base.scss` - Updated page--shadow default z-index.
 - `footer.php` - added back `.page--shadow` div
 - `/js` - Adding new structure logic for JS files.
+  - `/js/base/hamburger.js` - added for hamburger functionality.
 - Adding Internet Explorer alert for not using this shit
   - `footer.php` - adding line for calling in ie-alert part `plate-parts/generic/ie-alert`
     - `plate-parts/generic/ie-alert` - added IE alert php file

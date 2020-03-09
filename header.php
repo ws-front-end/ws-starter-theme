@@ -20,9 +20,9 @@
 <body <?php body_class(); ?> id="js-page-body">
     <div id="page" class="site">
 
-        <header id="masthead" class="site-header">
+        <header id="js-masthead" class="site-header" navigation-container>
 
-            <div class="site-header__logo">
+            <div class="site-logo">
                 <a href="<?php echo esc_url(home_url('/')); ?>" rel="home" title="<?php bloginfo('name'); ?>">
                     <?php if (ThemeSetup::get_theme_option('site_logo')) : ?>
                     <img src="<?php echo ThemeSetup::get_theme_option('site_logo'); ?>" alt="Company logo">
@@ -32,14 +32,14 @@
                 </a>
             </div>
 
-            <button class="site-header__menu-toggle menu-toggle hamburger hamburger--squeeze" id="js-main-menu-toggle"
-                aria-controls="js-main-menu" aria-expanded="false" type="button">
+            <button class="site-menu-toggle menu-toggle hamburger hamburger--squeeze" id="js-main-menu-toggle"
+                aria-controls="js-main-menu" aria-expanded="false" type="button" burger-button>
                 <span class="hamburger-box">
                     <span class="hamburger-inner"></span>
                 </span>
             </button>
 
-            <nav class="site-header__nav" id="js-main-menu-container">
+            <nav class="site-nav" id="js-main-menu-container" navigation-list>
                 <?php if (class_exists('SitePress')) : ?>
                 <div class="lang-container">
                     <?php
@@ -54,7 +54,7 @@
                                 alt="<?php _e('Select language'); ?>"></span></button>
 
                     <?php if (count($languages) > 1) : ?>
-                    <div class="site-header__lang-other">
+                    <div class="lang-container__lang-other">
                         <?php foreach ($languages as $language_code => $language) : ?>
                         <?php if ($language_code === $current_language) continue; ?>
                         <a

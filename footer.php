@@ -51,13 +51,13 @@ if (class_exists('SitePress')) {
                 href="<?php echo get_privacy_policy_url(); ?>"><?php _e('Privaatsustingimused', THEME_TEXT_DOMAIN); ?></a>
         </div>
 
-        <div class="site-footer__container__bottom__right">
+        <div class="ws-logo">
             <a href="http://www.websystems.ee/<?php echo $my_current_lang; ?>kodulehe-tegemine" target="_blank"
                 title="Web Systems kodulehe tegemine">
                 <?php _e('kodulehe <br /> tegemine', 'WebSystems'); ?>
             </a>
-            <a class="site-footer__ws-logo" href="http://www.websystems.ee/<?php echo $my_current_lang; ?>"
-                target="_blank" title="Web Systems OÜ">
+            <a class="ws-logo__image" href="http://www.websystems.ee/<?php echo $my_current_lang; ?>" target="_blank"
+                title="Web Systems OÜ">
                 <img src="http://websystems.ee/ws-logos/ws-small-black-logo.svg" alt="Websystems Logo" />
             </a>
         </div>

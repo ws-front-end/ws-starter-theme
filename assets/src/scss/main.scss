@@ -30,7 +30,6 @@ Text Domain: ws-starter-theme
 @import 'admin/adminbar';
 
 // 5. Layout-related sections
-@import 'layout/generic/navigation';
 @import 'layout/generic/grid';
 @import 'layout/generic/header';
 @import 'layout/generic/footer';
@@ -39,7 +38,9 @@ Text Domain: ws-starter-theme
 @import 'layout/generic/user-content';
 
 // 6. Components
-// @import 'components/example';
+@import 'components/generic/site-logo';
+@import 'components/generic/site-nav';
+@import 'components/generic/hamburger';
 
 // 7. Page-specific styles
 @import 'pages/home';

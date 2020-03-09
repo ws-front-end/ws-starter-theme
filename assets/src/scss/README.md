@@ -18,6 +18,12 @@
   - `app.js` - added for default call in `ie-alert.js` from `components/ie-alert.js`
     - `components/ie-alert.js` - added IE alert functionality.
   - `img/svg/ie-logo.scg` - added IE alert image.
+- `/components/generic` - added in components folder files:
+  - `hamburger.scss`
+  - `site-log.scss`
+  - `site-nav.scss`
+  - `ws-logo.scss`
+- `/layout/generic` - removed `navigation.scss`
 
 **1.0.3**
 

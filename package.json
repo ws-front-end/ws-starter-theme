@@ -5,7 +5,8 @@
   "main": "gulpfile.babel.js",
   "private": true,
   "scripts": {
-    "start": "cross-env NODE_ENV=development gulp",
+    "start": "cross-env NODE_ENV=development TYPE=test gulp",
+    "start:localhost": "cross-env NODE_ENV=development TYPE=localhost gulp",
     "build": "cross-env NODE_ENV=production gulp build"
   },
   "author": "Web Systems OÜ",

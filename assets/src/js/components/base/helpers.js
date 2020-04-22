@@ -1,14 +1,33 @@
 import qs from 'qs'
 
+
 export const postData = (url = ``, data = {}) => {
   // Default options are marked with *
+  const postData = data instanceof FormData ? createPostData(data) : data;
+
   return fetch(url, {
     method: 'POST',
     headers: {
       'Content-Type': 'application/x-www-form-urlencoded',
     },
-    body: qs.stringify(data, { arrayFormat: 'index' }),
-  }).then(response => response.json()) // parses response to JSON
+    body: qs.stringify(postData, { arrayFormat: 'index' }),
+  }).then(response => response.json()); // parses response to JSON
+};
+
+const createPostData = data => {
+  const object = {};
+  data.forEach((value, key) => {
+    // Reflect.has in favor of: object.hasOwnProperty(key)
+    if (!Reflect.has(object, key)) {
+      object[key] = value;
+      return;
+    }
+    if (!Array.isArray(object[key])) {
+      object[key] = [object[key]];
+    }
+    object[key].push(value);
+  });
+  return object;
 };
 
 /**

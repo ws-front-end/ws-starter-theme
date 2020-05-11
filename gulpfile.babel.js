@@ -28,7 +28,7 @@ const gulpStylelint = require('gulp-stylelint');
  * Configuration.
  */
 const projectUrlName = 'ws-starter-theme';
-const projectUrl = `${projectUrlName}.test`;
+const projectUrl = process.env.TYPE === 'localhost' ? `localhost/${projectUrlName}` : `${projectUrlName}.test`;
 const projectName = path.basename(__dirname);
 const enableNotify = true;
 const dir = {

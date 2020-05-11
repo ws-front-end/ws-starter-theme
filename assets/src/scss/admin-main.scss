@@ -6,8 +6,11 @@ Author URI: https://www.websystems.ee/
 Version: __WS_THEME_VERSION__
 */
 
+// 1. Configuration and helpers
 @import 'abstracts/variables';
 @import 'abstracts/mixins';
+
+// 2. Base stuff
 @import 'base/base';
 
 .login {
@@ -15,5 +18,10 @@ Version: __WS_THEME_VERSION__
   @import 'base/typography';
 }
 
+// 3. Admin styles
 @import 'admin/admin-login';
 @import 'admin/admin-widget';
+@import 'admin/admin-editor';
+
+// 4. Blocks
+// @import 'blocks/ws-shadow-separator';

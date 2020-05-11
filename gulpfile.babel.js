@@ -27,7 +27,7 @@ const gulpStylelint = require('gulp-stylelint');
 /**
  * Configuration.
  */
-const projectUrlName = 'klaasjateras';
+const projectUrlName = 'ws-starter-theme';
 const projectUrl = `${projectUrlName}.test`;
 const projectName = path.basename(__dirname);
 const enableNotify = true;
@@ -99,6 +99,16 @@ const js = {
   },
 };
 
+const adminsrc = {
+  src: `${dir.src}assets/src/js/admin.js`,
+  watch: `${dir.src}assets/src/js/admin/**/*`,
+  build: `${dir.build}assets/dist/js/`,
+  filename: {
+    dev: 'admin.bundle.min.js',
+    build: 'admin.bundle.min.js',
+  },
+};
+
 let webPackConfig = {
   entry: js.src,
   watch: false,
@@ -141,6 +151,48 @@ let webPackConfig = {
   },
 };
 
+let adminwebPackConfig = {
+  entry: adminsrc.src,
+  watch: false,
+  mode: 'development',
+  devtool: 'cheap-module-eval-source-map',
+  externals: {
+    jquery: 'jQuery',
+  },
+  module: {
+    rules: [
+      {
+        test: /\.js?$/,
+        use: {
+          loader: 'babel-loader',
+          options: {
+            exclude: /node_modules/,
+            babelrc: true,
+          },
+        },
+      },
+      {
+        test: /\.css$/,
+        use: ['style-loader', 'css-loader'],
+      },
+      {
+        test: /\.(png|jpe?g|gif|svg|eot|ttf|woff|woff2)$/,
+        loader: 'url-loader',
+        options: {
+          limit: 8192,
+        },
+      },
+    ],
+  },
+  resolve: {
+    modules: [path.resolve(__dirname), 'node_modules'],
+  },
+  output: {
+    filename: adminsrc.filename.dev,
+    path: path.resolve(js.build),
+  },
+};
+
 if (process.env.NODE_ENV === 'production') {
   webPackConfig = {
     ...webPackConfig,
@@ -163,6 +215,27 @@ if (process.env.NODE_ENV === 'production') {
     },
   };
   delete webPackConfig.devtool;
+  adminwebPackConfig = {
+    ...adminwebPackConfig,
+    ...{
+      watch: false,
+      mode: 'production',
+      optimization: {
+        minimizer: [
+          new UglifyJsPlugin({
+            terserOptions: {
+              parallel: true,
+              output: {
+                comments: false,
+              },
+              toplevel: true,
+            },
+          }),
+        ],
+      },
+    },
+  };
+  delete adminwebPackConfig.devtool;
 }
 const browserSyncServer = browsersync.create();
 
@@ -185,16 +258,14 @@ const imagesTask = () => {
 };
 
 const cssTask = () => {
-  let $retVal = gulp
-    .src(css.src)
-    .pipe(plumber({ errorHandle: onError }));
+  let $retVal = gulp.src(css.src).pipe(plumber({ errorHandle: onError }));
 
   if (process.env.NODE_ENV !== 'production') {
     $retVal = $retVal.pipe(sourcemaps.init());
   }
   $retVal = $retVal
     .pipe(
-      sass(css.sassOpts).on('error', function(err) {
+      sass(css.sassOpts).on('error', function (err) {
         console.log(err.toString());
         return onError();
       })
@@ -234,7 +305,7 @@ const admincssTask = () => {
   }
   $retVal = $retVal
     .pipe(
-      sass(css.sassOpts).on('error', function(err) {
+      sass(css.sassOpts).on('error', function (err) {
         console.log(err.toString());
         return onError();
       })
@@ -263,6 +334,7 @@ const jsTask = () => {
     .src(js.src)
     .pipe(plumber({ errorHandle: onError }))
     .pipe(webpack(webPackConfig))
+    .pipe(webpack(adminwebPackConfig))
     .pipe(gulp.dest(js.build))
     .pipe(browserSyncServer.reload({ stream: true }));
 };
@@ -271,18 +343,25 @@ const bumpVersion = () => {
   return gulp.src(js.src).pipe(shell(['npm version patch']));
 };
 
-const serve = done => {
+const serve = (done) => {
   browserSyncServer.init(browserSyncOptions);
   done();
 };
 
-const reload = done => {
+const reload = (done) => {
   browserSyncServer.reload();
   done();
 };
 
-const development = gulp.series(imagesTask, gulp.parallel(gulp.series(lintCssTask, gulp.parallel(admincssTask, cssTask)), jsTask));
-const build = gulp.series(imagesTask, bumpVersion, gulp.parallel(gulp.series(lintCssTask, gulp.parallel(admincssTask, cssTask)), jsTask));
+const development = gulp.series(
+  imagesTask,
+  gulp.parallel(gulp.series(lintCssTask, gulp.parallel(admincssTask, cssTask)), jsTask)
+);
+const build = gulp.series(
+  imagesTask,
+  bumpVersion,
+  gulp.parallel(gulp.series(lintCssTask, gulp.parallel(admincssTask, cssTask)), jsTask)
+);
 const watchEverything = () => {
   gulp.watch(php.src, gulp.series(reload));
   gulp.watch(images.src, gulp.series(imagesTask));

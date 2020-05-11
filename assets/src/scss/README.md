@@ -1,8 +1,19 @@
 # WS Style theme changelog
 
-> Latest version: 1.0.4
+> Latest version: 1.0.5
 
 ## Changelog:
+
+**1.0.5**
+
+- Adding support making custom gutenberg block styles.
+  - Updated: `function.php`, `gulpfile.bable.js`, `main.scss`, `admin-main.scss`
+- Moved `user-content.scss` to `/base` folder
+  - Adding in `user-content.scss` contents
+- Added in `fonts.scss` `font-display: swap;` property
+- New folder `/blocks` for Gutenber blocks
+- Updated in `/vendors` files headings.
+- Added in `wpcf7-form.scss` file input style.
 
 **1.0.4**
 

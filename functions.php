@@ -10,7 +10,7 @@ require_once 'includes/classes/class-ws-relative-url-maker.php';
 require_once 'includes/classes/class-ws-woocommerce-functions.php';
 require_once 'includes/classes/class-ws-ajax-functions.php';
 require_once 'includes/classes/class-admin-post-functions.php';
-require_once 'includes/classes/class-ws-admin-controller.php';
+require_once 'includes/classes/class-ws-admin-controller.php';	
 
 /**
  * Class ThemeSetup
@@ -48,6 +48,7 @@ class ThemeSetup
 		add_action('the_generator', '__return_empty_string');
 		add_action('widgets_init', [$this, 'theme_widgets_sidebar_register']);
 		add_filter('ws_get_url_from_acf_image_array', [$this, 'ws_get_url_from_acf_image_array'], 10, 3);
+		add_action('admin_enqueue_scripts', [$this, 'ws_admin_enqueue_scripts_and_styles']);
 	}
 
 	/**
@@ -133,6 +134,14 @@ class ThemeSetup
 			)
 		);
 	}
+
+	public function ws_admin_enqueue_scripts_and_styles(){
+		$manifest      = json_decode(file_get_contents(get_template_directory() . '/package.json', true));
+		$asset_version = $manifest->version;
+
+		wp_enqueue_script('admin-ws-custom-js', get_template_directory_uri() . '/assets/dist/js/admin.bundle.min.js', array('jquery'), $asset_version, true);
+	}
+
 
 	/** Enqueues theme stylesheet and Javascript files.
 	 */

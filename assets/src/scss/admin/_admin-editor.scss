@@ -1,0 +1,9 @@
+.block-editor-page {
+  .wp-block {
+    max-width: inherit;
+
+    .is-block-content {
+      overflow: hidden;
+    }
+  }
+}

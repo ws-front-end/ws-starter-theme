@@ -2,7 +2,21 @@
 // This file contains styles for Wordpress content
 // -------------------------------------------------------------------------
 
+/// Contents
+// Heading
+// Paragraph
+// Button
+// Image
+// Quote
+// List
+// Separator
+// Preformatted
+// Gallery
+// Table
+// Custom styles
+
 .entry-content {
+  // Heading
   h1,
   h2,
   h3,
@@ -11,39 +25,41 @@
   h6 {
     margin: 4rem 0 1rem;
     line-height: 1.4;
-    text-transform: uppercase;
   }
 
   h1 {
-    font-size: 3rem;
+    font-size: 4rem;
   }
 
   h2 {
-    font-size: 2.5rem;
+    font-size: 3.7rem;
   }
 
   h3 {
-    font-size: 2.3rem;
+    font-size: 3.4rem;
   }
 
   h4 {
-    font-size: 2.1rem;
+    font-size: 3.1rem;
   }
 
   h5 {
-    font-size: 1.9rem;
+    font-size: 2.9rem;
   }
 
   h6 {
-    font-size: 1.7rem;
+    font-size: 2.7rem;
   }
 
+  // Paragraph
   p {
     margin: 2rem 0;
     line-height: 1.67;
   }
 
+  // Button
   a {
+    color: $color-link;
     text-decoration: underline;
 
     &:hover {
@@ -58,16 +74,20 @@
     }
   }
 
+  // Image
   img {
     max-width: 100%;
     height: auto;
+    margin: 2rem 0;
   }
 
+  // Quote
   blockquote {
     padding-left: 5rem;
     border-left: 1.5rem solid $color-brand;
   }
 
+  // List
   ul {
     margin: 1rem 0;
     list-style: none;
@@ -114,9 +134,10 @@
     }
   }
 
+  // Separator
   hr {
     margin: 2rem 0;
-    color: $color-brand;
+    color: $color-gray;
 
     &.is-style-wide {
       margin-right: calc((-100vw + 100%) / 2);
@@ -134,12 +155,13 @@
         right: 0;
         bottom: 0;
         left: 0;
-        border-top: 0.1rem dashed $color-brand;
+        border-top: 0.1rem dashed $color-gray;
         content: '';
       }
     }
   }
 
+  // Preformatted
   pre {
     font-size: 2rem;
     white-space: pre-wrap;
@@ -150,6 +172,7 @@
     }
   }
 
+  // Gallery
   .wp-block-cover,
   .wp-block-cover-image {
     margin: 1rem 0;
@@ -169,6 +192,7 @@
     }
   }
 
+  // Table
   .wp-block-table {
     width: 100%;
     margin-top: 5rem;
@@ -193,6 +217,14 @@
           font-size: 1.8rem;
         }
       }
+    }
+  }
+
+  // Custom styles
+  .wp-block-columns {
+    // Wrap in mobile gutenber columns reverse order
+    &.wrap--reverse {
+      flex-wrap: wrap-reverse;
     }
   }
 }

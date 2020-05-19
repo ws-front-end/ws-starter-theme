@@ -178,11 +178,11 @@
     margin: 1rem 0;
   }
 
-  .wp-block-image {
-    max-width: inherit;
-  }
-
   .wp-block-gallery {
+    .wp-block-image {
+      max-width: inherit;
+    }
+
     li {
       padding: 0;
 

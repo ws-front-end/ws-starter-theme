@@ -28,7 +28,8 @@ const gulpStylelint = require('gulp-stylelint');
  * Configuration.
  */
 const projectUrlName = 'ws-starter-theme';
-const projectUrl = process.env.TYPE === 'localhost' ? `localhost/${projectUrlName}` : `${projectUrlName}.test`;
+const projectUrl =
+  process.env.TYPE === 'localhost' ? `localhost/${projectUrlName}` : `${projectUrlName}.test`;
 const projectName = path.basename(__dirname);
 const enableNotify = true;
 const dir = {
@@ -91,7 +92,7 @@ if (process.env.NODE_ENV === 'production') {
 
 const js = {
   src: `${dir.src}assets/src/js/app.js`,
-  watch: `${dir.src}assets/src/js/**/*`,
+  watch: [`${dir.src}assets/src/js/**/*`, `!${dir.src}assets/src/js/components/admin/**/*`],
   build: `${dir.build}assets/dist/js/`,
   filename: {
     dev: 'bundle.min.js',
@@ -101,7 +102,7 @@ const js = {
 
 const adminsrc = {
   src: `${dir.src}assets/src/js/admin.js`,
-  watch: `${dir.src}assets/src/js/admin/**/*`,
+  watch: `${dir.src}assets/src/js/components/admin/**/*`,
   build: `${dir.build}assets/dist/js/`,
   filename: {
     dev: 'admin.bundle.min.js',
@@ -334,11 +335,18 @@ const jsTask = () => {
     .src(js.src)
     .pipe(plumber({ errorHandle: onError }))
     .pipe(webpack(webPackConfig))
-    .pipe(webpack(adminwebPackConfig))
     .pipe(gulp.dest(js.build))
     .pipe(browserSyncServer.reload({ stream: true }));
 };
 
+const adminjsTask = () => {
+  return gulp
+    .src(adminsrc.src)
+    .pipe(plumber({ errorHandle: onError }))
+    .pipe(webpack(adminwebPackConfig))
+    .pipe(gulp.dest(adminsrc.build))
+    .pipe(browserSyncServer.reload({ stream: true }));
+};
 const bumpVersion = () => {
   return gulp.src(js.src).pipe(shell(['npm version patch']));
 };
@@ -367,6 +375,7 @@ const watchEverything = () => {
   gulp.watch(images.src, gulp.series(imagesTask));
   gulp.watch(css.watch, gulp.series(lintCssTask, gulp.parallel(cssTask, admincssTask)));
   gulp.watch(js.watch, gulp.series(jsTask));
+  gulp.watch(adminsrc.watch, gulp.series(adminjsTask));
 };
 const defaultTask = gulp.series(development, serve, watchEverything);
 

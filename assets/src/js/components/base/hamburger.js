@@ -3,6 +3,8 @@ class HamburgerToggle {
     this.navigationContainer = container;
     this.hamburgerButton = this.navigationContainer.querySelector('[burger-button]');
     this.navigationList = this.navigationContainer.querySelector('[navigation-list]');
+    this.pageShadow = document.querySelector('.page--shadow');
+    this.pageBody = document.querySelector('html');
     this.hamburgerToggleCondition = false;
 
     if (this.hamburgerButton && this.navigationList) {
@@ -11,8 +13,8 @@ class HamburgerToggle {
   }
 
   eventListeners() {
-    this.hamburgerButton.addEventListener('click', e => this.statehandler(e));
-    document.addEventListener('click', e => this.missClick(e));
+    this.hamburgerButton.addEventListener('click', (e) => this.statehandler(e));
+    document.addEventListener('click', (e) => this.missClick(e));
   }
 
   statehandler(e) {
@@ -23,7 +25,7 @@ class HamburgerToggle {
     }
   }
 
-  missClick = e => {
+  missClick = (e) => {
     if (!e.target.closest('[navigation-container]')) {
       this.closeBurger(e);
     }
@@ -31,21 +33,25 @@ class HamburgerToggle {
 
   openBurger(e) {
     this.hamburgerToggleCondition = true;
-    this.hamburgerButton.classList.add('active');
+    this.hamburgerButton.classList.add('is-active');
     this.navigationList.classList.add('active');
+    this.pageShadow.classList.add('visible');
+    this.pageBody.classList.add('overflow--disable');
   }
 
   closeBurger(e) {
     this.hamburgerToggleCondition = false;
-    this.hamburgerButton.classList.remove('active');
+    this.hamburgerButton.classList.remove('is-active');
     this.navigationList.classList.remove('active');
+    this.pageShadow.classList.remove('visible');
+    this.pageBody.classList.remove('overflow--disable');
   }
 }
 
 const globalNavigationContainer = document.querySelectorAll('[navigation-container]');
 
 if (globalNavigationContainer.length) {
-  globalNavigationContainer.forEach(e => {
+  globalNavigationContainer.forEach((e) => {
     new HamburgerToggle(e);
   });
 }

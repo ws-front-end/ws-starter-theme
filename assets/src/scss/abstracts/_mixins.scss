@@ -2,6 +2,10 @@
 // This file contains all application-wide Sass mixins.
 // -------------------------------------------------------------------------
 
+@mixin smooth-animation {
+  transition: all 0.3s ease-in-out;
+}
+
 @mixin remove-margin-left-right {
   &:first-child {
     margin-left: 0;
@@ -19,6 +23,12 @@
 
   &:last-child {
     margin-bottom: 0;
+  }
+}
+
+@mixin small-extra {
+  @media screen and (max-width: $small-extra) {
+    @content;
   }
 }
 
@@ -46,8 +56,8 @@
   }
 }
 
-@mixin larger-medium {
-  @media screen and (max-width: $larger-medium) {
+@mixin larger-small {
+  @media screen and (max-width: $larger-small) {
     @content;
   }
 }

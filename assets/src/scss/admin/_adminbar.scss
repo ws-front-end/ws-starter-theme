@@ -6,6 +6,10 @@
 .admin-bar {
   margin-top: -32px;
 
+  @media screen and (max-width: 782px) {
+    margin-top: -46px;
+  }
+
   .wp-bar {
     position: fixed;
     top: 0;

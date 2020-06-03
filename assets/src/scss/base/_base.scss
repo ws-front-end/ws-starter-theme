@@ -21,6 +21,16 @@ html {
 }
 /* stylelint-enable */
 
+body {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+
+  .site {
+    position: relative;
+  }
+}
+
 .max--width {
   max-width: $max-width;
   margin: 0 auto;

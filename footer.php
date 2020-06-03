@@ -12,6 +12,8 @@ if (class_exists('SitePress')) {
 ?>
 </main>
 
+</div><!-- #page -->
+
 <footer id="colophon" class="site-footer">
     <div class="site-footer__container__bottom">
         <div class="site-footer__container__bottom__left">
@@ -66,7 +68,6 @@ if (class_exists('SitePress')) {
 
 <?php get_template_part( 'template-parts/generic/ie-alert' );?>
 
-</div><!-- #page -->
 <div class="page--shadow" id="js-page-shadow"></div>
 
 <?php wp_footer(); ?>

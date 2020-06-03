@@ -21,13 +21,13 @@ html {
 }
 /* stylelint-enable */
 
-body {
+body:not(.wp-admin) {
   display: flex;
   flex-direction: column;
   min-height: 100vh;
 
   .site {
-    position: relative;
+    flex: 1;
   }
 }
 

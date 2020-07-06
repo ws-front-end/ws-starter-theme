@@ -1,5 +1,9 @@
 {
-  "extends": ["stylelint-config-sass-guidelines", "stylelint-config-rational-order"],
+  "extends": [
+    "stylelint-config-sass-guidelines",
+    "stylelint-config-rational-order",
+    "stylelint-config-prettier"
+  ],
   "plugins": ["stylelint-order", "stylelint-config-rational-order/plugin", "stylelint-scss"],
   "rules": {
     "max-nesting-depth": 10,

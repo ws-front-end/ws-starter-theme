@@ -220,11 +220,27 @@
     }
   }
 
-  // Custom styles
+  /// Custom styles
+  // Wrap in mobile gutenber columns reverse order
   .wp-block-columns {
-    // Wrap in mobile gutenber columns reverse order
     &.wrap--reverse {
       flex-wrap: wrap-reverse;
+    }
+  }
+
+  // Wrap in mobile gutenber media and text block columns reverse order
+  .wp-block-media-text {
+    &.has-media-on-the-right {
+      .wp-block-media-text__media {
+        @include small {
+          grid-row: 2;
+        }
+      }
+      .wp-block-media-text__content {
+        @include small {
+          grid-row: 1;
+        }
+      }
     }
   }
 }

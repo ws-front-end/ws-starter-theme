@@ -54,13 +54,13 @@ if (class_exists('SitePress')) {
         </div>
 
         <div class="ws-logo">
-            <a href="http://www.websystems.ee/<?php echo $my_current_lang; ?>kodulehe-tegemine" target="_blank"
+            <a href="https://www.websystems.ee/<?php echo $my_current_lang; ?>kodulehe-tegemine" target="_blank"
                 title="Web Systems kodulehe tegemine">
                 <?php _e('kodulehe <br /> tegemine', 'WebSystems'); ?>
             </a>
-            <a class="ws-logo__image" href="http://www.websystems.ee/<?php echo $my_current_lang; ?>" target="_blank"
+            <a class="ws-logo__image" href="https://www.websystems.ee/<?php echo $my_current_lang; ?>" target="_blank"
                 title="Web Systems OÜ">
-                <img src="http://websystems.ee/ws-logos/ws-small-black-logo.svg" alt="Websystems Logo" />
+                <img src="https://websystems.ee/ws-logos/ws-small-black-logo.svg" alt="Websystems Logo" />
             </a>
         </div>
     </div>

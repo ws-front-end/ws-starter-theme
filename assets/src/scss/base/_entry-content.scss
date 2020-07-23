@@ -80,6 +80,13 @@
     height: auto;
     margin: 2rem 0;
   }
+  
+  // Gallery 
+  .wp-block-gallery {
+    img {
+      margin: 0;
+    }
+  }
 
   // Quote
   blockquote {

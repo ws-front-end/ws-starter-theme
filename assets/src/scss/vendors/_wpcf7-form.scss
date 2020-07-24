@@ -166,16 +166,16 @@
       }
     }
 
-    div.wpcf7-validation-errors,
-    div.wpcf7-mail-sent-ok {
+    &.sent .wpcf7-response-output,
+    &.invalid .wpcf7-response-output {
       animation: alertSlide 6s 1;
     }
 
-    div.wpcf7-validation-errors {
+    &.invalid .wpcf7-response-output {
       background-color: $color-error;
     }
 
-    div.wpcf7-mail-sent-ok {
+    &.sent .wpcf7-response-output {
       background-color: $color-correct;
     }
 

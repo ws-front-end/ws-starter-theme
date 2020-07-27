@@ -13,6 +13,7 @@
 // Preformatted
 // Gallery
 // Table
+// File
 // Custom styles
 
 .entry-content {
@@ -81,13 +82,6 @@
     margin: 2rem 0;
   }
   
-  // Gallery 
-  .wp-block-gallery {
-    img {
-      margin: 0;
-    }
-  }
-
   // Quote
   blockquote {
     padding-left: 5rem;
@@ -189,6 +183,10 @@
     .wp-block-image {
       max-width: inherit;
     }
+    
+    img {
+      margin: 0;
+    }
 
     li {
       padding: 0;
@@ -226,6 +224,12 @@
       }
     }
   }
+  
+   // File
+  .wp-block-file {
+    margin: 1.5rem 0;
+  }
+
 
   /// Custom styles
   // Wrap in mobile gutenber columns reverse order

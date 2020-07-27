@@ -14,10 +14,6 @@ html {
   @media screen and (max-width: $small) {
     font-size: calc(0.3rem + 1vw);
   }
-
-  &.wp-toolbar {
-    font-size: inherit;
-  }
 }
 /* stylelint-enable */
 

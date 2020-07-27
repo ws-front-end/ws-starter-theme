@@ -71,7 +71,7 @@ a {
   transition: color 0.2s ease-in-out;
 
   &:hover,
-  &:visited {
+  &:focus {
     color: $color-link-hover;
     text-decoration: underline;
   }

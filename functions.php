@@ -207,6 +207,22 @@ class ThemeSetup
 		);
 	}
 
+	
+	/**
+	 *
+	 * Returns as a string the URL of the requested image.
+	 *
+	 * Example: ThemeSetup::get_dist_img('image.png') - /wp-content/themes/theme_name/assets/dist/img/image.png
+	 * Example: ThemeSetup::get_dist_img('svg/image.svg') - /wp-content/themes/theme_name/assets/dist/img/svg/image.png
+	 *
+	 * @param string $relative_file_path
+	 *
+	 * @return string;
+	 */
+	public static function get_dist_img( $relative_file_path ) {
+		return esc_url( get_template_directory_uri() . "/assets/dist/img/{$relative_file_path}" );
+	}
+	
 	/**
 	 * Returns the themes options page id.
 	 *

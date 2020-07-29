@@ -1,7 +1,7 @@
 <div class="ie-alert" id="js-ie-alert">
     <div class="ie-alert__container">
         <div>
-            <img src="<?php bloginfo( 'template_url' ); ?>/assets/dist/img/svg/ie-logo.svg"
+            <img src="<?php echo ThemeSetup::get_dist_img("svg/ie-logo.svg"); ?>"
                 alt="Internet Explorer Icon">
         </div>
 

@@ -26,22 +26,22 @@ if (class_exists('SitePress')) {
 
             <span>|</span>
             <?php
-						switch ($section['link_type']) {
-							case 'link':
-								echo "<a href='" . $section["href"]["url"] . "' target='" . $section["href"]["target"] . "'>" . $section["href"]["title"] . "</a>";
-								break;
-							case 'tel':
-								echo "<a href='tel:+" . preg_replace('/\D/', '', $section['href']) . "'>" . $section['href'] . "</a>";
-								break;
-							case 'mailto':
-								echo "<a href='mailto:" . $section['href'] . "'>" . $section['href'] . "</a>";
-								break;
+		switch ($section['link_type']) {
+			case 'link':
+				echo "<a href='" . $section["href"]["url"] . "' target='" . $section["href"]["target"] . "'>" . $section["href"]["title"] . "</a>";
+				break;
+			case 'tel':
+				echo "<a href='tel:+" . preg_replace('/\D/', '', $section['href']) . "'>" . $section['href'] . "</a>";
+				break;
+			case 'mailto':
+				echo "<a href='mailto:" . $section['href'] . "'>" . $section['href'] . "</a>";
+				break;
 
-							default:
-								echo "<p>" . $section['href'] . "</p>";
-								break;
-						}
-						?>
+			default:
+				echo "<p>" . $section['href'] . "</p>";
+				break;
+		}
+		?>
 
             <?php endif; ?>
             <?php endforeach; ?>
@@ -54,11 +54,11 @@ if (class_exists('SitePress')) {
         </div>
 
         <div class="ws-logo">
-            <a href="https://www.websystems.ee/<?php echo $my_current_lang; ?>kodulehe-tegemine" target="_blank"
+            <a href="https://www.websystems.ee/<?php echo $my_current_lang !== 'et/' ? $my_current_lang : ''; ?>kodulehe-tegemine" target="_blank"
                 title="Web Systems kodulehe tegemine">
                 <?php _e('kodulehe <br /> tegemine', 'WebSystems'); ?>
             </a>
-            <a class="ws-logo__image" href="https://www.websystems.ee/<?php echo $my_current_lang; ?>" target="_blank"
+            <a class="ws-logo__image" href="https://www.websystems.ee/<?php echo $my_current_lang !== 'et/' ? $my_current_lang : ''; ?>" target="_blank"
                 title="Web Systems OÜ">
                 <img src="https://websystems.ee/ws-logos/ws-small-black-logo.svg" alt="Websystems Logo" />
             </a>

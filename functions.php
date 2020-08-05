@@ -6,7 +6,7 @@ if (!defined('ABSPATH')) {
 define('THEME_TEXT_DOMAIN', 'starter');
 
 require_once 'includes/classes/class-ws-acf-controller.php';
-require_once 'includes/classes/class-ws-relative-url-maker.php';
+// require_once 'includes/classes/class-ws-relative-url-maker.php';
 require_once 'includes/classes/class-ws-woocommerce-functions.php';
 require_once 'includes/classes/class-ws-ajax-functions.php';
 require_once 'includes/classes/class-admin-post-functions.php';
@@ -28,7 +28,7 @@ class ThemeSetup
 		$this->add_filters();
 
 		new WS_Acf_Controller();
-		new WS_Relative_Url_Maker();
+		// new WS_Relative_Url_Maker();
 		new WS_Admin_Post_Functions();
 		new WS_Ajax_Functions();
 		new WS_Admin_Controller();

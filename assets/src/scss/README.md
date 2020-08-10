@@ -16,6 +16,8 @@
 - Changed in `variables.scss` `$small-larger` for `$small-landscape`
   - Updated `$small-larger` in `mixins.scss`
 - Added in `home.scss` and `content.scss` new modifiers (`home--only, content--only`)
+- Included `ws-logo.scss` in `main.scss`
+- Added basic styles to `footer.scss` and `ws-logo.scss`
 
 **1.0.5**
 

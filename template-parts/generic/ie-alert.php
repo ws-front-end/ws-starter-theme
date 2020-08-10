@@ -1,8 +1,7 @@
 <div class="ie-alert" id="js-ie-alert">
     <div class="ie-alert__container">
         <div>
-            <img src="<?php echo ThemeSetup::get_dist("img/svg/ie-logo.svg"); ?>"
-                alt="Internet Explorer Icon">
+            <img src="<?php echo ThemeSetup::get_dist("img/svg/ie-logo.svg"); ?>" alt="Internet Explorer Icon">
         </div>
 
         <div class="ie-alert__container__content">
@@ -16,17 +15,17 @@
 
                 <ul>
                     <li>
-                        <a target="_blank"
+                        <a target="_blank" rel="noreferrer"
                             href="https://www.google.com/intl/et/chrome/"><?php _e('Google Chrome', THEME_TEXT_DOMAIN)?>
                         </a>
                     </li>
                     <li>
-                        <a target="_blank"
+                        <a target="_blank" rel="noreferrer"
                             href="https://www.mozilla.org/et/firefox/new/"><?php _e('Mozilla Firefox', THEME_TEXT_DOMAIN)?>
                         </a>
                     </li>
                     <li>
-                        <a target="_blank"
+                        <a target="_blank" rel="noreferrer"
                             href="https://www.microsoft.com/en-us/edge"><?php _e('Microsoft Edge', THEME_TEXT_DOMAIN)?>
                         </a>
                     </li>

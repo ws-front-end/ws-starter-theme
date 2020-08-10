@@ -16,7 +16,13 @@
 // File
 // Custom styles
 
-.entry-content {
+/// Variables
+$entry-line-height: 1.4;
+$entry-font-size: 2rem;
+$enrty-margin-top-bottom: 2rem 0;
+
+.entry-content,
+.entry-section {
   // Heading
   h1,
   h2,
@@ -25,7 +31,7 @@
   h5,
   h6 {
     margin: 4rem 0 1rem;
-    line-height: 1.4;
+    line-height: $entry-line-height;
   }
 
   h1 {
@@ -54,8 +60,9 @@
 
   // Paragraph
   p {
-    margin: 2rem 0;
-    line-height: 1.67;
+    margin: $enrty-margin-top-bottom;
+    font-size: $entry-font-size;
+    line-height: $entry-line-height;
   }
 
   // Button
@@ -69,6 +76,9 @@
   }
 
   .wp-block-button {
+    @include remove-margin-left-right;
+    margin: 1rem 0.5rem;
+
     a {
       color: $color-white;
       background-color: $color-brand;
@@ -79,26 +89,29 @@
   img {
     max-width: 100%;
     height: auto;
-    margin: 2rem 0;
+    margin: $enrty-margin-top-bottom;
   }
-  
+
   // Quote
   blockquote {
     padding-left: 5rem;
+    font-size: $entry-font-size;
+    line-height: $entry-line-height;
     border-left: 1.5rem solid $color-brand;
+    margin: $enrty-margin-top-bottom;
   }
 
   // List
   ul {
-    margin: 1rem 0;
+    margin: $enrty-margin-top-bottom;
     list-style: none;
 
     li {
       position: relative;
       margin: 1rem 0;
       padding-left: 2rem;
-      font-size: 2rem;
-      line-height: 1.3;
+      font-size: $entry-font-size;
+      line-height: $entry-line-height;
 
       &::before {
         position: absolute;
@@ -114,13 +127,13 @@
   }
 
   ol {
-    margin: 1rem 0;
+    margin: $enrty-margin-top-bottom;
     list-style: decimal;
 
     li {
       margin: 1rem 0;
-      font-size: 2rem;
-      line-height: 1.3;
+      font-size: $entry-font-size;
+      line-height: $entry-line-height;
       list-style-type: none;
       counter-increment: item;
 
@@ -137,7 +150,7 @@
 
   // Separator
   hr {
-    margin: 2rem 0;
+    margin: $enrty-margin-top-bottom;
     color: $color-gray;
 
     &.is-style-wide {
@@ -164,7 +177,7 @@
 
   // Preformatted
   pre {
-    font-size: 2rem;
+    font-size: $entry-font-size;
     white-space: pre-wrap;
 
     b,
@@ -176,14 +189,14 @@
   // Gallery
   .wp-block-cover,
   .wp-block-cover-image {
-    margin: 1rem 0;
+    margin: $enrty-margin-top-bottom;
   }
 
   .wp-block-gallery {
     .wp-block-image {
       max-width: inherit;
     }
-    
+
     img {
       margin: 0;
     }
@@ -204,32 +217,31 @@
 
     thead {
       tr {
-        border-bottom: 0.1rem solid #bbbcbf;
+        border-bottom: 0.1rem solid $color-gray;
 
         th {
           padding: 2.2rem 0;
-          font-size: 2.2rem;
+          font-size: $entry-font-size;
         }
       }
     }
 
     tbody {
       tr {
-        border-bottom: 0.1rem solid #bbbcbf;
+        border-bottom: 0.1rem solid $color-gray;
 
         td {
           padding: 1.5rem 0;
-          font-size: 2rem;
+          font-size: $entry-font-size;
         }
       }
     }
   }
-  
-   // File
-  .wp-block-file {
-    margin: 1.5rem 0;
-  }
 
+  // File
+  .wp-block-file {
+    margin: $enrty-margin-top-bottom;
+  }
 
   /// Custom styles
   // Wrap in mobile gutenber columns reverse order

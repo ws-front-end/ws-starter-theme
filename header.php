@@ -33,7 +33,8 @@
             </div>
 
             <button class="site-menu-toggle menu-toggle hamburger hamburger--squeeze touch--only"
-                id="js-main-menu-toggle" aria-controls="js-main-menu" aria-expanded="false" type="button" burger-button>
+                id="js-main-menu-toggle" aria-controls="js-main-menu" aria-expanded="false" type="button"
+                aria-label="Hamburger Button" burger-button>
                 <span class="hamburger-box">
                     <span class="hamburger-inner"></span>
                 </span>

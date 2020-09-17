@@ -7,8 +7,9 @@
 **1.0.7**
 
 - Coming soon
+- Test
 
-**1.0.6**
+**1.0.6** 
 
 - Fixed in `reset.scss` buttons focus outline styles.
 - Updaed `entry-content.scss`

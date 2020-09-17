@@ -8,9 +8,10 @@ define('THEME_TEXT_DOMAIN', 'starter');
 require_once 'includes/classes/class-ws-acf-controller.php';
 // require_once 'includes/classes/class-ws-relative-url-maker.php';
 require_once 'includes/classes/class-ws-woocommerce-functions.php';
+require_once 'includes/classes/class-ws-wc-checkout-controller.php';
 require_once 'includes/classes/class-ws-ajax-functions.php';
 require_once 'includes/classes/class-admin-post-functions.php';
-require_once 'includes/classes/class-ws-admin-controller.php';	
+require_once 'includes/classes/class-ws-admin-controller.php';
 
 /**
  * Class ThemeSetup
@@ -34,6 +35,7 @@ class ThemeSetup
 		new WS_Admin_Controller();
 		if (in_array('woocommerce/woocommerce.php', apply_filters('active_plugins', get_option('active_plugins')), true)) {
 			new WS_Woocommerce_Functions();
+			new WS_WC_Checkout_Controller();
 		}
 	}
 
@@ -207,7 +209,7 @@ class ThemeSetup
 		);
 	}
 
-	
+
 	/**
 	 *
 	 * Returns as a string the URL of the requested image.
@@ -216,7 +218,7 @@ class ThemeSetup
 	 * Example: ThemeSetup::get_dist('img/svg/image.svg') - /wp-content/themes/theme_name/assets/dist/img/svg/image.png
 	 *
 	 * @param string $relative_file_path
-	 * @param bool $return 
+	 * @param bool $return
 	 *
 	 * @return string;
 	 */
@@ -227,9 +229,9 @@ class ThemeSetup
 		} else {
 			echo esc_url($url);
 		}
-			
+
 	}
-	
+
 	/**
 	 * Returns the themes options page id.
 	 *

@@ -1,0 +1,25 @@
+.woocommerce-order-received {
+  .thankyou {
+    &__back-home {
+      margin-top: 1.5rem;
+      padding: 1.2rem 12.2rem;
+      color: $color-white;
+      font-size: 1.6rem;
+      text-transform: uppercase;
+      background-color: $color-brand;
+      border-radius: 2.5rem;
+
+      @include small {
+        padding: 1.2rem 10rem;
+      }
+
+      &:hover {
+        text-decoration: none;
+      }
+    }
+
+    .section-title {
+      margin-top: 6rem;
+    }
+  }
+}

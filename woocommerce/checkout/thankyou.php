@@ -7,7 +7,7 @@
 
 defined( 'ABSPATH' ) || exit;
 ?>
-<div class="max--width">
+<div class="max--width--smaller">
     <section class="thankyou">
         <div class="thankyou__top">
             <span class="thankyou__top__selected-checkmark">
@@ -32,7 +32,7 @@ defined( 'ABSPATH' ) || exit;
                 href="<?php echo esc_url( get_permalink( wc_get_page_id( 'shop' ) ) ); ?>"><?php esc_html_e( 'Back to the shop', 'ws-checkout' ); ?></a>
         </div>
 
-        <h2 class="section-title"><?php esc_html_e( 'Order details', 'ws-checkout' ); ?></h2>
+        <h2 class="checkout-section-title"><?php esc_html_e( 'Order details', 'ws-checkout' ); ?></h2>
         <hr>
 
         <div class="thankyou__order_details-header">

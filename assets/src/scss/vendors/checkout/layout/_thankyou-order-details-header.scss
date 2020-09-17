@@ -1,0 +1,31 @@
+.thankyou__order_details-header {
+  margin-bottom: 3rem;
+
+  ul {
+    display: flex;
+
+    @include small {
+      display: grid;
+      grid-gap: 1.4rem;
+      grid-template-columns: repeat(2, 1fr);
+    }
+
+    li {
+      @include remove-margin-left-right;
+      display: flex;
+      flex-direction: column;
+      margin: 0 2rem;
+      font-size: 1.6rem;
+
+      @include small {
+        margin: 0;
+      }
+
+      strong,
+      span {
+        margin-top: 0.4rem;
+        font-size: 1.6rem;
+      }
+    }
+  }
+}

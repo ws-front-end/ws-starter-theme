@@ -1,0 +1,31 @@
+.woocommerce-checkout {
+  section.checkout {
+    display: grid;
+    grid-gap: 0 8rem;
+    grid-template-columns: 1fr 31.4rem;
+
+    @include medium-larger {
+      grid-gap: 0 3.5rem;
+    }
+
+    @include small {
+      grid-template-columns: 1fr;
+    }
+
+    .checkout__right {
+      @include small {
+        grid-row: 1;
+      }
+
+      &--sticky {
+        position: sticky;
+        top: 2rem;
+
+        @include small {
+          position: relative;
+          top: 0;
+        }
+      }
+    }
+  }
+}

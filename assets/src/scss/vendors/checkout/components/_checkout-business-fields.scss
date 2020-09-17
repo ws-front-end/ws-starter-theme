@@ -1,0 +1,17 @@
+.js-show-for-business-only {
+  display: block !important;
+  max-height: 50rem;
+  opacity: 1;
+  transition: opacity 0.4s 0.4s ease-in-out, max-height 0.4s ease-in-out, margin 0.4s ease-in-out,
+    padding 0.4s ease-in-out;
+
+  &[hidden] {
+    max-height: 0;
+    margin: 0 !important;
+    padding: 0 !important;
+    opacity: 0;
+    transition: opacity 0.4s ease-in-out, max-height 0.4s 0.4s ease-in-out,
+      margin 0.4s 0.4s ease-in-out, padding 0.4s 0.4s ease-in-out;
+    pointer-events: none;
+  }
+}

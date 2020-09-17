@@ -1,0 +1,77 @@
+.thankyou__order-details-body {
+  table {
+    position: relative;
+    width: 100%;
+    margin: 0 auto;
+    overflow: hidden;
+    background-color: $color-white;
+    border-radius: 1rem 1rem 0 0;
+    border-collapse: collapse;
+    border-spacing: 1;
+
+    th,
+    td {
+      padding-left: 2rem;
+      border-right: 0.1rem solid #e1e1e1;
+      border-bottom: 0.1rem solid #e1e1e1;
+      border-left: 0.1rem solid #e1e1e1;
+
+      @include small {
+        width: 50%;
+        padding-right: 1.5rem;
+        padding-left: 1.5rem;
+      }
+    }
+
+    thead tr {
+      height: 5rem;
+      vertical-align: middle;
+      background: $color-brand;
+
+      th {
+        color: $color-white;
+        font-weight: normal;
+        font-size: 2rem;
+        vertical-align: middle;
+      }
+    }
+
+    tbody tr {
+      font-weight: unset;
+
+      td {
+        padding-top: 1rem;
+        padding-bottom: 1rem;
+        color: $color-text;
+        font-size: 1.6rem;
+        line-height: 1.2;
+
+        > * {
+          color: $color-text;
+          font-size: 1.6rem;
+          line-height: 1.2;
+        }
+      }
+    }
+
+    tfoot {
+      tr {
+        th,
+        td {
+          padding-top: 1rem;
+          padding-bottom: 1rem;
+          font-weight: 500;
+          font-size: 1.6rem;
+          line-height: 1.2;
+          vertical-align: middle;
+
+          > * {
+            color: $color-text;
+            font-size: 1.6rem;
+            line-height: 1.2;
+          }
+        }
+      }
+    }
+  }
+}

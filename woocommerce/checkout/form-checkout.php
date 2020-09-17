@@ -25,7 +25,7 @@ $checkout = WC_Checkout::instance();
 	<form name="checkout" method="post" class="woocommerce-checkout checkout"
 			action="<?php echo esc_url( wc_get_checkout_url() ); ?>" enctype="multipart/form-data">
 
-		<div class="max--width">
+		<div class="max--width--smaller">
 			<section class="checkout">
 				<div class="checkout__left">
 					<?php wc_get_template( 'woocommerce/checkout/checkout-products.php' ); ?>
@@ -39,6 +39,7 @@ $checkout = WC_Checkout::instance();
 					);
 					?>
 
+					<?php wc_get_template( 'woocommerce/checkout/checkout-submit.php' ); ?>
 				</div>
 
 				<aside class="checkout__right">
@@ -48,7 +49,6 @@ $checkout = WC_Checkout::instance();
 						<?php wc_get_template( 'woocommerce/checkout/checkout-cart.php' ); ?>
 					</div>
 				</aside>
-				<?php wc_get_template( 'woocommerce/checkout/checkout-submit.php' ); ?>
 
 				<?php wc_get_template('woocommerce/checkout/checkout-mobile-cart-toggle.php' ); ?>
 			</section>

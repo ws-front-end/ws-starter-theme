@@ -8,14 +8,14 @@
 defined( 'ABSPATH' ) || exit;
 ?>
 <section class="checkout__products">
-    <h2 class="section-title"><?php esc_html_e( 'Products', 'ws-checkout' ); ?></h2>
+    <h2 class="checkout-section-title"><?php esc_html_e( 'Products', 'ws-checkout' ); ?></h2>
 
     <?php do_action( 'woocommerce_before_cart' ); ?>
 
     <ul class="checkout__products__container">
         <li class="checkout__products__container__column-name">
             <span><?php esc_html_e( 'Product', 'ws-checkout' ); ?></span>
-            <span><?php esc_html_e( 'Name', 'ws-checkout' ); ?></span>
+            <span><?php esc_html_e( 'Description', 'ws-checkout' ); ?></span>
             <span><?php esc_html_e( 'Quantity', 'ws-checkout' ); ?></span>
             <span><?php esc_html_e( 'Total', 'ws-checkout' ); ?></span>
             <hr>

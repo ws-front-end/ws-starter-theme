@@ -14,7 +14,7 @@
 
 <div id="product-bottom-<?php echo esc_attr( $cart_item_key ); ?>" class="checkout__products__info__bottom">
 	<p><?php esc_html_e( 'Price per piece', 'ws-checkout' ); ?>
-		: <?php echo strip_tags( $product->get_price_html(), '<del>' ); ?></p>
+		: <?php echo wp_kses( $product->get_price_html(), [ 'del' => [] ] ); ?></p>
 
 
 	<?php

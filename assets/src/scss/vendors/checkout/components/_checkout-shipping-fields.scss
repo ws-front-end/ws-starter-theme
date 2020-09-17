@@ -1,0 +1,14 @@
+.js-shipping-fields-wrapper {
+  &.shipping-fields-hidden {
+    max-height: 0;
+    overflow: hidden;
+    opacity: 0;
+    transition: opacity 0.5s ease-in-out, max-height 0.4s 0.4s ease-in-out;
+  }
+
+  &.shipping-fields-visible {
+    max-height: 50rem;
+    opacity: 1;
+    transition: opacity 0.5s 0.4s ease-in-out, max-height 0.4s ease-in-out;
+  }
+}

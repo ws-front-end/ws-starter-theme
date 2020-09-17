@@ -3,8 +3,6 @@
  * Single transport option template part.
  *
  * @package ws-checkout
- *
- * @var WC_Shipping_Rate $method
  */
 
 ?>
@@ -29,7 +27,7 @@
 			if ( ! $price_cost ) {
 				echo esc_html_x( 'Free', 'Text to show for free shipping.', 'ws-checkout' );
 			} else {
-				echo esc_html( $method->get_cost() + $method->get_shipping_tax() ) . ' ' . esc_html( get_woocommerce_currency_symbol() );
+				echo esc_html( $method->get_cost() ) . ' ' . esc_html( get_woocommerce_currency_symbol() );
 			}
 			?>
 		</p>

@@ -52,15 +52,15 @@ defined( 'ABSPATH' ) || exit;
             <p><?php esc_html_e( 'Price excluding taxes:', 'ws-checkout' ); ?></p>
             <span><?php echo wp_kses( WS_WC_Checkout_Controller::get_cart_total_without_tax(), [] ); ?></span>
         </li>
-        <?php if ( WC()->cart->needs_shipping() ) : ?>
-	        <li>
-		        <p><?php esc_html_e( 'Shipping:', 'ws-checkout' ); ?></p>
-		        <span><?php echo wp_kses( WC()->cart->get_cart_shipping_total(), [] ); ?></span>
-	        </li>
-        <?php endif; ?>
         <li>
             <p><?php esc_html_e( 'Tax:', 'ws-checkout' ); ?></p>
             <span><?php echo wp_kses( WC()->cart->get_cart_tax(), [] ); ?></span>
+        </li>
+        <?php endif; ?>
+        <?php if ( WC()->cart->needs_shipping() ) : ?>
+        <li>
+            <p><?php esc_html_e( 'Shipping:', 'ws-checkout' ); ?></p>
+            <span><?php echo wp_kses( WC()->cart->get_cart_shipping_total(), [] ); ?></span>
         </li>
         <?php endif; ?>
         <li class="checkout__cart__sum">

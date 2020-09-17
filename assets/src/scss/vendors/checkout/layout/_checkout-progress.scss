@@ -1,0 +1,36 @@
+// Progress bar
+
+.checkout__progress {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  margin-bottom: 1.7rem;
+
+  @include small {
+    display: none;
+  }
+
+  button {
+    width: 3.8rem;
+    height: 3.8rem;
+    border: 0.1rem solid $color-brand;
+    border-radius: 50%;
+
+    &.full {
+      color: $color-white;
+      background-color: $color-brand;
+    }
+  }
+
+  span {
+    width: 8.2rem;
+    height: 0.1rem;
+    margin: 0 0.95rem;
+    background-color: #cfcfcf;
+
+    &:first-of-type {
+      background: linear-gradient(90deg, rgba(116, 96, 83, 1) 0%, rgba(207, 207, 207, 1) 70%);
+    }
+  }
+}

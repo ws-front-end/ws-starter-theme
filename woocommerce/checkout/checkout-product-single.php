@@ -113,7 +113,7 @@ defined( 'ABSPATH' ) || exit;
 	);
 	?>
 
-    <div class="checkout__products__more__options checkout--touch--only js-product-read-more">
+    <div class="checkout__products__more__options touch--only js-product-read-more">
         <?php
 		echo apply_filters( // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
 			'woocommerce_cart_item_remove_link',

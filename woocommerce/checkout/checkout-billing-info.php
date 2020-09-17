@@ -9,52 +9,27 @@
 
 $billing_fields  = $checkout->get_checkout_fields( 'billing' );
 $shipping_fields = $checkout->get_checkout_fields( 'shipping' );
-$order_fields = $checkout->get_checkout_fields( 'order' );
-
-$company_id = WS_Becky_Companies::instance()->get_user_company_id();
-$company_addresses = WS_Becky_Companies::instance()->get_user_company_addresses( $company_id );
 
 ?>
 
 <section id="js-checkout-billing-info" class="checkout__billing-info">
-	<h2 class="section-title"><?php esc_html_e( 'Billing details', 'ws-checkout' ); ?></h2>
+	<h2 class="checkout-section-title"><?php esc_html_e( 'Billing details', 'ws-checkout' ); ?></h2>
 	<hr>
 
 	<div class="checkout__billing-info__container">
 		<div class="checkout__billing-info__container__fields">
 			<?php do_action( 'woocommerce_before_checkout_billing_form', $checkout ); ?>
 
-			<?php if ( false === $company_id || empty( $company_addresses ) ) : ?>
-				<div class="switch-button">
-					<label class="switch-button__text"
-							for="ws_is_business_client"><?php esc_html_e( 'Private customer', 'ws-checkout' ); ?></label>
-					<input type="checkbox" id="ws_is_business_client" name="ws_is_business_client" class='switch'/>
-					<label for="ws_is_business_client"></label>
-					<label class="switch-button__text"
-							for="ws_is_business_client"><?php esc_html_e( 'Business client', 'ws-checkout' ); ?></label>
-				</div>
-			<?php else: ?>
-				<div class="switch-button">
-					<label class="switch-button__text"
-							for="ws_use_predefined_address"><?php esc_html_e( 'Predefined address', 'ws-checkout' ); ?></label>
-					<input type="checkbox" id="ws_use_predefined_address" name="ws_use_predefined_address" class='switch'/>
-					<label for="ws_use_predefined_address"></label>
-					<label class="switch-button__text"
-							for="ws_use_predefined_address"><?php esc_html_e( 'Manual address', 'ws-checkout' ); ?></label>
-				</div>
+			<div class="switch-button">
+				<label class="switch-button__text"
+						for="ws_is_business_client"><?php esc_html_e( 'Private customer', 'ws-checkout' ); ?></label>
+				<input type="checkbox" id="ws_is_business_client" name="ws_is_business_client" class='switch'/>
+				<label for="ws_is_business_client"></label>
+				<label class="switch-button__text"
+						for="ws_is_business_client"><?php esc_html_e( 'Business client', 'ws-checkout' ); ?></label>
+			</div>
 
-				<div class="single-field form-row-wide predefined_addresses-field" id="predefined_addresses" data-priority="50">
-
-					<select id="predefined_addresses" name="predefined_addresses" required>
-						<option disabled value="0"><?php esc_html_e( 'Select address', 'ws-becky' ); ?></option>
-						<?php foreach( $company_addresses as $address ) : ?>
-							<option value="<?php echo esc_attr( $address ); ?>"><?php echo esc_html( $address ); ?></option>
-						<?php endforeach; ?>
-					</select>
-					<label for="predefined_addresses" class=""><?php esc_html_e( 'Predefined address', 'ws-becky' ); ?></label>
-				</div>
-			<?php endif; ?>
-
+			<p><?php esc_html_e( 'Add your contact information so we can deliver the shipment to you.', 'ws-checkout' ); ?>
 			</p>
 
 			<div class="js-billing-fields-wrapper">
@@ -71,14 +46,11 @@ $company_addresses = WS_Becky_Companies::instance()->get_user_company_addresses(
 
 					$cycle ++;
 				}
-				foreach ( $order_fields as $key => $field ) {
-					WS_WC_Checkout_Controller::render_form_field( $key, $field, $checkout->get_value( $key ) );
-				}
 				?>
 			</div>
 
 			<?php if ( true === WC()->cart->needs_shipping_address() ) : ?>
-				<div class="checkbox-field js-shipping-fields-toggle-wrap">
+				<div class="checkbox-field">
 					<input type="checkbox" id="ship_to_different_address" class="js-shipping-fields-toggle"
 							name="ship_to_different_address" value="1"
 						<?php checked( apply_filters( 'woocommerce_ship_to_different_address_checked', 'shipping' === get_option( 'woocommerce_ship_to_destination' ) ? 1 : 0 ), 1 ); ?>>

@@ -1,0 +1,44 @@
+@charset 'UTF-8';
+
+/*!
+Addon Name: WS Starter Theme Checkout
+Description:
+Author: Web Systems OÜ
+Author URI: https://www.websystems.ee/
+Text Domain: ws-starter-theme
+*/
+
+// 1. Configuration and helpers
+@import 'abstracts/variables';
+
+// 2. Vendors
+@import '../loader';
+
+// 3. Base stuff
+@import 'base/base';
+@import 'base/input-fields';
+@import 'base/typography';
+
+// 4. Layout-related sections
+// @import 'layout/checkout-extra';
+// @import 'layout/checkout-progress';
+@import 'layout/checkout-products';
+@import 'layout/checkout-transport';
+@import 'layout/checkout-cart';
+@import 'layout/checkout-billing-info';
+@import 'layout/thankyou-top';
+@import 'layout/thankyou-order-details-header';
+@import 'layout/thankyou-order-details-body';
+
+// 5. Components
+@import 'components/checkout-section-title';
+@import 'components/checkout-product-single';
+@import 'components/checkout-transport-single';
+@import 'components/checkout-cart-button';
+@import 'components/checkout-submit-button';
+@import 'components/checkout-shipping-fields';
+@import 'components/checkout-business-fields';
+
+// 6. Page-specific styles
+@import 'pages/checkout';
+@import 'pages/thankyou';

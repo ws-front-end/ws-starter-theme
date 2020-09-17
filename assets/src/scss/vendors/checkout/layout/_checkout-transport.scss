@@ -1,0 +1,62 @@
+.checkout__transport {
+  position: relative;
+  margin-bottom: 4.5rem;
+
+  @include small {
+    max-width: 100vw;
+  }
+
+  > p {
+    margin-bottom: 2.8rem;
+  }
+
+  &__company__container {
+    display: grid;
+    grid-gap: 4%;
+    grid-template-columns: repeat(5, 1fr);
+    margin-bottom: 2.8rem;
+
+    @include small {
+      grid-template-columns: repeat(2, 1fr);
+    }
+
+    @include medium-larger {
+      grid-gap: 3.5rem;
+      grid-template-columns: repeat(4, 1fr);
+    }
+  }
+
+  &__retrieval {
+    &__container {
+      display: grid;
+      grid-gap: 8rem;
+      grid-template-columns: minmax(33rem, 0.6fr) 1fr;
+
+      @include medium-larger {
+        grid-gap: 2rem;
+        grid-template-columns: repeat(2, 1fr);
+      }
+
+      @include medium {
+        grid-template-columns: 1fr;
+      }
+
+      &__options {
+        .single-field {
+          margin-top: 0 !important;
+
+          &:not(.makecommerce-shipping) .form-row {
+            display: none;
+          }
+        }
+      }
+
+      &__location {
+        iframe {
+          width: 100%;
+          height: 40rem;
+        }
+      }
+    }
+  }
+}

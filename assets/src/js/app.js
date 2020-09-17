@@ -4,3 +4,4 @@
 
 // Require scripts
 import './components/vendors/ie-alert';
+import './checkout/checkout'

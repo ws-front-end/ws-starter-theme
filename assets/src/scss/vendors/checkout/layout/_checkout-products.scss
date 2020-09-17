@@ -1,0 +1,50 @@
+.checkout__products {
+  margin-bottom: 4.5rem;
+
+  .checkout-section-title {
+    margin-bottom: 3rem;
+  }
+
+  .checkout__products__container {
+    &__column-name {
+      display: grid;
+      grid-gap: 0 3.7rem;
+      grid-template-columns: 11rem 5fr 2fr 1fr;
+
+      @include small {
+        display: none;
+      }
+
+      span {
+        margin-bottom: 0.3rem;
+        font-weight: 500;
+        font-size: 1.4rem;
+        text-transform: uppercase;
+
+        &:nth-of-type(3) {
+          display: flex;
+          justify-self: center;
+        }
+
+        &:last-of-type {
+          display: flex;
+          justify-self: flex-end;
+        }
+      }
+
+      hr {
+        grid-column: 1/5;
+        margin-bottom: 3rem;
+        color: $color-brand;
+        opacity: 0.2;
+      }
+    }
+  }
+
+  button {
+    &.checkout--touch--only {
+      color: $color-black;
+      text-decoration: underline;
+    }
+  }
+}

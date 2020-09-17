@@ -4,7 +4,7 @@ if ( WC()->cart->needs_shipping() && WC()->cart->show_shipping() ) :
 	$packages = WC()->shipping()->get_packages();
 	?>
 	<section id="js-checkout-cart-transport" class="checkout__transport woocommerce-shipping-totals shipping">
-		<h2 class="section-title"><?php esc_html_e( 'Transportation', 'ws-checkout' ); ?></h2>
+		<h2 class="checkout-section-title"><?php esc_html_e( 'Transportation', 'ws-checkout' ); ?></h2>
 		<hr>
 
 		<?php

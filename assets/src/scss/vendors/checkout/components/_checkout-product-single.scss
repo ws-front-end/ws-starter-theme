@@ -1,0 +1,274 @@
+.checkout__product__single {
+  position: relative;
+  display: grid;
+  grid-gap: 0 3.7rem;
+  grid-template-columns: 11rem 5fr 2fr 1fr;
+  max-height: 50rem;
+  margin-bottom: 2rem;
+  transition: transform 0.5s ease-in-out, opacity 0.5s ease-in-out, max-height 0.3s 0.2s ease-in-out,
+    margin 0.3s 0.2s ease-in-out;
+
+  @include small {
+    grid-gap: 0;
+    grid-template-columns: 1fr 1fr 1fr;
+    max-width: 100vw;
+    padding: 1.3rem 1.5rem 0 1.3rem;
+    background-color: $color-dark-white;
+  }
+
+  &.remove {
+    max-height: 0;
+    margin: 0;
+    transform: translateX(-100%);
+    opacity: 0;
+  }
+
+  img {
+    width: 100%;
+    height: auto;
+    object-fit: contain;
+
+    @include small {
+      padding-right: 1rem;
+      padding-bottom: 1rem;
+    }
+  }
+
+  .checkout__products__info {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+
+    @include small {
+      grid-column: 2/4;
+    }
+
+    p {
+      font-size: 1.4rem;
+    }
+
+    &__top {
+      @include small {
+        margin-bottom: 0.66rem;
+      }
+
+      a {
+        display: flex;
+        flex-wrap: wrap;
+        align-items: center;
+
+        &:hover {
+          text-decoration: none;
+        }
+
+        p {
+          margin-right: 1rem;
+          color: #000;
+          font-weight: 500;
+          font-size: 1.6rem;
+          text-decoration: underline;
+        }
+
+        span {
+          display: flex;
+          align-self: flex-end;
+          margin-bottom: 0;
+          color: #707070;
+          font-size: 1.3rem;
+        }
+      }
+    }
+
+    &__bottom {
+      margin-top: 1rem;
+
+      > p {
+        margin-bottom: 0.5rem;
+        font-weight: 500;
+      }
+
+      &__options {
+        display: flex;
+        flex-wrap: wrap;
+
+        @include small {
+          flex-direction: column;
+          margin-bottom: 2.26rem;
+        }
+
+        &__select {
+          display: flex;
+          align-items: center;
+          margin-right: 2rem;
+          font-size: 1.4rem;
+
+          @include small {
+            margin-right: 0;
+            margin-bottom: 0.2rem;
+          }
+
+          &:last-of-type {
+            margin-right: 0;
+
+            @include small {
+              margin-bottom: 0;
+            }
+          }
+
+          label {
+            margin-right: 0.3rem;
+          }
+
+          select {
+            padding-right: 1rem;
+            background-color: transparent;
+            background-image: url('assets/dist/img/svg/arr-down-checkout.svg');
+            background-repeat: no-repeat, repeat;
+            background-position: right 0 top 50%, 0 0;
+            background-size: 0.8rem auto, 100%;
+          }
+        }
+      }
+    }
+
+    button {
+      display: flex;
+      align-self: flex-start;
+      color: $color-black;
+      font-size: 1.4rem;
+      text-decoration: underline;
+
+      @include small {
+        display: none;
+      }
+    }
+  }
+
+  .checkout__products__more {
+    &.checkout--touch--only {
+      @include small {
+        display: flex;
+        margin-left: -1.3rem;
+      }
+    }
+
+    button {
+      @include small {
+        display: flex;
+        align-items: center;
+        justify-content: flex-start;
+        width: 100%;
+        padding-left: 1.3rem;
+        background-color: $color-light-gray;
+      }
+
+      span {
+        @include small {
+          width: 0.5rem;
+          height: 0.5rem;
+          background-color: $color-gray;
+          border-radius: 50%;
+        }
+
+        &:nth-of-type(2) {
+          @include small {
+            margin: 0 0.5rem;
+          }
+        }
+      }
+    }
+
+    &__options {
+      position: fixed;
+      right: 1rem;
+      bottom: 0;
+      left: 1rem;
+      z-index: 1;
+      transform: translateY(100%);
+      transition: all 0.2s ease-in-out;
+
+      &.active {
+        transform: translateY(0);
+      }
+
+      button {
+        width: 100%;
+        padding: 1.3rem 0;
+        color: $color-white;
+        background-color: $color-brand;
+        border-bottom: 0.1rem solid $color-light-gray;
+
+        &:last-of-type {
+          border-bottom: 0;
+        }
+      }
+    }
+  }
+
+  .checkout__products__quantity {
+    display: flex;
+    align-self: flex-start;
+
+    @include small {
+      padding: 0.5rem 0;
+      background-color: $color-light-gray;
+    }
+
+    > div {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      max-width: 8rem;
+      margin: auto;
+      padding: 0.5rem 0;
+      border: 0.1rem solid $color-black;
+      border-radius: 1.5rem;
+
+      @include small {
+        background-color: $color-white;
+      }
+
+      input {
+        width: 100%;
+        font-weight: bold;
+        font-size: 1.2rem;
+        text-align: center;
+      }
+
+      button {
+        padding: 0 0.85rem;
+        color: #000;
+        font-weight: 400;
+        font-size: 1.8rem;
+
+        &[disabled] {
+          opacity: 0.4;
+        }
+      }
+    }
+  }
+
+  .checkout__products__sum {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+
+    @include small {
+      justify-content: center;
+      margin-right: -1.5rem;
+      padding-right: 1.5rem;
+      background-color: $color-light-gray;
+    }
+
+    p {
+      font-weight: 500;
+      font-size: 1.5rem;
+
+      span {
+        color: $color-gray;
+        font-weight: 500;
+        font-size: 1.3rem;
+        text-decoration: line-through;
+      }
+    }
+  }
+}

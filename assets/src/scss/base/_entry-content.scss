@@ -14,12 +14,14 @@
 // Gallery
 // Table
 // File
+// Videos
+// Alignment
 // Custom styles
 
 /// Variables
-$entry-line-height: 1.4;
+$entry-line-height: 1.2;
 $entry-font-size: 2rem;
-$enrty-margin-top-bottom: 2rem 0;
+$enrty-margin-top-bottom: 3rem 0;
 
 .entry-content,
 .entry-section {
@@ -30,32 +32,62 @@ $enrty-margin-top-bottom: 2rem 0;
   h4,
   h5,
   h6 {
-    margin: 4rem 0 1rem;
-    line-height: $entry-line-height;
+    margin: 6rem 0 4rem;
+    line-height: 1.2;
   }
 
-  h1 {
+  h1,
+  .h1 {
+    font-size: 5.5rem;
+
+    @include small {
+      font-size: calc(5.5rem - 90%);
+    }
+  }
+
+  h2,
+  .h2 {
+    font-size: 5rem;
+
+    @include small {
+      font-size: calc(5rem - 90%);
+    }
+  }
+
+  h3,
+  .h3 {
     font-size: 4rem;
+
+    @include small {
+      font-size: calc(4rem - 80%);
+    }
   }
 
-  h2 {
-    font-size: 3.7rem;
+  h4,
+  .h4 {
+    font-size: 3.5rem;
+
+    @include small {
+      font-size: calc(3.5rem - 70%);
+    }
   }
 
-  h3 {
-    font-size: 3.4rem;
+  h5,
+  .h5 {
+    font-size: 3rem;
+
+    @include small {
+      font-size: calc(3rem - 50%);
+    }
   }
 
-  h4 {
-    font-size: 3.1rem;
-  }
+  h6,
+  .h6 {
+    font-size: 2.5rem;
 
-  h5 {
-    font-size: 2.9rem;
-  }
-
-  h6 {
-    font-size: 2.7rem;
+    @include small {
+      font-size: calc(2.5rem - 50%);
+    }
   }
 
   // Paragraph
@@ -68,10 +100,9 @@ $enrty-margin-top-bottom: 2rem 0;
   // Button
   a {
     color: $color-link;
-    text-decoration: underline;
 
     &:hover {
-      text-decoration: none;
+      text-decoration: underline;
     }
   }
 
@@ -93,12 +124,42 @@ $enrty-margin-top-bottom: 2rem 0;
   }
 
   // Quote
-  blockquote {
+  blockquote:not(.is-style-large) {
+    margin: $enrty-margin-top-bottom;
     padding-left: 5rem;
     font-size: $entry-font-size;
     line-height: $entry-line-height;
     border-left: 1.5rem solid $color-brand;
+  }
+
+  blockquote.is-style-large {
     margin: $enrty-margin-top-bottom;
+    padding: 4rem 0;
+    font-size: $entry-font-size;
+    line-height: $entry-line-height;
+    border-top: 0.6rem solid $color-brand;
+    border-bottom: 0.6rem solid $color-brand;
+
+    p {
+      margin: 0;
+      font-weight: bold;
+      font-size: 5rem;
+      font-style: italic;
+      line-height: 1.2;
+      text-align: left;
+
+      @include small {
+        font-size: calc(5rem - 90%);
+      }
+    }
+
+    cite {
+      display: block;
+      margin-top: 2.2rem;
+      font-weight: bold;
+      font-size: 2rem;
+      text-align: left;
+    }
   }
 
   // List
@@ -242,6 +303,27 @@ $enrty-margin-top-bottom: 2rem 0;
   .wp-block-file {
     margin: $enrty-margin-top-bottom;
   }
+
+  // Videos
+  .is-type-video {
+    margin: $enrty-margin-top-bottom;
+
+    iframe {
+      width: 100%;
+      min-height: 45rem;
+    }
+  }
+
+  /// Blocks alignment
+  // .alignwide {
+  //   margin-right: -25rem;
+  //   margin-left: -25rem;
+  // }
+
+  // .alignfull {
+  //   margin-right: calc((-100vw + 100%) / 2);
+  //   margin-left: calc((-100vw + 100%) / 2);
+  // }
 
   /// Custom styles
   // Wrap in mobile gutenber columns reverse order

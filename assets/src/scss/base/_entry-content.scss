@@ -94,11 +94,11 @@ $enrty-margin-top-bottom: 2rem 0;
 
   // Quote
   blockquote {
+    margin: $enrty-margin-top-bottom;
     padding-left: 5rem;
     font-size: $entry-font-size;
     line-height: $entry-line-height;
     border-left: 1.5rem solid $color-brand;
-    margin: $enrty-margin-top-bottom;
   }
 
   // List

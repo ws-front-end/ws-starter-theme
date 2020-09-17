@@ -6,7 +6,7 @@ Description:
 Author: Web Systems OÜ
 Author URI: https://www.websystems.ee/
 Version: __WS_THEME_VERSION__
-Style Version: 1.0.5
+Style Version: 1.0.7 beta
 Text Domain: ws-starter-theme
 */
 
@@ -45,6 +45,9 @@ Text Domain: ws-starter-theme
 @import 'components/generic/site-logo';
 @import 'components/generic/site-nav';
 @import 'components/generic/hamburger';
+@import 'components/generic/page-title';
+@import 'components/generic/section-title';
+@import 'components/generic/stock-button';
 
 // 8. Page-specific styles
 @import 'pages/home';

@@ -3,7 +3,8 @@
 // -------------------------------------------------------------------------
 
 /* stylelint-disable */
-html {
+html:not(.wp-toolbar),
+html.interface-interface-skeleton__html-container {
   box-sizing: border-box;
   font-size: 0.625rem;
 

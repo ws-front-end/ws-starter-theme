@@ -9,18 +9,22 @@
 
   //cookiebar text color and mobile size
   p {
-    color: $color-text;
+    color: $color-white;
+    font-size: 1.6rem;
   }
 }
 
 //cookiebar accept button
 .ws-cookiebar-accept-cookies {
-  color: $color-white;
-  background-color: $color-brand;
+  color: $color-brand;
+  font-weight: bold;
+  font-size: 1.8rem;
+  background-color: $color-white;
 }
 
 //cookiebar policy link color and boldness
 .ws-cookiebar-content p a {
-  color: $color-text;
+  color: $color-white;
   font-weight: bold;
+  font-size: 1.6rem;
 }

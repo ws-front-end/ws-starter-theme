@@ -1,8 +1,12 @@
 # WS Style theme changelog
 
-> Latest version: 1.0.6
+> Latest version: 1.0.7 beta
 
 ## Changelog:
+
+**1.0.7**
+
+- Coming soon
 
 **1.0.6**
 

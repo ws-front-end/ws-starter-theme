@@ -65,7 +65,7 @@ section.checkout,
         }
       }
 
-      &:valid {
+      &:valid:not(:placeholder-shown) {
         border-color: $color-correct;
 
         + label {

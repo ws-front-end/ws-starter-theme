@@ -1,4 +1,4 @@
-import {addGlobalEventListener, postData, triggerEvent, WsLoader} from '../components/helpers';
+import {addGlobalEventListener, postData, triggerEvent, WsLoader} from '../components/base/helpers';
 import CartFragmentsRenderer from './CartFragmentsRenderer'
 
 export default class CartCouponController {

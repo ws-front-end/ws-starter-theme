@@ -1,5 +1,5 @@
 import Choices from 'choices.js';
-import {addGlobalEventListener, WsLoader} from '../components/helpers';
+import {addGlobalEventListener, WsLoader} from '../components/base/helpers';
 
 export default class CheckoutPaymentMethodsController {
 	constructor() {
@@ -104,7 +104,7 @@ export default class CheckoutPaymentMethodsController {
 	static validatePaymentMethods(event) {
 		const makeCommercePaymentMethodSelect = document.querySelector('#makecommerce');
 		if (makeCommercePaymentMethodSelect) {
-			if ('' === makeCommercePaymentMethodSelect.value) {
+			if (makeCommercePaymentMethodSelect.value === '') {
 				event.preventDefault();
 				event.stopPropagation();
 
@@ -112,8 +112,7 @@ export default class CheckoutPaymentMethodsController {
 			} else {
 				document.querySelector('#js-checkout-payment-methods').classList.remove('is-invalid');
 			}
-		} else {
-			if ( document.querySelectorAll('input[name=PRESELECTED_METHOD_makecommerce]').length ){
+		} else if ( document.querySelectorAll('input[name=PRESELECTED_METHOD_makecommerce]').length ){
 				if ( document.querySelectorAll('input[name=PRESELECTED_METHOD_makecommerce]:checked').length ) {
 					document.querySelector('#js-checkout-payment-methods').classList.remove('is-invalid');
 				}else {
@@ -123,6 +122,5 @@ export default class CheckoutPaymentMethodsController {
 					document.querySelector('#js-checkout-payment-methods').classList.add('is-invalid');
 				}
 			}
-		}
 	}
 }

@@ -9,7 +9,7 @@ import CheckoutTransportationController from './CheckoutTransportationController
 import CheckoutFieldsController from './CheckoutFieldsController'
 import CheckoutPaymentMethodsController from './CheckoutPaymentMethodsController'
 
-import { WsLoader } from '../components/helpers';
+import { WsLoader } from '../components/base/helpers';
 
 // Create a global window variable
 window.ws_wc_checkout = {

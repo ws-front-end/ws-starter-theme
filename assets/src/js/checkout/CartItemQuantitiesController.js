@@ -1,6 +1,6 @@
 import onChange from 'on-change';
 import qs from 'qs';
-import {addGlobalEventListener, WsLoader} from '../components/helpers';
+import {addGlobalEventListener, WsLoader} from '../components/base/helpers';
 import CartFragmentsRenderer from './CartFragmentsRenderer'
 
 export default class CartItemQuantitiesController {

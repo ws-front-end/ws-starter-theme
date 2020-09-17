@@ -1,5 +1,5 @@
 import Choices from 'choices.js';
-import {addGlobalEventListener} from '../components/helpers';
+import {addGlobalEventListener} from '../components/base/helpers';
 
 export default class CheckoutFieldsController {
 	constructor() {
@@ -205,8 +205,8 @@ export default class CheckoutFieldsController {
 	}
 
 	static scrollTo(element) {
-		let top = element.getBoundingClientRect();
-		let header = document.getElementsByClassName('site-header')[0].getBoundingClientRect();
+		const top = element.getBoundingClientRect();
+		const header = document.getElementsByClassName('site-header')[0].getBoundingClientRect();
 
 		if(window.navigator.userAgent.indexOf("Edge") > -1){
 			window.scroll(0, top.top + window.pageYOffset - header.height - 5);

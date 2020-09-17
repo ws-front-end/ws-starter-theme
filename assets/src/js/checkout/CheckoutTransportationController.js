@@ -1,6 +1,6 @@
 import Choices from 'choices.js';
 import 'choices.js/public/assets/styles/choices.min.css';
-import {addGlobalEventListener, WsLoader} from '../components/helpers';
+import {addGlobalEventListener, WsLoader} from '../components/base/helpers';
 
 export default class CheckoutTransportationController {
 	constructor () {

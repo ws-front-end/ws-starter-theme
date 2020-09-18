@@ -8,7 +8,7 @@
   "rules": {
     "max-nesting-depth": 10,
     "selector-class-pattern": null,
-    "unit-whitelist": ["rem", "%", "fr", "vh", "vw", "deg", "s"],
+    "unit-allowed-list": ["rem", "%", "fr", "vh", "vw", "deg", "s"],
     "selector-no-qualifying-type": [
       true,
       {

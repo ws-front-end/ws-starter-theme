@@ -3,6 +3,14 @@
   align-items: center;
 
   a {
+    @include smooth-animation;
+    display: block;
+    color: inherit;
+    font-size: 1.2rem;
+    line-height: 1.2;
+    text-align: right;
+    opacity: 0.5;
+
     &:first-of-type {
       display: flex;
       align-items: center;
@@ -15,10 +23,22 @@
       opacity: 0.8;
       transition: all 0.3s ease-in-out;
     }
+    
+  
+    &:hover {
+      color: inherit;
+      text-decoration: none;
+      opacity: 1;
+    }
   }
 
   &__image {
+    margin-left: 1rem;
+
     img {
+      @include smooth-animation;
+      width: 2rem;
+      height: 2rem;
       height: 2rem;
       margin-left: 0.9rem;
       opacity: 0.8;

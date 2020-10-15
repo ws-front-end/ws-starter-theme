@@ -50,7 +50,7 @@ if (class_exists('SitePress')) {
 
             <span>|</span>
             <a
-                href="<?php echo get_privacy_policy_url(); ?>"><?php _e('Privaatsustingimused', THEME_TEXT_DOMAIN); ?></a>
+                href="<?php echo get_privacy_policy_url(); ?>"><?php _e('Privaatsustingimused', 'ws_theme'); ?></a>
         </div>
 
         <div class="ws-logo">

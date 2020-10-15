@@ -5,8 +5,7 @@
 /* stylelint-disable */
 /// Breakpoints map
 $small: 700px !default;
-// $small-larger kasutada ainult koos $orientation-landscape
-$small-larger: 900px !default;
+$small-landscape: 900px !default;
 $medium: 1000px !default;
 $medium-larger: 1200px !default;
 $larger-small: 1400px !default;

@@ -1,8 +1,28 @@
 # WS Style theme changelog
 
-> Latest version: 1.0.5
+> Latest version: 1.0.7 beta
 
 ## Changelog:
+
+**1.0.7**
+
+- Coming soon
+- Test
+
+**1.0.6** 
+
+- Fixed in `reset.scss` buttons focus outline styles.
+- Updaed `entry-content.scss`
+  - Adding `.entry-section` class for components with looks same like entry-content page.
+  - Adding `font-size`, `line-height`, `margin` variables
+- Added in `ie-alert.php` for links `rel="noreferrer"`
+- Added in `header.php` for hamburger button `aria-label="Hamburger Button"`
+- Updated `fonts.scss` Roboto url with `font-display: swap;`
+- Changed in `variables.scss` `$small-larger` for `$small-landscape`
+  - Updated `$small-larger` in `mixins.scss`
+- Added in `home.scss` and `content.scss` new modifiers (`home--only, content--only`)
+- Included `ws-logo.scss` in `main.scss`
+- Added basic styles to `footer.scss` and `ws-logo.scss`
 
 **1.0.5**
 

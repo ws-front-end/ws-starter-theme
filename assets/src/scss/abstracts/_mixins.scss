@@ -7,28 +7,22 @@
 }
 
 @mixin remove-margin-left-right {
-  &:first-child {
+  &:first-of-type {
     margin-left: 0;
   }
 
-  &:last-child {
+  &:last-of-type {
     margin-right: 0;
   }
 }
 
 @mixin remove-margin-top-bottom {
-  &:first-child {
+  &:first-of-type {
     margin-top: 0;
   }
 
-  &:last-child {
+  &:last-of-type {
     margin-bottom: 0;
-  }
-}
-
-@mixin small-extra {
-  @media screen and (max-width: $small-extra) {
-    @content;
   }
 }
 
@@ -38,8 +32,8 @@
   }
 }
 
-@mixin small-larger {
-  @media screen and (max-width: $small-larger) and (orientation: $orientation-landscape) {
+@mixin small-landscape {
+  @media screen and (max-width: $small-landscape) and (orientation: $orientation-landscape) {
     @content;
   }
 }
@@ -58,6 +52,12 @@
 
 @mixin larger-small {
   @media screen and (max-width: $larger-small) {
+    @content;
+  }
+}
+
+@mixin larger {
+  @media screen and (max-width: $larger) {
     @content;
   }
 }

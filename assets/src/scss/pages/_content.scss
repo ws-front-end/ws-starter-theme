@@ -1,2 +1,5 @@
-// .page:not(.home) {
-// }
+.page:not(.home) {
+  .home--only {
+    display: none;
+  }
+}

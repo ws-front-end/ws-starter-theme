@@ -25,16 +25,16 @@ class ThemeSetup
 		$this->remove_actions();
 		$this->remove_filters();
 		$this->add_actions();
-		$this->add_filters();
-
-		new WS_Acf_Controller();
-		new WS_Relative_Url_Maker();
-		new WS_Admin_Post_Functions();
-		new WS_Ajax_Functions();
-		new WS_Admin_Controller();
-		if (in_array('woocommerce/woocommerce.php', apply_filters('active_plugins', get_option('active_plugins')), true)) {
-			new WS_Woocommerce_Functions();
-		}
+//		$this->add_filters();
+//
+//		new WS_Acf_Controller();
+//		new WS_Relative_Url_Maker();
+//		new WS_Admin_Post_Functions();
+//		new WS_Ajax_Functions();
+//		new WS_Admin_Controller();
+//		if (in_array('woocommerce/woocommerce.php', apply_filters('active_plugins', get_option('active_plugins')), true)) {
+//			new WS_Woocommerce_Functions();
+//		}
 	}
 
 	/**

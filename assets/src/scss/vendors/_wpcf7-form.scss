@@ -32,19 +32,18 @@
         width: 100%;
         margin: auto;
         padding: 0.5rem;
-        color: $color-link;
+        color: $color-text;
         background-color: transparent;
-        border: 0;
-        border-bottom: 0.1rem solid $color-light-gray;
+        border: 0.1rem solid $color-brand;
 
         &:hover,
         &:active,
         &:focus {
-          border: 0.1rem solid $color-light-gray;
+          border-color: $color-light-gray;
         }
 
         &.wpcf7-not-valid {
-          border-bottom: 0.1rem solid $color-error;
+          border-color: $color-error;
         }
       }
 
@@ -59,13 +58,14 @@
 
       &::after {
         position: absolute;
-        top: 0;
-        right: 0;
+        top: 1.3rem;
+        right: 1.5rem;
         display: inline-block;
-        font-weight: 400;
-        font-size: 1.6rem;
-        transform: rotate(135deg);
-        content: '⌝';
+        margin: auto 0;
+        color: $color-brand;
+        font-size: 1.4rem;
+        transform: rotate(90deg);
+        content: '❯';
         pointer-events: none;
       }
 
@@ -73,10 +73,11 @@
         width: 100%;
         padding: 1.5rem 0;
         padding-right: 3rem;
-        color: $color-link;
-        font-weight: 500;
-        font-size: 2rem;
-        border-bottom: 0.1rem solid $color-light-gray;
+        color: $color-text;
+        font-weight: normal;
+        font-size: 1.6rem;
+        border: 0.1rem solid $color-brand;
+        border-radius: 3.5rem;
         appearance: none;
         user-select: none;
       }
@@ -132,24 +133,34 @@
       position: relative;
 
       .wpcf7-submit {
-        padding: 3rem 6rem;
-        border: 0.1rem solid $color-brand;
+        @include smooth-animation;
+        padding: 2rem 6rem;
+        color: $color-white;
+        background-color: $color-brand;
         transition: all 0.2s ease-in-out;
 
-        &:hover {
+        &:hover,
+        &:focus,
+        &:active {
           transform: scale(1.1);
         }
       }
 
       .ajax-loader {
         position: absolute;
-        top: -1rem;
+        top: 0;
         bottom: 0;
+        margin-left: 1rem;
       }
     }
 
     // Alerts
-    div.wpcf7-response-output {
+    .wpcf7-not-valid-tip {
+      margin-top: 0.5rem;
+      margin-left: 2rem;
+    }
+
+    .wpcf7-response-output {
       position: fixed;
       top: 0;
       right: 0;
@@ -166,17 +177,23 @@
       }
     }
 
-    &.sent .wpcf7-response-output,
-    &.invalid .wpcf7-response-output {
-      animation: alertSlide 6s 1;
+    &.invalid,
+    &.sent {
+      .wpcf7-response-output {
+        animation: alertSlide 6s 1;
+      }
     }
 
-    &.invalid .wpcf7-response-output {
-      background-color: $color-error;
+    &.invalid {
+      .wpcf7-response-output {
+        background-color: $color-error;
+      }
     }
 
-    &.sent .wpcf7-response-output {
-      background-color: $color-correct;
+    &.sent {
+      .wpcf7-response-output {
+        background-color: $color-correct;
+      }
     }
 
     @keyframes alertSlide {

@@ -1,18 +1,29 @@
 # WS Style theme changelog
 
-> Latest version: 1.0.7 beta
+> Latest version: 1.0.7
 
 ## Changelog:
 
 **1.0.7**
 
-- Coming soon
-- Test
+- Fixed in `base.scss` html font size for admin pages.
+- Removed `.site-content.scss` overflow at admin and archive pages.
+- Updated `cookiebar.scss` styles
+- Adding in `entry-content.scss`
+  - Videos styles
+  - Aligment styles
+- Adding in `typography.scss` heading classes and mobile styles.
+- Adding new files
+  - `page-title.scss`
+  - `section-title.scss`
+  - `stock-button.scss`
+- Adding stock form styles at `forms.scss`
+- Adding stock grid styles at `grid.scss`
 
-**1.0.6** 
+**1.0.6**
 
 - Fixed in `reset.scss` buttons focus outline styles.
-- Updaed `entry-content.scss`
+- Updated `entry-content.scss`
   - Adding `.entry-section` class for components with looks same like entry-content page.
   - Adding `font-size`, `line-height`, `margin` variables
 - Added in `ie-alert.php` for links `rel="noreferrer"`

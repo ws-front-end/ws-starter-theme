@@ -28,6 +28,13 @@ body:not(.wp-admin) {
   }
 }
 
+body:not(.wp-admin),
+body:not(.archive) {
+  .site-content {
+    overflow: hidden;
+  }
+}
+
 .max--width {
   max-width: $max-width;
   margin: 0 auto;

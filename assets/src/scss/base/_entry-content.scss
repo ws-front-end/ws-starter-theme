@@ -318,6 +318,11 @@ $enrty-margin-top-bottom: 3rem 0;
   // .alignwide {
   //   margin-right: -25rem;
   //   margin-left: -25rem;
+
+  //   @include small {
+  //     margin-right: 0;
+  //     margin-left: 0;
+  //   }
   // }
 
   // .alignfull {

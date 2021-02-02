@@ -11,7 +11,6 @@ require_once 'includes/classes/class-admin-post-functions.php';
 require_once 'includes/classes/class-ws-admin-controller.php';
 
 require_once 'includes/classes/woocommerce/class-ws-woocommerce-functions.php';
-require_once 'includes/classes/woocommerce/class-ws-wc-checkout-controller.php';
 /**
  * Class ThemeSetup
  */
@@ -33,7 +32,6 @@ class ThemeSetup
 		new WS_Admin_Controller();
 		if (in_array('woocommerce/woocommerce.php', apply_filters('active_plugins', get_option('active_plugins')), true)) {
 			new WS_Woocommerce_Functions();
-			new WS_WC_Checkout_Controller();
 		}
 	}
 

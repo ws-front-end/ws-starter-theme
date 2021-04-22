@@ -1,0 +1,12 @@
+.news {
+    &__grid {
+      display: grid;
+      grid-template-columns: 0.5fr 0.5fr;
+      gap: 2.5rem;
+  
+      @include small {
+        grid-template-columns: 1fr;
+      }
+    }
+  }
+  

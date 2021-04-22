@@ -1,8 +1,16 @@
 # WS Style theme changelog
 
-> Latest version: 1.0.7
+> Latest version: 1.0.8
 
 ## Changelog:
+
+**1.0.8**
+
+- Adding basic news archive styles
+- Adding new files
+  - `news.scss`
+  - `news-box.scss`
+  - `gtb-color-palette.scss`
 
 **1.0.7**
 

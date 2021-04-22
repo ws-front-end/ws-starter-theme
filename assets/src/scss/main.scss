@@ -39,6 +39,7 @@ Text Domain: ws_theme
 @import 'layout/generic/footer';
 @import 'layout/generic/sidebar';
 @import 'layout/generic/forms';
+@import 'layout/generic/news';
 
 // 7. Components
 @import 'components/generic/ws-logo';
@@ -48,6 +49,7 @@ Text Domain: ws_theme
 @import 'components/generic/page-title';
 @import 'components/generic/section-title';
 @import 'components/generic/stock-button';
+@import 'components/generic/news-box';
 
 // 8. Page-specific styles
 @import 'pages/home';

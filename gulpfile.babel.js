@@ -39,7 +39,8 @@ const dir = {
 
 const browserSyncOptions = {
   proxy: projectUrl,
-  open: true,
+  host: projectUrl,
+  open: 'external',
   notify: true,
   ghostMode: false,
   ui: {
